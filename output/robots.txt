@@ -1,0 +1,4 @@
+Sitemap: https://leandrob13.github.io/sitemapindex.xml
+
+User-Agent: *
+Host: leandrob13.github.io
