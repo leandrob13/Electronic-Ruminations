@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html prefix="
+        og: http://ogp.me/ns# article: http://ogp.me/ns/article#
+    " vocab="http://ogp.me/ns" lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="oscillator.cpp">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>oscillator.cpp | Electronic Ruminations</title>
+<link href="https://fonts.googleapis.com/css?family=Bitter:400,400i,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+<link href="../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link href="../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
+<link href="../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
+<meta name="theme-color" content="#5670d4">
+<meta name="generator" content="Nikola (getnikola.com)">
+<link rel="alternate" type="application/rss+xml" title="RSS" hreflang="en" href="../rss.xml">
+<link rel="canonical" href="https://leandrob13.github.io/listings/oscillator.cpp.html">
+<!--[if lt IE 9]><script src="../assets/js/html5shiv-printshiv.min.js"></script><![endif]-->
+</head>
+<body>
+
+	<a href="#page-content" class="sr-only sr-only-focusable">
+		Skip to main content
+	</a>
+
+	
+
+    <section id="header"><a href="../">
+			<div class="logo">
+					<div id="nologoimage">
+						Electronic Ruminations
+					</div>
+    		</div>
+			</a>
+    </section><section id="socialNav"><!-- Navigation Menu - on top on small screens, down the left on larger --><div class="navlinks">
+			<a href="../">
+				<div id="titleauth">
+    					Electronic Ruminations<br> by Leandro B
+				</div>
+			</a>
+
+            <!-- Navigation links (hidden by default) -->
+			<div id="navmenuitems">
+				            <a href="../index.html" title="Home">
+                <span class="menuitemtext">Home</span>
+                <span class="menuitemicon"><i class="fa fa-home"></i></span>
+            </a>
+            <a href="../archive.html" title="Archives">
+                <span class="menuitemtext">Archives</span>
+                <span class="menuitemicon"><i class="fa fa-folder-open"></i></span>
+            </a>
+            <a href="../categories/" title="Tags">
+                <span class="menuitemtext">Tags</span>
+                <span class="menuitemicon"><i class="fa fa-tags"></i></span>
+            </a>
+            <a href="../rss.xml" title="RSS">
+                <span class="menuitemtext">RSS</span>
+                <span class="menuitemicon"><i class="fa fa-rss"></i></span>
+            </a>
+            <a href="https://github.com/leandrob13" title="My Github">
+                <span class="menuitemtext">My Github</span>
+                <span class="menuitemicon"><i class="fab fa-github"></i></span>
+            </a>
+    
+    
+
+			</div>
+
+            <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
+			<a href="javascript:void(0);" id="hamburger" class="icon" onclick="toggleNav()">
+				<i class="fa fa-bars">
+				</i>
+			</a>
+		</div>
+
+	</section><section class="page-content"><div class="content" rel="main">
+<nav class="breadcrumbs"><ul class="breadcrumb">
+<li><a href=".">listings</a></li>
+                <li>oscillator.cpp</li>
+</ul></nav><h1>oscillator.cpp
+            <small><a href="oscillator.cpp">(Source)</a></small>
+        </h1>
+    <div class="code"><table class="codetable">
+<tr>
+<td class="linenos linenodiv"><a href="#listingsoscillatorcpp-1"><code data-line-number="1"></code></a></td>
+<td class="code"><code><a name="listingsoscillatorcpp-1"></a><span class="k">const</span> <span class="kt">float</span> <span class="n">w1</span> <span class="o">=</span> <span class="n">osc_w0f_for_note</span><span class="p">(((</span><span class="n">params</span><span class="o">-&gt;</span><span class="n">pitch</span><span class="p">)</span><span class="o">&gt;&gt;</span><span class="mi">8</span><span class="p">)</span> <span class="o">+</span> <span class="n">oscillator</span><span class="p">.</span><span class="n">semitone</span><span class="p">,</span> <span class="n">params</span><span class="o">-&gt;</span><span class="n">pitch</span> <span class="o">&amp;</span> <span class="mh">0xFF</span><span class="p">);</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsoscillatorcpp-2"><code data-line-number="2"></code></a></td>
+<td class="code"><code><a name="listingsoscillatorcpp-2"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsoscillatorcpp-3"><code data-line-number="3"></code></a></td>
+<td class="code"><code><a name="listingsoscillatorcpp-3"></a><span class="p">...</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsoscillatorcpp-4"><code data-line-number="4"></code></a></td>
+<td class="code"><code><a name="listingsoscillatorcpp-4"></a>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsoscillatorcpp-5"><code data-line-number="5"></code></a></td>
+<td class="code"><code><a name="listingsoscillatorcpp-5"></a><span class="n">sw1</span> <span class="o">=</span> <span class="n">w1</span> <span class="o">/</span> <span class="n">oscillator</span><span class="p">.</span><span class="n">undertone1</span><span class="p">;</span>
+</code></td>
+</tr>
+<tr>
+<td class="linenos linenodiv"><a href="#listingsoscillatorcpp-6"><code data-line-number="6"></code></a></td>
+<td class="code"><code><a name="listingsoscillatorcpp-6"></a><span class="n">sw2</span> <span class="o">=</span> <span class="n">w1</span> <span class="o">/</span> <span class="n">oscillator</span><span class="p">.</span><span class="n">undertone2</span><span class="p">;</span>
+</code></td>
+</tr>
+</table></div>
+         <footer id="footer"><p>Contents © 2021         <a href="https://github.com/leandrob13">Leandro B</a> -         </p>
+            
+        </footer>
+</div>
+	</section><script src="../assets/js/all-nocdn.js"></script><!-- fancy dates --><script>
+
+    moment.locale("en");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+
+	</script><!-- end fancy dates --><script>
+
+    baguetteBox.run('div#content', {
+        ignoreClass: 'islink',
+        captions: function(element) {
+            return element.getElementsByTagName('img')[0].alt;
+    }});
+
+	</script><script src="../assets/js/ToggleNav.js">
+	</script>
+</body>
+</html>
