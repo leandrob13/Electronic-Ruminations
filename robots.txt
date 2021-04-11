@@ -1,4 +1,4 @@
-Sitemap: https://leandrob13.github.io/sitemapindex.xml
+Sitemap: https://leandrob13.github.io/Electronic-Ruminations/sitemapindex.xml
 
 User-Agent: *
 Host: leandrob13.github.io
