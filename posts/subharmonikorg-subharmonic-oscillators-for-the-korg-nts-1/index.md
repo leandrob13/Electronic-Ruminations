@@ -15,7 +15,7 @@ which is written in C/C++ and it provides useful templates and make files in ord
 and modulation effects for your logue based synths. I have only tried programming the NTS-1 since I believe one of the
 main purposes of this little synth is to experiment and understand the logue-sdk and how to digitally process the 
 signals, which is another way of saying that if you mess up and brick your synth it will only cost you $99 to replace
-it instead of bricking the minilogue which retails at $549. 
+it instead of bricking the Minilogue XD which retails at $549. 
 
 For a complete review of the NTS-1, I recommend my favorite synth reviewer Loopop. Watch the video below:
 
@@ -29,7 +29,7 @@ With the introductions out of the way, lets talk about the Subharmonikorg. I was
 after I saw what Moog did with its analog synth, [The Subharmonicon](https://www.youtube.com/watch?v=ns0Zu5HjShY) which
 is sort of a mix of two previous instruments: the [Tratonium](http://www.analogue.org/network/traut_e.htm) and the
 [Rythmicon](https://en.wikipedia.org/wiki/Rhythmicon). I wanted to emulate the subharmonic sound generation and found
-out the subharmonics are derived from the [Underton Series](https://en.wikipedia.org/wiki/Undertone_series) which is 
+out that the subharmonics are derived from the [Underton Series](https://en.wikipedia.org/wiki/Undertone_series) which is 
 basically a mathematics formula that is used to calculate the subharmonics of a given note based on its frequency. So if 
 it is mathematically derived then it could be programmed.
 
@@ -54,7 +54,7 @@ sw2 = w1 / oscillator.undertone2;
 
 Where the function `osc_w0f_for_note` returns the frequency value that corresponds to the pitch (note value) passed to the
 `OSC_CYCLE` function exposed in the `logue-sdk` API. Then w1 is divided by the undertones values taken from the editing
-params of the NTS-1, which are integer numbers greater than zero. I limited the max value possible subharmonics to the 
+params of the NTS-1, which are integer numbers greater than zero. I limited the max possible value of subharmonics to the 
 7th undertone.
 
 ### Features
@@ -71,7 +71,7 @@ The features for version 1.0.0 are as follows:
 
 The arpeggiator is a separate implementation from the native NTS-1 arpeggiator. In the current version 1.0.0, the only 
 pattern available is `down` and it only affects the suboscillators. This means that if you hold a note, the main
-oscillator will stay on it while both suboscillators will cycle through the 2nd through the 7th subharmonic. Having
+oscillator will stay on it while both suboscillators will cycle from the 2nd through the 7th subharmonic. Having
 separate arpeggiators allows you to play with interesting rhythm patterns. 
 
 ### Parameters
@@ -95,7 +95,7 @@ The parameters you can edit are listed below.
 ## The Showcase
 
 I did some noise experiment where I played with the NTS-1 Subharmonikorg and Moog's [Werkstatt-01](https://www.moogmusic.com/products/werkstatt-01-cv-expander).
-The Subharmonikork is playing its arpeggio while I hit some lead notes with the Werkstatt. I tried to keep the mood creepy.
+The Subharmonikorg is playing its arpeggio while I hit some lead notes with the Werkstatt. I tried to keep the mood creepy.
 
 &nbsp;
 
@@ -110,5 +110,5 @@ Here is the video of the weird experiment:
 
 - Get the latest version of the Subharmonikorg in github [here](https://github.com/leandrob13/logue-hub/tree/master/oscillators/nts-1). 
 
-There are some other oscillator ideas I have and some new features I want to test out for the NTS-1. Hopefully I will
-also try this out with my newest adquisition, the Minilogue XD.
+There are some other oscillator ideas I have and some new features I want to test out for the NTS-1 for this oscillator. 
+Hopefully I will also try this out with my newest adquisition, the Minilogue XD.
