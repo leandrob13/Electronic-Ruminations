@@ -62,7 +62,7 @@ params of the NTS-1, which are integer numbers greater than zero. I limited the 
 
 ### Features
 
-The features for version 1.0.0 are as follows:
+The features for version 1.1-0 are as follows:
 
 - One main harmonic oscillator with semitone calibration up to one octave higher and one octave lower.
 - Two subharmonic oscillators that divide the main oscillator tone up to the 7th undertone.
@@ -72,10 +72,10 @@ The features for version 1.0.0 are as follows:
 - Modulate the main oscillator mix with the LFO.
 - Subharmonic oscillators arpeggiator with clock adjustment.
 
-The arpeggiator is a separate implementation from the native NTS-1 arpeggiator. In the current version 1.0.0, the only 
-pattern available is `down` and it only affects the suboscillators. This means that if you hold a note, the main
-oscillator will stay on it while both suboscillators will cycle from the 2nd through the 7th subharmonic. Having
-separate arpeggiators allows you to play with interesting rhythm patterns. 
+The arpeggiator is a separate implementation from the native NTS-1 arpeggiator. In the current version 1.1-0, there are 
+only two patterns available which only affect the suboscillators: `down` and `up-down`. This means that if you hold a 
+note, the main oscillator will stay on it while both suboscillators will cycle from the 2nd through the 7th subharmonic. 
+Having separate arpeggiators allows you to play with interesting rhythm patterns. 
 
 ### Parameters
 
@@ -83,16 +83,16 @@ The parameters you can edit are listed below.
 
 &nbsp; 
 
-| Parameter    | Range      | Description                                                            |
-| :------------| :----------| :----------------------------------------------------------------------|
-| SHAPE        | 0 to 100   | level mix of main oscillator                                           |
-| ALT          | 0 to 100   | level mix of suboscillators                                            |
-| semitone     | -12 to 12  | semitone tuning of main oscillator (-12 lower octave, 12 higher octave)|
-| undertone 1  | 1 to 7     | undertone value of first suboscillator                                 |
-| undertone 2  | 1 to 7     | undertone value of second suboscillator                                |
-| oscT         | 1 to  3    | The oscillator type 1: saw, 2: square, 3: sine                         |
-| Arp Type     | 0 to  1    | The arpeggiator type 0: off, 1: down                                   |
-| Arp Clock    | 0 to  100  | The arpeggiator clock in hertz.                                        |
+| Parameter      | Range        | Description                                                            |
+| :------------: | :----------: | ---------------------------------------------------------------------: |
+| SHAPE          | 0 to 100     |level mix of main oscillator                                            |
+| ALT            | 0 to 100     |level mix of suboscillators                                             |
+| semitone       | 1 to 13      |semitone tuning of main oscillator (1 as root note, 13 higher octave)   |
+| undertone 1    | 1 to 7       |undertone value of first suboscillator                                  |
+| undertone 2    | 1 to 7       |undertone value of second suboscillator                                 |
+| oscT           | 1 to  3      |The oscillator type 1: saw, 2: square, 3: sine                          |
+| Arp Type       | 1 to  3      |The arpeggiator type 1: off, 2: down, 3: up-down                        |
+| Arp Clock      | 0 to  100    |The arpeggiator clock percentage of max frequency.                      |
 
 &nbsp;
 ## The Showcase
