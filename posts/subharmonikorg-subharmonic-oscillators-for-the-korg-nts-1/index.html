@@ -156,7 +156,7 @@ to the original note. This can be illustrated in the code hosted in the <a href=
 params of the NTS-1, which are integer numbers greater than zero. I limited the max possible value of subharmonics to the 
 7th undertone.</p>
 <h4>Features</h4>
-<p>The features for version 1.0.0 are as follows:</p>
+<p>The features for version 1.1-0 are as follows:</p>
 <ul>
 <li>One main harmonic oscillator with semitone calibration up to one octave higher and one octave lower.</li>
 <li>Two subharmonic oscillators that divide the main oscillator tone up to the 7th undertone.</li>
@@ -166,59 +166,59 @@ params of the NTS-1, which are integer numbers greater than zero. I limited the 
 <li>Modulate the main oscillator mix with the LFO.</li>
 <li>Subharmonic oscillators arpeggiator with clock adjustment.</li>
 </ul>
-<p>The arpeggiator is a separate implementation from the native NTS-1 arpeggiator. In the current version 1.0.0, the only 
-pattern available is <code>down</code> and it only affects the suboscillators. This means that if you hold a note, the main
-oscillator will stay on it while both suboscillators will cycle from the 2nd through the 7th subharmonic. Having
-separate arpeggiators allows you to play with interesting rhythm patterns. </p>
+<p>The arpeggiator is a separate implementation from the native NTS-1 arpeggiator. In the current version 1.1-0, there are 
+only two patterns available which only affect the suboscillators: <code>down</code> and <code>up-down</code>. This means that if you hold a 
+note, the main oscillator will stay on it while both suboscillators will cycle from the 2nd through the 7th subharmonic. 
+Having separate arpeggiators allows you to play with interesting rhythm patterns. </p>
 <h4>Parameters</h4>
 <p>The parameters you can edit are listed below.</p>
 <p>  </p>
 <table>
 <thead><tr>
-<th align="left">Parameter</th>
-<th align="left">Range</th>
-<th align="left">Description</th>
+<th align="center">Parameter</th>
+<th align="center">Range</th>
+<th align="right">Description</th>
 </tr></thead>
 <tbody>
 <tr>
-<td align="left">SHAPE</td>
-<td align="left">0 to 100</td>
-<td align="left">level mix of main oscillator</td>
+<td align="center">SHAPE</td>
+<td align="center">0 to 100</td>
+<td align="right">level mix of main oscillator</td>
 </tr>
 <tr>
-<td align="left">ALT</td>
-<td align="left">0 to 100</td>
-<td align="left">level mix of suboscillators</td>
+<td align="center">ALT</td>
+<td align="center">0 to 100</td>
+<td align="right">level mix of suboscillators</td>
 </tr>
 <tr>
-<td align="left">semitone</td>
-<td align="left">-12 to 12</td>
-<td align="left">semitone tuning of main oscillator (-12 lower octave, 12 higher octave)</td>
+<td align="center">semitone</td>
+<td align="center">1 to 13</td>
+<td align="right">semitone tuning of main oscillator (1 as root note, 13 higher octave)</td>
 </tr>
 <tr>
-<td align="left">undertone 1</td>
-<td align="left">1 to 7</td>
-<td align="left">undertone value of first suboscillator</td>
+<td align="center">undertone 1</td>
+<td align="center">1 to 7</td>
+<td align="right">undertone value of first suboscillator</td>
 </tr>
 <tr>
-<td align="left">undertone 2</td>
-<td align="left">1 to 7</td>
-<td align="left">undertone value of second suboscillator</td>
+<td align="center">undertone 2</td>
+<td align="center">1 to 7</td>
+<td align="right">undertone value of second suboscillator</td>
 </tr>
 <tr>
-<td align="left">oscT</td>
-<td align="left">1 to  3</td>
-<td align="left">The oscillator type 1: saw, 2: square, 3: sine</td>
+<td align="center">oscT</td>
+<td align="center">1 to  3</td>
+<td align="right">The oscillator type 1: saw, 2: square, 3: sine</td>
 </tr>
 <tr>
-<td align="left">Arp Type</td>
-<td align="left">0 to  1</td>
-<td align="left">The arpeggiator type 0: off, 1: down</td>
+<td align="center">Arp Type</td>
+<td align="center">1 to  3</td>
+<td align="right">The arpeggiator type 1: off, 2: down, 3: up-down</td>
 </tr>
 <tr>
-<td align="left">Arp Clock</td>
-<td align="left">0 to  100</td>
-<td align="left">The arpeggiator clock in hertz.</td>
+<td align="center">Arp Clock</td>
+<td align="center">0 to  100</td>
+<td align="right">The arpeggiator clock percentage of max frequency.</td>
 </tr>
 </tbody>
 </table>

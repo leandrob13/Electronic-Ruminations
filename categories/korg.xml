@@ -3,7 +3,7 @@
 &lt;a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"&gt;
 &lt;img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"/&gt;
 &lt;/a&gt;
-</copyright><lastBuildDate>Tue, 27 Apr 2021 02:59:55 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Subharmonikorg: Subharmonic Oscillators for the Korg NTS-1</title><link>https://leandrob13.github.io/Electronic-Ruminations/posts/subharmonikorg-subharmonic-oscillators-for-the-korg-nts-1/</link><dc:creator>Leandro B</dc:creator><description>&lt;div&gt;&lt;p&gt;&lt;img alt="" src="https://leandrob13.github.io/Electronic-Ruminations/images/nts-1.png#centerme"&gt;&lt;/p&gt;
+</copyright><lastBuildDate>Tue, 27 Apr 2021 03:08:13 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Subharmonikorg: Subharmonic Oscillators for the Korg NTS-1</title><link>https://leandrob13.github.io/Electronic-Ruminations/posts/subharmonikorg-subharmonic-oscillators-for-the-korg-nts-1/</link><dc:creator>Leandro B</dc:creator><description>&lt;div&gt;&lt;p&gt;&lt;img alt="" src="https://leandrob13.github.io/Electronic-Ruminations/images/nts-1.png#centerme"&gt;&lt;/p&gt;
 &lt;p&gt;I have been using the &lt;a href="https://www.korg.com/us/products/dj/nts_1/"&gt;Korg NTS-1&lt;/a&gt; for about 5 months, but it was just 
 recently that I was able to spend some time trying to understand how to program it. Korg published its &lt;a href="https://korginc.github.io/logue-sdk/"&gt;logue-sdk&lt;/a&gt;
 which is written in C/C++ and it provides useful templates and make files in order tu build custom oscillators, delays 
@@ -44,7 +44,7 @@ to the original note. This can be illustrated in the code hosted in the &lt;a hr
 params of the NTS-1, which are integer numbers greater than zero. I limited the max possible value of subharmonics to the 
 7th undertone.&lt;/p&gt;
 &lt;h4&gt;Features&lt;/h4&gt;
-&lt;p&gt;The features for version 1.0.0 are as follows:&lt;/p&gt;
+&lt;p&gt;The features for version 1.1-0 are as follows:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;One main harmonic oscillator with semitone calibration up to one octave higher and one octave lower.&lt;/li&gt;
 &lt;li&gt;Two subharmonic oscillators that divide the main oscillator tone up to the 7th undertone.&lt;/li&gt;
@@ -54,61 +54,61 @@ params of the NTS-1, which are integer numbers greater than zero. I limited the 
 &lt;li&gt;Modulate the main oscillator mix with the LFO.&lt;/li&gt;
 &lt;li&gt;Subharmonic oscillators arpeggiator with clock adjustment.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;The arpeggiator is a separate implementation from the native NTS-1 arpeggiator. In the current version 1.0.0, the only 
-pattern available is &lt;code&gt;down&lt;/code&gt; and it only affects the suboscillators. This means that if you hold a note, the main
-oscillator will stay on it while both suboscillators will cycle from the 2nd through the 7th subharmonic. Having
-separate arpeggiators allows you to play with interesting rhythm patterns. &lt;/p&gt;
+&lt;p&gt;The arpeggiator is a separate implementation from the native NTS-1 arpeggiator. In the current version 1.1-0, there are 
+only two patterns available which only affect the suboscillators: &lt;code&gt;down&lt;/code&gt; and &lt;code&gt;up-down&lt;/code&gt;. This means that if you hold a 
+note, the main oscillator will stay on it while both suboscillators will cycle from the 2nd through the 7th subharmonic. 
+Having separate arpeggiators allows you to play with interesting rhythm patterns. &lt;/p&gt;
 &lt;h4&gt;Parameters&lt;/h4&gt;
 &lt;p&gt;The parameters you can edit are listed below.&lt;/p&gt;
 &lt;p&gt;  &lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
-&lt;th align="left"&gt;Parameter&lt;/th&gt;
-&lt;th align="left"&gt;Range&lt;/th&gt;
-&lt;th align="left"&gt;Description&lt;/th&gt;
+&lt;th align="center"&gt;Parameter&lt;/th&gt;
+&lt;th align="center"&gt;Range&lt;/th&gt;
+&lt;th align="right"&gt;Description&lt;/th&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td align="left"&gt;SHAPE&lt;/td&gt;
-&lt;td align="left"&gt;0 to 100&lt;/td&gt;
-&lt;td align="left"&gt;level mix of main oscillator&lt;/td&gt;
+&lt;td align="center"&gt;SHAPE&lt;/td&gt;
+&lt;td align="center"&gt;0 to 100&lt;/td&gt;
+&lt;td align="right"&gt;level mix of main oscillator&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td align="left"&gt;ALT&lt;/td&gt;
-&lt;td align="left"&gt;0 to 100&lt;/td&gt;
-&lt;td align="left"&gt;level mix of suboscillators&lt;/td&gt;
+&lt;td align="center"&gt;ALT&lt;/td&gt;
+&lt;td align="center"&gt;0 to 100&lt;/td&gt;
+&lt;td align="right"&gt;level mix of suboscillators&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td align="left"&gt;semitone&lt;/td&gt;
-&lt;td align="left"&gt;-12 to 12&lt;/td&gt;
-&lt;td align="left"&gt;semitone tuning of main oscillator (-12 lower octave, 12 higher octave)&lt;/td&gt;
+&lt;td align="center"&gt;semitone&lt;/td&gt;
+&lt;td align="center"&gt;1 to 13&lt;/td&gt;
+&lt;td align="right"&gt;semitone tuning of main oscillator (1 as root note, 13 higher octave)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td align="left"&gt;undertone 1&lt;/td&gt;
-&lt;td align="left"&gt;1 to 7&lt;/td&gt;
-&lt;td align="left"&gt;undertone value of first suboscillator&lt;/td&gt;
+&lt;td align="center"&gt;undertone 1&lt;/td&gt;
+&lt;td align="center"&gt;1 to 7&lt;/td&gt;
+&lt;td align="right"&gt;undertone value of first suboscillator&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td align="left"&gt;undertone 2&lt;/td&gt;
-&lt;td align="left"&gt;1 to 7&lt;/td&gt;
-&lt;td align="left"&gt;undertone value of second suboscillator&lt;/td&gt;
+&lt;td align="center"&gt;undertone 2&lt;/td&gt;
+&lt;td align="center"&gt;1 to 7&lt;/td&gt;
+&lt;td align="right"&gt;undertone value of second suboscillator&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td align="left"&gt;oscT&lt;/td&gt;
-&lt;td align="left"&gt;1 to  3&lt;/td&gt;
-&lt;td align="left"&gt;The oscillator type 1: saw, 2: square, 3: sine&lt;/td&gt;
+&lt;td align="center"&gt;oscT&lt;/td&gt;
+&lt;td align="center"&gt;1 to  3&lt;/td&gt;
+&lt;td align="right"&gt;The oscillator type 1: saw, 2: square, 3: sine&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td align="left"&gt;Arp Type&lt;/td&gt;
-&lt;td align="left"&gt;0 to  1&lt;/td&gt;
-&lt;td align="left"&gt;The arpeggiator type 0: off, 1: down&lt;/td&gt;
+&lt;td align="center"&gt;Arp Type&lt;/td&gt;
+&lt;td align="center"&gt;1 to  3&lt;/td&gt;
+&lt;td align="right"&gt;The arpeggiator type 1: off, 2: down, 3: up-down&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td align="left"&gt;Arp Clock&lt;/td&gt;
-&lt;td align="left"&gt;0 to  100&lt;/td&gt;
-&lt;td align="left"&gt;The arpeggiator clock in hertz.&lt;/td&gt;
+&lt;td align="center"&gt;Arp Clock&lt;/td&gt;
+&lt;td align="center"&gt;0 to  100&lt;/td&gt;
+&lt;td align="right"&gt;The arpeggiator clock percentage of max frequency.&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
