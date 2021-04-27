@@ -9,6 +9,9 @@
 .. type: text
 -->
 
+![](/images/nts-1.png#centerme)
+
+
 I have been using the [Korg NTS-1](https://www.korg.com/us/products/dj/nts_1/) for about 5 months, but it was just 
 recently that I was able to spend some time trying to understand how to program it. Korg published its [logue-sdk](https://korginc.github.io/logue-sdk/)
 which is written in C/C++ and it provides useful templates and make files in order tu build custom oscillators, delays 

@@ -3,7 +3,8 @@
 &lt;a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"&gt;
 &lt;img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"/&gt;
 &lt;/a&gt;
-</copyright><lastBuildDate>Mon, 12 Apr 2021 18:22:12 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Subharmonikorg: Subharmonic Oscillators for the Korg NTS-1</title><link>https://leandrob13.github.io/Electronic-Ruminations/posts/subharmonikorg-subharmonic-oscillators-for-the-korg-nts-1/</link><dc:creator>Leandro B</dc:creator><description>&lt;div&gt;&lt;p&gt;I have been using the &lt;a href="https://www.korg.com/us/products/dj/nts_1/"&gt;Korg NTS-1&lt;/a&gt; for about 5 months, but it was just 
+</copyright><lastBuildDate>Tue, 27 Apr 2021 02:59:55 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Subharmonikorg: Subharmonic Oscillators for the Korg NTS-1</title><link>https://leandrob13.github.io/Electronic-Ruminations/posts/subharmonikorg-subharmonic-oscillators-for-the-korg-nts-1/</link><dc:creator>Leandro B</dc:creator><description>&lt;div&gt;&lt;p&gt;&lt;img alt="" src="https://leandrob13.github.io/Electronic-Ruminations/images/nts-1.png#centerme"&gt;&lt;/p&gt;
+&lt;p&gt;I have been using the &lt;a href="https://www.korg.com/us/products/dj/nts_1/"&gt;Korg NTS-1&lt;/a&gt; for about 5 months, but it was just 
 recently that I was able to spend some time trying to understand how to program it. Korg published its &lt;a href="https://korginc.github.io/logue-sdk/"&gt;logue-sdk&lt;/a&gt;
 which is written in C/C++ and it provides useful templates and make files in order tu build custom oscillators, delays 
 and modulation effects for your logue based synths. I have only tried programming the NTS-1 since I believe one of the

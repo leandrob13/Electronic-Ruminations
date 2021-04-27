@@ -630,6 +630,13 @@ tbody tr:nth-child(odd) th {
   }
 }
 
+/*
+IMAGES
+ */
+img[src$="centerme"] {
+  display:block;
+  margin: 0 auto;
+}
 
 /* Minimal style sheet for the HTML output of Docutils.                    */
 /*                                                                         */
