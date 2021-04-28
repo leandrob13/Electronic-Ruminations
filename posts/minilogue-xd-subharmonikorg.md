@@ -19,10 +19,13 @@ digital oscillator that could be programmable. The Minilogue-XD belongs to the f
 the [Prologue](https://www.korg.com/us/products/synthesizers/prologue/) and the [NTS-1](https://www.korg.com/us/products/synthesizers/prologue/),
 and you can program all of them with the help of the [logue-sdk](https://korginc.github.io/logue-sdk/).
 
-I already own an the NTS-1 and programmed an oscillator for it, the [Subharmonikorg](/posts/subharmonikorg-subharmonic-oscillators-for-the-korg-nts-1),
-so I wanted to hear how the same implementation would sound on a polyphonic synth. Fortunately, I didn't have to change
-the C++ code used for the NTS-1 in order to make it work in the Minilogue-XD. Despite the fact, I kept two separate 
-`.cpp` files for each just in case I could implement certain features in one of them that wouldn't sound ok in the other.
+&nbsp;
+
+I already own the NTS-1 and programmed an oscillator for it. I called it The Subharmonikorg and I explained all about
+it in [this post](/posts/subharmonikorg-subharmonic-oscillators-for-the-korg-nts-1). Obviously I wanted to hear how 
+the same implementation would sound on a polyphonic synth. Fortunately, I didn't have to change the C++ code used for 
+the NTS-1 in order to make it work in the Minilogue-XD. Despite the fact, I kept two separate `.cpp` files for each just 
+in case I could implement certain features in one of them that wouldn't sound ok in the other.
 
 &nbsp;
 
@@ -33,7 +36,7 @@ analog oscillators in the mix which expands the sound design possibilities.
 
 The implementation can be found [here](https://github.com/leandrob13/logue-hub/tree/master/src/minilogue-xd/osc/subh) and 
 the packaged Subharmonikorg can be downloaded [here](https://github.com/leandrob13/logue-hub/blob/master/oscillators/minilogue-xd/subharmonikorgv1.1.mnlgxdunit) 
-for you to install in your Minilogue-XD if you want to give it a spin.
+for you to install in your Minilogue-XD, if you want to give it a spin.
 
 &nbsp;
 
