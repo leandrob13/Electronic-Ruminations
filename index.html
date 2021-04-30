@@ -23,7 +23,7 @@
   gtag('js', new Date());
 
   gtag('config', 'G-VGDFS80SZM');
-</script><link rel="prefetch" href="posts/subharmonikorg-subharmonic-oscillators-for-the-korg-nts-1/" type="text/html">
+</script><link rel="prefetch" href="posts/minilogue-xd-subharmonikorg/" type="text/html">
 </head>
 <body>
 
@@ -85,7 +85,107 @@
     
     
 <div class="postindex">
-    <article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="posts/subharmonikorg-subharmonic-oscillators-for-the-korg-nts-1/" class="u-url">Subharmonikorg: Subharmonic Oscillators for the Korg NTS-1</a></h1>
+    <article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="posts/minilogue-xd-subharmonikorg/" class="u-url">Minilogue-XD Subharmonikorg</a></h1>
+
+        
+        <div class="metadata">
+            <p class="dateline"><a href="posts/minilogue-xd-subharmonikorg/" rel="bookmark"><i class="fa fa-clock"></i> <time class="published dt-published" datetime="2021-04-26T22:16:49-05:00" title="2021-04-26 22:16">2021-04-26 22:16</time></a></p>
+
+        </div>
+    </header><div class="e-content entry-content">
+    <div>
+<p><img alt="" src="images/minilogue-xd-module.jpeg#centerme"></p>
+<p>I finally got to play with my new <a href="https://www.korg.com/us/products/synthesizers/minilogue_xd_module/">Minilogue-XD</a>, a 
+4 voice polyphonic synthetizer from Korg. What made this instrument stand out when I was on the hunt for an affordable 
+polyphonic synth was the fact that it had two analog oscillators per voice and, the cherry on top of the cake, a third 
+digital oscillator that could be programmable. The Minilogue-XD belongs to the family of Korg's Logue synths, along with 
+the <a href="https://www.korg.com/us/products/synthesizers/prologue/">Prologue</a> and the <a href="https://www.korg.com/us/products/synthesizers/prologue/">NTS-1</a>,
+and you can program all of them with the help of the <a href="https://korginc.github.io/logue-sdk/">logue-sdk</a>.</p>
+<p> </p>
+<p>I already own the NTS-1 and programmed an oscillator for it. I called it The Subharmonikorg and I explained all about
+it in <a href="posts/subharmonikorg-subharmonic-oscillators-for-the-korg-nts-1">this post</a>. Obviously I wanted to hear how 
+the same implementation would sound on a polyphonic synth. Fortunately, I didn't have to change the C++ code used for 
+the NTS-1 in order to make it work in the Minilogue-XD. Despite the fact, I kept two separate <code>.cpp</code> files for each just 
+in case I could implement certain features in one of them that wouldn't sound ok in the other.</p>
+<p> </p>
+<p>The obvious advantage of having a subharmonic oscillator in a polyphonic synth is that you get to blend more harmonics
+and their subharmonics, creating sounds that could be pleasant or disonant (depending of your choice of undertones). The 
+additional advantage that the Minilogue-XD gives in comparison to the NTS-1 is the fact that you can use two additional 
+analog oscillators in the mix which expands the sound design possibilities. </p>
+<p>The implementation can be found <a href="https://github.com/leandrob13/logue-hub/tree/master/src/minilogue-xd/osc/subh">here</a> and 
+the packaged Subharmonikorg can be downloaded <a href="https://github.com/leandrob13/logue-hub/blob/master/oscillators/minilogue-xd/subharmonikorgv1.1.mnlgxdunit">here</a> 
+for you to install in your Minilogue-XD, if you want to give it a spin.</p>
+<p> </p>
+<p>For more details on the Minilogue-XD, I can't help to recommend Loopop's reviews:</p>
+<p> </p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Jk_0iMXm5BU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<p> </p>
+<p>For reference, here are the features of version 1.1-0:</p>
+<h4>Features</h4>
+<ul>
+<li>One main harmonic oscillator with semitone calibration up to one octave higher and one octave lower.</li>
+<li>Two subharmonic oscillators that divide the main oscillator tone up to the 7th undertone.</li>
+<li>Choose different undertones for each suboscillator.</li>
+<li>Mix between the main oscillator and the suboscillators with the <code>shape</code> and <code>alt</code> knobs respectively.</li>
+<li>Choose between square, saw and sine waveforms.</li>
+<li>Modulate the main oscillator mix with the LFO.</li>
+<li>Subharmonic oscillators arpeggiator with clock adjustment.</li>
+</ul>
+<h4>Parameters</h4>
+<table>
+<thead><tr>
+<th align="center">Parameter</th>
+<th align="center">Range</th>
+<th align="right">Description</th>
+</tr></thead>
+<tbody>
+<tr>
+<td align="center">SHAPE</td>
+<td align="center">0 to 100</td>
+<td align="right">level mix of main oscillator</td>
+</tr>
+<tr>
+<td align="center">ALT</td>
+<td align="center">0 to 100</td>
+<td align="right">level mix of suboscillators</td>
+</tr>
+<tr>
+<td align="center">semitone</td>
+<td align="center">1 to 13</td>
+<td align="right">semitone tuning of main oscillator (1 as root note, 13 higher octave)</td>
+</tr>
+<tr>
+<td align="center">undertone 1</td>
+<td align="center">1 to 7</td>
+<td align="right">undertone value of first suboscillator</td>
+</tr>
+<tr>
+<td align="center">undertone 2</td>
+<td align="center">1 to 7</td>
+<td align="right">undertone value of second suboscillator</td>
+</tr>
+<tr>
+<td align="center">oscT</td>
+<td align="center">1 to  3</td>
+<td align="right">The oscillator type 1: saw, 2: square, 3: sine</td>
+</tr>
+<tr>
+<td align="center">Arp Type</td>
+<td align="center">1 to  3</td>
+<td align="right">The arpeggiator type 1: off, 2: down, 3: up-down</td>
+</tr>
+<tr>
+<td align="center">Arp Clock</td>
+<td align="center">0 to  100</td>
+<td align="right">The arpeggiator clock percentage of max frequency.</td>
+</tr>
+</tbody>
+</table>
+<p> </p>
+</div>
+    </div>
+    </article><article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="posts/subharmonikorg-subharmonic-oscillators-for-the-korg-nts-1/" class="u-url">Subharmonikorg: Subharmonic Oscillators for the Korg NTS-1</a></h1>
 
         
         <div class="metadata">

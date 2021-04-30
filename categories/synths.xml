@@ -3,7 +3,97 @@
 &lt;a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"&gt;
 &lt;img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"/&gt;
 &lt;/a&gt;
-</copyright><lastBuildDate>Tue, 27 Apr 2021 03:08:13 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Subharmonikorg: Subharmonic Oscillators for the Korg NTS-1</title><link>https://leandrob13.github.io/Electronic-Ruminations/posts/subharmonikorg-subharmonic-oscillators-for-the-korg-nts-1/</link><dc:creator>Leandro B</dc:creator><description>&lt;div&gt;&lt;p&gt;&lt;img alt="" src="https://leandrob13.github.io/Electronic-Ruminations/images/nts-1.png#centerme"&gt;&lt;/p&gt;
+</copyright><lastBuildDate>Thu, 29 Apr 2021 00:16:13 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Minilogue-XD Subharmonikorg</title><link>https://leandrob13.github.io/Electronic-Ruminations/posts/minilogue-xd-subharmonikorg/</link><dc:creator>Leandro B</dc:creator><description>&lt;div&gt;&lt;p&gt;&lt;img alt="" src="https://leandrob13.github.io/Electronic-Ruminations/images/minilogue-xd-module.jpeg#centerme"&gt;&lt;/p&gt;
+&lt;p&gt;I finally got to play with my new &lt;a href="https://www.korg.com/us/products/synthesizers/minilogue_xd_module/"&gt;Minilogue-XD&lt;/a&gt;, a 
+4 voice polyphonic synthetizer from Korg. What made this instrument stand out when I was on the hunt for an affordable 
+polyphonic synth was the fact that it had two analog oscillators per voice and, the cherry on top of the cake, a third 
+digital oscillator that could be programmable. The Minilogue-XD belongs to the family of Korg's Logue synths, along with 
+the &lt;a href="https://www.korg.com/us/products/synthesizers/prologue/"&gt;Prologue&lt;/a&gt; and the &lt;a href="https://www.korg.com/us/products/synthesizers/prologue/"&gt;NTS-1&lt;/a&gt;,
+and you can program all of them with the help of the &lt;a href="https://korginc.github.io/logue-sdk/"&gt;logue-sdk&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;p&gt;I already own the NTS-1 and programmed an oscillator for it. I called it The Subharmonikorg and I explained all about
+it in &lt;a href="https://leandrob13.github.io/Electronic-Ruminations/posts/subharmonikorg-subharmonic-oscillators-for-the-korg-nts-1"&gt;this post&lt;/a&gt;. Obviously I wanted to hear how 
+the same implementation would sound on a polyphonic synth. Fortunately, I didn't have to change the C++ code used for 
+the NTS-1 in order to make it work in the Minilogue-XD. Despite the fact, I kept two separate &lt;code&gt;.cpp&lt;/code&gt; files for each just 
+in case I could implement certain features in one of them that wouldn't sound ok in the other.&lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;p&gt;The obvious advantage of having a subharmonic oscillator in a polyphonic synth is that you get to blend more harmonics
+and their subharmonics, creating sounds that could be pleasant or disonant (depending of your choice of undertones). The 
+additional advantage that the Minilogue-XD gives in comparison to the NTS-1 is the fact that you can use two additional 
+analog oscillators in the mix which expands the sound design possibilities. &lt;/p&gt;
+&lt;p&gt;The implementation can be found &lt;a href="https://github.com/leandrob13/logue-hub/tree/master/src/minilogue-xd/osc/subh"&gt;here&lt;/a&gt; and 
+the packaged Subharmonikorg can be downloaded &lt;a href="https://github.com/leandrob13/logue-hub/blob/master/oscillators/minilogue-xd/subharmonikorgv1.1.mnlgxdunit"&gt;here&lt;/a&gt; 
+for you to install in your Minilogue-XD, if you want to give it a spin.&lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;p&gt;For more details on the Minilogue-XD, I can't help to recommend Loopop's reviews:&lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/Jk_0iMXm5BU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;p&gt; &lt;/p&gt;
+&lt;p&gt;For reference, here are the features of version 1.1-0:&lt;/p&gt;
+&lt;h4&gt;Features&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;One main harmonic oscillator with semitone calibration up to one octave higher and one octave lower.&lt;/li&gt;
+&lt;li&gt;Two subharmonic oscillators that divide the main oscillator tone up to the 7th undertone.&lt;/li&gt;
+&lt;li&gt;Choose different undertones for each suboscillator.&lt;/li&gt;
+&lt;li&gt;Mix between the main oscillator and the suboscillators with the &lt;code&gt;shape&lt;/code&gt; and &lt;code&gt;alt&lt;/code&gt; knobs respectively.&lt;/li&gt;
+&lt;li&gt;Choose between square, saw and sine waveforms.&lt;/li&gt;
+&lt;li&gt;Modulate the main oscillator mix with the LFO.&lt;/li&gt;
+&lt;li&gt;Subharmonic oscillators arpeggiator with clock adjustment.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;Parameters&lt;/h4&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align="center"&gt;Parameter&lt;/th&gt;
+&lt;th align="center"&gt;Range&lt;/th&gt;
+&lt;th align="right"&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align="center"&gt;SHAPE&lt;/td&gt;
+&lt;td align="center"&gt;0 to 100&lt;/td&gt;
+&lt;td align="right"&gt;level mix of main oscillator&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align="center"&gt;ALT&lt;/td&gt;
+&lt;td align="center"&gt;0 to 100&lt;/td&gt;
+&lt;td align="right"&gt;level mix of suboscillators&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align="center"&gt;semitone&lt;/td&gt;
+&lt;td align="center"&gt;1 to 13&lt;/td&gt;
+&lt;td align="right"&gt;semitone tuning of main oscillator (1 as root note, 13 higher octave)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align="center"&gt;undertone 1&lt;/td&gt;
+&lt;td align="center"&gt;1 to 7&lt;/td&gt;
+&lt;td align="right"&gt;undertone value of first suboscillator&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align="center"&gt;undertone 2&lt;/td&gt;
+&lt;td align="center"&gt;1 to 7&lt;/td&gt;
+&lt;td align="right"&gt;undertone value of second suboscillator&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align="center"&gt;oscT&lt;/td&gt;
+&lt;td align="center"&gt;1 to  3&lt;/td&gt;
+&lt;td align="right"&gt;The oscillator type 1: saw, 2: square, 3: sine&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align="center"&gt;Arp Type&lt;/td&gt;
+&lt;td align="center"&gt;1 to  3&lt;/td&gt;
+&lt;td align="right"&gt;The arpeggiator type 1: off, 2: down, 3: up-down&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align="center"&gt;Arp Clock&lt;/td&gt;
+&lt;td align="center"&gt;0 to  100&lt;/td&gt;
+&lt;td align="right"&gt;The arpeggiator clock percentage of max frequency.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt; &lt;/p&gt;&lt;/div&gt;</description><category>korg</category><category>logue sdk</category><category>Minilogue-XD</category><category>synths</category><guid>https://leandrob13.github.io/Electronic-Ruminations/posts/minilogue-xd-subharmonikorg/</guid><pubDate>Tue, 27 Apr 2021 03:16:49 GMT</pubDate></item><item><title>Subharmonikorg: Subharmonic Oscillators for the Korg NTS-1</title><link>https://leandrob13.github.io/Electronic-Ruminations/posts/subharmonikorg-subharmonic-oscillators-for-the-korg-nts-1/</link><dc:creator>Leandro B</dc:creator><description>&lt;div&gt;&lt;p&gt;&lt;img alt="" src="https://leandrob13.github.io/Electronic-Ruminations/images/nts-1.png#centerme"&gt;&lt;/p&gt;
 &lt;p&gt;I have been using the &lt;a href="https://www.korg.com/us/products/dj/nts_1/"&gt;Korg NTS-1&lt;/a&gt; for about 5 months, but it was just 
 recently that I was able to spend some time trying to understand how to program it. Korg published its &lt;a href="https://korginc.github.io/logue-sdk/"&gt;logue-sdk&lt;/a&gt;
 which is written in C/C++ and it provides useful templates and make files in order tu build custom oscillators, delays 
