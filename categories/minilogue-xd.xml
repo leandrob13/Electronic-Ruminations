@@ -3,7 +3,7 @@
 &lt;a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"&gt;
 &lt;img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"/&gt;
 &lt;/a&gt;
-</copyright><lastBuildDate>Thu, 29 Apr 2021 00:16:13 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Minilogue-XD Subharmonikorg</title><link>https://leandrob13.github.io/Electronic-Ruminations/posts/minilogue-xd-subharmonikorg/</link><dc:creator>Leandro B</dc:creator><description>&lt;div&gt;&lt;p&gt;&lt;img alt="" src="https://leandrob13.github.io/Electronic-Ruminations/images/minilogue-xd-module.jpeg#centerme"&gt;&lt;/p&gt;
+</copyright><lastBuildDate>Fri, 30 Apr 2021 03:11:02 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Minilogue-XD Subharmonikorg</title><link>https://leandrob13.github.io/Electronic-Ruminations/posts/minilogue-xd-subharmonikorg/</link><dc:creator>Leandro B</dc:creator><description>&lt;div&gt;&lt;p&gt;&lt;img alt="" src="https://leandrob13.github.io/Electronic-Ruminations/images/minilogue-xd-module.jpeg#centerme"&gt;&lt;/p&gt;
 &lt;p&gt;I finally got to play with my new &lt;a href="https://www.korg.com/us/products/synthesizers/minilogue_xd_module/"&gt;Minilogue-XD&lt;/a&gt;, a 
 4 voice polyphonic synthetizer from Korg. What made this instrument stand out when I was on the hunt for an affordable 
 polyphonic synth was the fact that it had two analog oscillators per voice and, the cherry on top of the cake, a third 
@@ -28,6 +28,12 @@ for you to install in your Minilogue-XD, if you want to give it a spin.&lt;/p&gt
 &lt;p&gt;For more details on the Minilogue-XD, I can't help to recommend Loopop's reviews:&lt;/p&gt;
 &lt;p&gt; &lt;/p&gt;
 &lt;iframe width="560" height="315" src="https://www.youtube.com/embed/Jk_0iMXm5BU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;p&gt; &lt;/p&gt;
+&lt;h4&gt;Showcase&lt;/h4&gt;
+&lt;p&gt;Here is a little demostration of the oscillator:&lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/MKZg9NXOtcg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
 
 &lt;p&gt; &lt;/p&gt;
 &lt;p&gt;For reference, here are the features of version 1.1-0:&lt;/p&gt;

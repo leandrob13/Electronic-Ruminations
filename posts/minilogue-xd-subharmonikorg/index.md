@@ -48,6 +48,16 @@ For more details on the Minilogue-XD, I can't help to recommend Loopop's reviews
 
 &nbsp;
 
+### Showcase
+
+Here is a little demostration of the oscillator:
+
+&nbsp;
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/MKZg9NXOtcg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+&nbsp;
+
 For reference, here are the features of version 1.1-0:
 
 ### Features
