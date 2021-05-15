@@ -1354,7 +1354,7 @@ html
 	min-height: 100%;
 	position: relative;
 	/* Scalable font size. */
-	font-size: min(max(1rem, 5vw), 22px);
+	font-size: min(max(1rem, 5vw), 20px); /*WHOLE PAGE FONT*/
 	font-family: "Avenir", "Helvetica Neue", Helvetica, Arial, sans-serif;
 	-webkit-text-size-adjust: 100%;
 	-ms-text-size-adjust: 100%;
@@ -1615,7 +1615,7 @@ address
 	.page-content > .content
 	{
 	   	/* Control the line length */
-    	max-width: 40em;
+    	max-width: 50em;
 
     	/* Centre the page content. */
 		margin: 0 auto;
@@ -1845,6 +1845,16 @@ pre.code
 	word-break: keep-all;
 	word-wrap: normal;
 	overflow: auto;
+}
+
+.hl-ipython3 {
+	font-size: 15px;
+}
+
+div.prompt {
+	min-width: 55px;
+	width: 65px;
+	display: none;
 }
 
 .pre-scrollable

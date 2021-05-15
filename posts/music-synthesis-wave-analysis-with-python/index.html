@@ -4,26 +4,34 @@
     " vocab="http://ogp.me/ns" lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="description" content="Electronics, programming, music, electronic music programming.">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Electronic Ruminations</title>
+<title>Music Synthesis Wave Analysis With Python | Electronic Ruminations</title>
 <link href="https://fonts.googleapis.com/css?family=Bitter:400,400i,700" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-<link href="assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
-<link href="assets/css/ipython.min.css" rel="stylesheet" type="text/css">
-<link href="assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
 <meta name="theme-color" content="#5670d4">
 <meta name="generator" content="Nikola (getnikola.com)">
-<link rel="alternate" type="application/rss+xml" title="RSS" hreflang="en" href="rss.xml">
-<link rel="canonical" href="https://leandrob13.github.io/Electronic-Ruminations/">
-<link rel="icon" href="favicon.ico" sizes="48x48">
-<!--[if lt IE 9]><script src="assets/js/html5shiv-printshiv.min.js"></script><![endif]--><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=G-VGDFS80SZM"></script><script>
+<link rel="alternate" type="application/rss+xml" title="RSS" hreflang="en" href="../../rss.xml">
+<link rel="canonical" href="https://leandrob13.github.io/Electronic-Ruminations/posts/music-synthesis-wave-analysis-with-python/">
+<link rel="icon" href="../../favicon.ico" sizes="48x48">
+<!--[if lt IE 9]><script src="../../assets/js/html5shiv-printshiv.min.js"></script><![endif]--><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=G-VGDFS80SZM"></script><script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
   gtag('config', 'G-VGDFS80SZM');
-</script><link rel="prefetch" href="posts/music-synthesis-wave-analysis-with-python/" type="text/html">
+</script><meta name="author" content="Leandro B">
+<link rel="prev" href="../minilogue-xd-subharmonikorg/" title="Minilogue-XD Subharmonikorg" type="text/html">
+<meta property="og:site_name" content="Electronic Ruminations">
+<meta property="og:title" content="Music Synthesis Wave Analysis With Python">
+<meta property="og:url" content="https://leandrob13.github.io/Electronic-Ruminations/posts/music-synthesis-wave-analysis-with-python/">
+<meta property="og:description" content="Sound synthesis is all about combining basic electrical waveforms and processing them through different modules or components in order to obtain an output that either emulates sounds found in physical">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2021-05-02T15:40:04-05:00">
+<meta property="article:tag" content="DSP">
+<meta property="article:tag" content="Python">
 </head>
 <body>
 
@@ -33,7 +41,7 @@
 
 	
 
-    <section id="header"><a href=".">
+    <section id="header"><a href="../../">
 			<div class="logo">
 					<div id="nologoimage">
 						Electronic Ruminations
@@ -41,7 +49,7 @@
     		</div>
 			</a>
     </section><section id="socialNav"><!-- Navigation Menu - on top on small screens, down the left on larger --><div class="navlinks">
-			<a href=".">
+			<a href="../../">
 				<div id="titleauth">
     					Electronic Ruminations<br> by Leandro B
 				</div>
@@ -49,19 +57,19 @@
 
             <!-- Navigation links (hidden by default) -->
 			<div id="navmenuitems">
-				            <a href="#" title="Home">
+				            <a href="../../index.html" title="Home">
                 <span class="menuitemtext">Home</span>
                 <span class="menuitemicon"><i class="fa fa-home"></i></span>
             </a>
-            <a href="archive.html" title="Archives">
+            <a href="../../archive.html" title="Archives">
                 <span class="menuitemtext">Archives</span>
                 <span class="menuitemicon"><i class="fa fa-folder-open"></i></span>
             </a>
-            <a href="categories/" title="Tags">
+            <a href="../../categories/" title="Tags">
                 <span class="menuitemtext">Tags</span>
                 <span class="menuitemicon"><i class="fa fa-tags"></i></span>
             </a>
-            <a href="rss.xml" title="RSS">
+            <a href="../../rss.xml" title="RSS">
                 <span class="menuitemtext">RSS</span>
                 <span class="menuitemicon"><i class="fa fa-rss"></i></span>
             </a>
@@ -82,17 +90,25 @@
 		</div>
 
 	</section><section class="page-content"><div class="content" rel="main">
-    
-    
-<div class="postindex">
-    <article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="posts/music-synthesis-wave-analysis-with-python/" class="u-url">Music Synthesis Wave Analysis With Python</a></h1>
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Music Synthesis Wave Analysis With Python</a></h1>
 
-        
         <div class="metadata">
-            <p class="dateline"><a href="posts/music-synthesis-wave-analysis-with-python/" rel="bookmark"><i class="fa fa-clock"></i> <time class="published dt-published" datetime="2021-05-02T15:40:04-05:00" title="2021-05-02 15:40">2021-05-02 15:40</time></a></p>
+            <p class="dateline"><a href="." rel="bookmark"><i class="fa fa-clock"></i> <time class="published dt-published" datetime="2021-05-02T15:40:04-05:00" itemprop="datePublished" title="2021-05-02 15:40">2021-05-02 15:40</time></a></p>
+
+                    <p class="sourceline"><a href="index.ipynb" class="sourcelink"><i class="fa fa-file-code"></i> Source</a></p>
+
+            
+                <div class="tags">
+<h3 class="metadata-title">
+<i class="fa fa-tags"></i> Tags:</h3>
+        <ul itemprop="keywords" class="tags-ul">
+<li><a class="tag p-category" href="../../categories/dsp/" rel="tag">DSP</a></li>
+            <li><a class="tag p-category" href="../../categories/python/" rel="tag">Python</a></li>
+        </ul>
+</div>
 
         </div>
-    </header><div class="p-summary entry-summary">
+    </header><div class="e-content entry-content" itemprop="articleBody text">
     <div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -100,7 +116,7 @@
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Sound synthesis is all about combining basic electrical waveforms and processing them through different modules or components in order to obtain an output that either emulates sounds found in physical instruments or make new sound effects or musical tones. The main synthetizer component in charge of generating the output signal is the <a href="https://en.wikipedia.org/wiki/Voltage-controlled_oscillator">Voltage Controlled Oscillator</a> (VCO). The most common generated signals in a synthetizer are sine, square, sawtooth and triangle. I wanted to make the excercise of analyzing these signals from the harmonics point of view, the visual aid is always useful if you want to understand exactly what a harmonic is.</p>
-<h4 id="Signals-and-Harmonics">Signals and Harmonics<a class="anchor-link" href="posts/music-synthesis-wave-analysis-with-python/#Signals-and-Harmonics">¶</a>
+<h4 id="Signals-and-Harmonics">Signals and Harmonics<a class="anchor-link" href="#Signals-and-Harmonics">¶</a>
 </h4>
 <p> </p>
 <p>What are harmonics? For starters, it is not a sole property of musical theory. It is a property of waves in general. Where there are waves involved, there is a harmonic analysis that can be done. That is why we talk about harmonics in music, where the sound waves are generated from the physical interaction with the musical instruments. Music synthesis is no different, we generate the harmonics from electrical waves which are eventualy transformed into sound waves.</p>
@@ -117,7 +133,7 @@
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Importing-Necessary-Modules">Importing Necessary Modules<a class="anchor-link" href="posts/music-synthesis-wave-analysis-with-python/#Importing-Necessary-Modules">¶</a>
+<h4 id="Importing-Necessary-Modules">Importing Necessary Modules<a class="anchor-link" href="#Importing-Necessary-Modules">¶</a>
 </h4>
 <p> </p>
 <p>I will use pandas as a plotter helper, I have found it is an easier way to deal with matplotlib. Numpy and Scipy are used to generate the signals that we want to analyze. In addition, Scipy will provide the necesarry functions to do the <a href="https://en.wikipedia.org/wiki/Fast_Fourier_transform">Fast Fourier transform</a>, which is what we need in order to visualize the harmonic content of the waves.</p>
@@ -148,7 +164,7 @@
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Define-The-Signals">Define The Signals<a class="anchor-link" href="posts/music-synthesis-wave-analysis-with-python/#Define-The-Signals">¶</a>
+<h4 id="Define-The-Signals">Define The Signals<a class="anchor-link" href="#Define-The-Signals">¶</a>
 </h4>
 <p> </p>
 <p>As I mentioned above, we will be generating four signals:</p>
@@ -186,7 +202,7 @@
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Audio-and-Plot">Audio and Plot<a class="anchor-link" href="posts/music-synthesis-wave-analysis-with-python/#Audio-and-Plot">¶</a>
+<h4 id="Audio-and-Plot">Audio and Plot<a class="anchor-link" href="#Audio-and-Plot">¶</a>
 </h4>
 <p> </p>
 <p>We define our python function that will help us plot and listen to the signals.</p>
@@ -240,12 +256,12 @@
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Analyze-The-Waves">Analyze The Waves<a class="anchor-link" href="posts/music-synthesis-wave-analysis-with-python/#Analyze-The-Waves">¶</a>
+<h4 id="Analyze-The-Waves">Analyze The Waves<a class="anchor-link" href="#Analyze-The-Waves">¶</a>
 </h4>
 <p> </p>
 <p>We now proceed to look into each wave and understanding the graphs being displayed. Each wave will be generated with a 440Hz frequency (musical note A) and we will be able to visualize up to the 10th harmonic in the plot. 
  </p>
-<h4 id="WARNING">WARNING<a class="anchor-link" href="posts/music-synthesis-wave-analysis-with-python/#WARNING">¶</a>
+<h4 id="WARNING">WARNING<a class="anchor-link" href="#WARNING">¶</a>
 </h4>
 <p> </p>
 <p>Be careful when listening to the audio. If you are wearing headphones, turned down the volume or take them off.</p>
@@ -258,7 +274,7 @@
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Sine-Wave">Sine Wave<a class="anchor-link" href="posts/music-synthesis-wave-analysis-with-python/#Sine-Wave">¶</a>
+<h4 id="Sine-Wave">Sine Wave<a class="anchor-link" href="#Sine-Wave">¶</a>
 </h4>
 <p> </p>
 <p>The sine wave is the fundamental wave shape. From this, every other wave shape is formed. When we talk about any type of complex wave, we can always decompose them to a sum of the fundamental sine wave with its harmonics.</p>
@@ -320,7 +336,7 @@
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Square-Wave">Square Wave<a class="anchor-link" href="posts/music-synthesis-wave-analysis-with-python/#Square-Wave">¶</a>
+<h4 id="Square-Wave">Square Wave<a class="anchor-link" href="#Square-Wave">¶</a>
 </h4>
 <p> </p>
 <p>Square waves are used in many electronics applications, the most common one is for clock signals in digital circuits. In music synthesis, it is one of the most common and it is worth taking a closer look at it.</p>
@@ -382,7 +398,7 @@
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Sawtooth-Wave">Sawtooth Wave<a class="anchor-link" href="posts/music-synthesis-wave-analysis-with-python/#Sawtooth-Wave">¶</a>
+<h4 id="Sawtooth-Wave">Sawtooth Wave<a class="anchor-link" href="#Sawtooth-Wave">¶</a>
 </h4>
 <p> </p>
 <p>Into the sawtooth wave. Also known in music synthesis as plain <code>saw</code> or <code>ramp</code>, it is also very common in synthetizer hardware architectures.</p>
@@ -444,7 +460,7 @@
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Triangle-Wave">Triangle Wave<a class="anchor-link" href="posts/music-synthesis-wave-analysis-with-python/#Triangle-Wave">¶</a>
+<h4 id="Triangle-Wave">Triangle Wave<a class="anchor-link" href="#Triangle-Wave">¶</a>
 </h4>
 <p> </p>
 <p>The triangle wave is not as popular in synthetizer architectures as the square and sawtooth when being used in a VCO. When it is present, it is mostly considered for bass sounds or "suboscillator" usage.</p>
@@ -506,7 +522,7 @@
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Summing-Up">Summing Up<a class="anchor-link" href="posts/music-synthesis-wave-analysis-with-python/#Summing-Up">¶</a>
+<h4 id="Summing-Up">Summing Up<a class="anchor-link" href="#Summing-Up">¶</a>
 </h4>
 <p> </p>
 <p>We got to take a closer look into 4 different wave shapes most commonly used in music synthesis. The most harmonically rich wave is the sawtooth, followed by the square and triangle. Harmonics are not a musical concept, it is a property that we defined to help us describe complex waves in general.</p>
@@ -518,263 +534,20 @@
 </div>
 </div>
     </div>
-    </article><article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="posts/minilogue-xd-subharmonikorg/" class="u-url">Minilogue-XD Subharmonikorg</a></h1>
-
-        
-        <div class="metadata">
-            <p class="dateline"><a href="posts/minilogue-xd-subharmonikorg/" rel="bookmark"><i class="fa fa-clock"></i> <time class="published dt-published" datetime="2021-04-26T22:16:49-05:00" title="2021-04-26 22:16">2021-04-26 22:16</time></a></p>
-
-        </div>
-    </header><div class="p-summary entry-summary">
-    <div>
-<p><img alt="" src="images/minilogue-xd-module.jpeg#centerme"></p>
-<p>I finally got to play with my new <a href="https://www.korg.com/us/products/synthesizers/minilogue_xd_module/">Minilogue-XD</a>, a 
-4 voice polyphonic synthetizer from Korg. What made this instrument stand out when I was on the hunt for an affordable 
-polyphonic synth was the fact that it had two analog oscillators per voice and, the cherry on top of the cake, a third 
-digital oscillator that could be programmable. The Minilogue-XD belongs to the family of Korg's Logue synths, along with 
-the <a href="https://www.korg.com/us/products/synthesizers/prologue/">Prologue</a> and the <a href="https://www.korg.com/us/products/synthesizers/prologue/">NTS-1</a>,
-and you can program all of them with the help of the <a href="https://korginc.github.io/logue-sdk/">logue-sdk</a>.</p>
-<p> </p>
-<p>I already own the NTS-1 and programmed an oscillator for it. I called it The Subharmonikorg and I explained all about
-it in <a href="posts/subharmonikorg-subharmonic-oscillators-for-the-korg-nts-1">this post</a>. Obviously I wanted to hear how 
-the same implementation would sound on a polyphonic synth. Fortunately, I didn't have to change the C++ code used for 
-the NTS-1 in order to make it work in the Minilogue-XD. Despite the fact, I kept two separate <code>.cpp</code> files for each just 
-in case I could implement certain features in one of them that wouldn't sound ok in the other.</p>
-<p> </p>
-<p>The obvious advantage of having a subharmonic oscillator in a polyphonic synth is that you get to blend more harmonics
-and their subharmonics, creating sounds that could be pleasant or disonant (depending of your choice of undertones). The 
-additional advantage that the Minilogue-XD gives in comparison to the NTS-1 is the fact that you can use two additional 
-analog oscillators in the mix which expands the sound design possibilities. </p>
-<p>The implementation can be found <a href="https://github.com/leandrob13/logue-hub/tree/master/src/minilogue-xd/osc/subh">here</a> and 
-the packaged Subharmonikorg can be downloaded <a href="https://github.com/leandrob13/logue-hub/blob/master/oscillators/minilogue-xd/subharmonikorgv1.1.mnlgxdunit">here</a> 
-for you to install in your Minilogue-XD, if you want to give it a spin.</p>
-<p> </p>
-<p>For more details on the Minilogue-XD, I can't help to recommend Loopop's reviews:</p>
-<p> </p>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Jk_0iMXm5BU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-<p> </p>
-<h4>Showcase</h4>
-<p>Here is a little demostration of the oscillator:</p>
-<p> </p>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/MKZg9NXOtcg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-<p> </p>
-<p>For reference, here are the features of version 1.1-0:</p>
-<h4>Features</h4>
-<ul>
-<li>One main harmonic oscillator with semitone calibration up to one octave higher and one octave lower.</li>
-<li>Two subharmonic oscillators that divide the main oscillator tone up to the 7th undertone.</li>
-<li>Choose different undertones for each suboscillator.</li>
-<li>Mix between the main oscillator and the suboscillators with the <code>shape</code> and <code>alt</code> knobs respectively.</li>
-<li>Choose between square, saw and sine waveforms.</li>
-<li>Modulate the main oscillator mix with the LFO.</li>
-<li>Subharmonic oscillators arpeggiator with clock adjustment.</li>
-</ul>
-<h4>Parameters</h4>
-<table>
-<thead><tr>
-<th align="center">Parameter</th>
-<th align="center">Range</th>
-<th align="right">Description</th>
-</tr></thead>
-<tbody>
-<tr>
-<td align="center">SHAPE</td>
-<td align="center">0 to 100</td>
-<td align="right">level mix of main oscillator</td>
-</tr>
-<tr>
-<td align="center">ALT</td>
-<td align="center">0 to 100</td>
-<td align="right">level mix of suboscillators</td>
-</tr>
-<tr>
-<td align="center">semitone</td>
-<td align="center">1 to 13</td>
-<td align="right">semitone tuning of main oscillator (1 as root note, 13 higher octave)</td>
-</tr>
-<tr>
-<td align="center">undertone 1</td>
-<td align="center">1 to 7</td>
-<td align="right">undertone value of first suboscillator</td>
-</tr>
-<tr>
-<td align="center">undertone 2</td>
-<td align="center">1 to 7</td>
-<td align="right">undertone value of second suboscillator</td>
-</tr>
-<tr>
-<td align="center">oscT</td>
-<td align="center">1 to  3</td>
-<td align="right">The oscillator type 1: saw, 2: square, 3: sine</td>
-</tr>
-<tr>
-<td align="center">Arp Type</td>
-<td align="center">1 to  3</td>
-<td align="right">The arpeggiator type 1: off, 2: down, 3: up-down</td>
-</tr>
-<tr>
-<td align="center">Arp Clock</td>
-<td align="center">0 to  100</td>
-<td align="right">The arpeggiator clock percentage of max frequency.</td>
-</tr>
-</tbody>
-</table>
-<p> </p>
-</div>
-    </div>
-    </article><article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="posts/subharmonikorg-subharmonic-oscillators-for-the-korg-nts-1/" class="u-url">Subharmonikorg: Subharmonic Oscillators for the Korg NTS-1</a></h1>
-
-        
-        <div class="metadata">
-            <p class="dateline"><a href="posts/subharmonikorg-subharmonic-oscillators-for-the-korg-nts-1/" rel="bookmark"><i class="fa fa-clock"></i> <time class="published dt-published" datetime="2021-04-04T18:21:00-05:00" title="2021-04-04 18:21">2021-04-04 18:21</time></a></p>
-
-        </div>
-    </header><div class="p-summary entry-summary">
-    <div>
-<p><img alt="" src="images/nts-1.png#centerme"></p>
-<p>I have been using the <a href="https://www.korg.com/us/products/dj/nts_1/">Korg NTS-1</a> for about 5 months, but it was just 
-recently that I was able to spend some time trying to understand how to program it. Korg published its <a href="https://korginc.github.io/logue-sdk/">logue-sdk</a>
-which is written in C/C++ and it provides useful templates and make files in order tu build custom oscillators, delays 
-and modulation effects for your logue based synths. I have only tried programming the NTS-1 since I believe one of the
-main purposes of this little synth is to experiment and understand the logue-sdk and how to digitally process the 
-signals, which is another way of saying that if you mess up and brick your synth it will only cost you $99 to replace
-it instead of bricking the Minilogue XD which retails at $549. </p>
-<p>For a complete review of the NTS-1, I recommend my favorite synth reviewer Loopop. Watch the video below:</p>
-<p> </p>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Vhonu-rM0B0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-<p> </p>
-<h3>The Subharmonikorg</h3>
-<p>With the introductions out of the way, lets talk about the Subharmonikorg. I was inspired to program this oscillator
-after I saw what Moog did with its analog synth, <a href="https://www.youtube.com/watch?v=ns0Zu5HjShY">The Subharmonicon</a> which
-is sort of a mix of two previous instruments: the <a href="http://www.analogue.org/network/traut_e.htm">Tratonium</a> and the
-<a href="https://en.wikipedia.org/wiki/Rhythmicon">Rythmicon</a>. I wanted to emulate the subharmonic sound generation and found
-out that the subharmonics are derived from the <a href="https://en.wikipedia.org/wiki/Undertone_series">Underton Series</a> which is 
-basically a mathematics formula that is used to calculate the subharmonics of a given note based on its frequency. So if 
-it is mathematically derived then it could be programmed.</p>
-<p>The formula is easy: just divide the note frequency by an integer and you will get the undertone frequency related
-to the original note. This can be illustrated in the code hosted in the <a href="https://github.com/leandrob13/logue-hub/blob/master/src/nts-1/osc/subh/subh.cpp#L72">Logue-Hub Repository</a>:</p>
-<p> </p>
-<pre class="code literal-block"><span></span><code><span class="k">const</span> <span class="kt">float</span> <span class="n">w1</span> <span class="o">=</span> <span class="n">osc_w0f_for_note</span><span class="p">(</span>
-    <span class="p">((</span><span class="n">params</span><span class="o">-&gt;</span><span class="n">pitch</span><span class="p">)</span><span class="o">&gt;&gt;</span><span class="mi">8</span><span class="p">)</span> <span class="o">+</span> <span class="n">oscillator</span><span class="p">.</span><span class="n">semitone</span><span class="p">,</span> 
-    <span class="n">params</span><span class="o">-&gt;</span><span class="n">pitch</span> <span class="o">&amp;</span> <span class="mh">0xFF</span>
-<span class="p">);</span>
-
-<span class="p">...</span>
-
-<span class="n">sw1</span> <span class="o">=</span> <span class="n">w1</span> <span class="o">/</span> <span class="n">oscillator</span><span class="p">.</span><span class="n">undertone1</span><span class="p">;</span>
-<span class="n">sw2</span> <span class="o">=</span> <span class="n">w1</span> <span class="o">/</span> <span class="n">oscillator</span><span class="p">.</span><span class="n">undertone2</span><span class="p">;</span>
-</code></pre>
-
-<p> </p>
-<p>Where the function <code>osc_w0f_for_note</code> returns the frequency value that corresponds to the pitch (note value) passed to the
-<code>OSC_CYCLE</code> function exposed in the <code>logue-sdk</code> API. Then w1 is divided by the undertones values taken from the editing
-params of the NTS-1, which are integer numbers greater than zero. I limited the max possible value of subharmonics to the 
-7th undertone.</p>
-<h4>Features</h4>
-<p>The features for version 1.1-0 are as follows:</p>
-<ul>
-<li>One main harmonic oscillator with semitone calibration up to one octave higher and one octave lower.</li>
-<li>Two subharmonic oscillators that divide the main oscillator tone up to the 7th undertone.</li>
-<li>Choose different undertones for each suboscillator.</li>
-<li>Mix between the main oscillator and the suboscillators with the <code>shape</code> and <code>alt</code> knobs respectively.</li>
-<li>Choose between square, saw and sine waveforms.</li>
-<li>Modulate the main oscillator mix with the LFO.</li>
-<li>Subharmonic oscillators arpeggiator with clock adjustment.</li>
-</ul>
-<p>The arpeggiator is a separate implementation from the native NTS-1 arpeggiator. In the current version 1.1-0, there are 
-only two patterns available which only affect the suboscillators: <code>down</code> and <code>up-down</code>. This means that if you hold a 
-note, the main oscillator will stay on it while both suboscillators will cycle from the 2nd through the 7th subharmonic. 
-Having separate arpeggiators allows you to play with interesting rhythm patterns. </p>
-<h4>Parameters</h4>
-<p>The parameters you can edit are listed below.</p>
-<p>  </p>
-<table>
-<thead><tr>
-<th align="center">Parameter</th>
-<th align="center">Range</th>
-<th align="right">Description</th>
-</tr></thead>
-<tbody>
-<tr>
-<td align="center">SHAPE</td>
-<td align="center">0 to 100</td>
-<td align="right">level mix of main oscillator</td>
-</tr>
-<tr>
-<td align="center">ALT</td>
-<td align="center">0 to 100</td>
-<td align="right">level mix of suboscillators</td>
-</tr>
-<tr>
-<td align="center">semitone</td>
-<td align="center">1 to 13</td>
-<td align="right">semitone tuning of main oscillator (1 as root note, 13 higher octave)</td>
-</tr>
-<tr>
-<td align="center">undertone 1</td>
-<td align="center">1 to 7</td>
-<td align="right">undertone value of first suboscillator</td>
-</tr>
-<tr>
-<td align="center">undertone 2</td>
-<td align="center">1 to 7</td>
-<td align="right">undertone value of second suboscillator</td>
-</tr>
-<tr>
-<td align="center">oscT</td>
-<td align="center">1 to  3</td>
-<td align="right">The oscillator type 1: saw, 2: square, 3: sine</td>
-</tr>
-<tr>
-<td align="center">Arp Type</td>
-<td align="center">1 to  3</td>
-<td align="right">The arpeggiator type 1: off, 2: down, 3: up-down</td>
-</tr>
-<tr>
-<td align="center">Arp Clock</td>
-<td align="center">0 to  100</td>
-<td align="right">The arpeggiator clock percentage of max frequency.</td>
-</tr>
-</tbody>
-</table>
-<p> </p>
-<h3>The Showcase</h3>
-<p>I did some noise experiment where I played with the NTS-1 Subharmonikorg and Moog's <a href="https://www.moogmusic.com/products/werkstatt-01-cv-expander">Werkstatt-01</a>.
-The Subharmonikorg is playing its arpeggio while I hit some lead notes with the Werkstatt. I tried to keep the mood creepy.</p>
-<p> </p>
-<p>Here is the video of the weird experiment:</p>
-<p> </p>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/ZgSYehljJU8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-<p> </p>
-<ul>
-<li>
-<p>For the whole 7 minutes noise, listen to it in bandcamp <a href="https://leandrob.bandcamp.com/track/tormentor">here</a>.</p>
-</li>
-<li>
-<p>Get the latest version of the Subharmonikorg in github <a href="https://github.com/leandrob13/logue-hub/tree/master/oscillators/nts-1">here</a>. </p>
-</li>
-</ul>
-<p>There are some other oscillator ideas I have and some new features I want to test out for the NTS-1 for this oscillator. 
-Hopefully I will also try this out with my newest adquisition, the Minilogue XD.</p>
-</div>
-    </div>
-    </article>
-</div>
-
-
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha384-3lJUsx1TJHt7BA4udB5KPnDrlkO8T6J6v/op7ui0BbCjvZ9WqV4Xm6DTP6kQ/iBH" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
+    <aside class="postpromonav"><nav><ul class="pager hidden-print">
+<li class="previous">
+                <a href="../minilogue-xd-subharmonikorg/" rel="prev" title="Minilogue-XD Subharmonikorg">Previous post</a>
+            </li>
+        </ul></nav></aside><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha384-3lJUsx1TJHt7BA4udB5KPnDrlkO8T6J6v/op7ui0BbCjvZ9WqV4Xm6DTP6kQ/iBH" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
         MathJax.Hub.Config({tex2jax: {inlineMath: [['$latex ','$'], ['\\(','\\)']]}});
         </script><footer id="footer"><p>Contents © 2021         <a href="https://github.com/leandrob13">Leandro B</a> -         
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
 <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"></a>
 </p>
             
-        </footer>
+        </footer></article>
 </div>
-	</section><script src="assets/js/all-nocdn.js"></script><!-- fancy dates --><script>
+	</section><script src="../../assets/js/all-nocdn.js"></script><!-- fancy dates --><script>
 
     moment.locale("en");
     fancydates(0, "YYYY-MM-DD HH:mm");
@@ -787,7 +560,7 @@ Hopefully I will also try this out with my newest adquisition, the Minilogue XD.
             return element.getElementsByTagName('img')[0].alt;
     }});
 
-	</script><script src="assets/js/ToggleNav.js">
+	</script><script src="../../assets/js/ToggleNav.js">
 	</script>
 </body>
 </html>
