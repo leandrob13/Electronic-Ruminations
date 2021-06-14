@@ -24,6 +24,7 @@
   gtag('config', 'G-VGDFS80SZM');
 </script><meta name="author" content="Leandro B">
 <link rel="prev" href="../minilogue-xd-subharmonikorg/" title="Minilogue-XD Subharmonikorg" type="text/html">
+<link rel="next" href="../music-synthesis-wave-creation-with-python/" title="Music Synthesis Wave Creation With Python" type="text/html">
 <meta property="og:site_name" content="Electronic Ruminations">
 <meta property="og:title" content="Music Synthesis Wave Analysis With Python">
 <meta property="og:url" content="https://leandrob13.github.io/Electronic-Ruminations/posts/music-synthesis-wave-analysis-with-python/">
@@ -122,7 +123,7 @@
 <p> </p>
 <p>What are harmonics? For starters, it is not a sole property of musical theory. It is a property of waves in general. Where there are waves involved, there is a harmonic analysis that can be done. That is why we talk about harmonics in music, where the sound waves are generated from the physical interaction with the musical instruments. Music synthesis is no different, we generate the harmonics from electrical waves which are eventualy transformed into sound waves.</p>
 <p>So how can we define a harmonic? We can keep it simple by saying that if you have a wave that has a given frequency <code>F</code>, a harmonic is a wave that has a frequency which is a multiple of <code>F</code>. You can generate a new wave with a different shape by summing the two signals. This will make <code>F</code> the fundamental frequency of that signal.</p>
-<p>There are two ways that you can help yourself wrap your head around this. You can read about the <a href="https://en.wikipedia.org/wiki/Harmonic_series_(music">Overdertone Series</a>), which is the music theory approach for understanding harmonics, or you can read about the <a href="https://en.wikipedia.org/wiki/Fourier_series">Fourier Series</a> which is the full mathematical foundation of sound synthesis.</p>
+<p>There are two ways that you can help yourself wrap your head around this. You can read about the <a href="https://en.wikipedia.org/wiki/Harmonic_series_(music">Overtone Series</a>), which is the music theory approach for understanding harmonics, or you can read about the <a href="https://en.wikipedia.org/wiki/Fourier_series">Fourier Series</a> which is the full mathematical foundation of sound synthesis.</p>
 <p>It is hard to understand this and that is why the visual aid always helps. We will see exactly how a sine wave looks like and the rest of the basic signals used in music synthesis. We will be able to listen to them also and notice how the sound changes when there are different harmonics present in a wave. For this, we will be using the <a href="https://en.wikipedia.org/wiki/Fourier_transform">Fourier Transform</a> in order to visualize the different harmonic components of a given signal.</p>
 <p>That is why this post is written as a jupyter notebook, so we can get hands on with python for visualizing everything.</p>
 
@@ -137,7 +138,7 @@
 <h4 id="Importing-Necessary-Modules">Importing Necessary Modules<a class="anchor-link" href="#Importing-Necessary-Modules">¶</a>
 </h4>
 <p> </p>
-<p>I will use pandas as a plotter helper, I have found it is an easier way to deal with matplotlib. Numpy and Scipy are used to generate the signals that we want to analyze. In addition, Scipy will provide the necesarry functions to do the <a href="https://en.wikipedia.org/wiki/Fast_Fourier_transform">Fast Fourier transform</a>, which is what we need in order to visualize the harmonic content of the waves.</p>
+<p>I will use pandas as a plotter helper, I have found it is an easier way to deal with matplotlib. Numpy and Scipy are used to generate the signals that we want to analyze. In addition, Scipy will provide the necesary functions to do the <a href="https://en.wikipedia.org/wiki/Fast_Fourier_transform">Fast Fourier transform</a>, which is what we need in order to visualize the harmonic content of the waves.</p>
 
 </div>
 </div>
@@ -341,7 +342,7 @@
 </h4>
 <p> </p>
 <p>Square waves are used in many electronics applications, the most common one is for clock signals in digital circuits. In music synthesis, it is one of the most common and it is worth taking a closer look at it.</p>
-<p>Below we see again the wave shape along with its frequency components. Different to the sine wave, we see 5 different frequency components. The one with the greater magnitude lies in the fundamental frequency of 440Hz, the rest are its harmonic components. As we can see, and this is one of the interesting parts, there are only odd harmonics (frequencies multiple of 3, 5, 7 and 9) which seem to decay in magnitude exponentially. This means that we could break down this signal into at least 5 different sine waves with different weights and frequencies based on odd multiples of the fundamental frequency.</p>
+<p>Below we see again the wave shape along with its frequency components. Different to the sine wave, we see 5 different frequency components. The one with the greater magnitude lies in the fundamental frequency of 440Hz, the rest are its harmonic components. As we can see, and this is one of the interesting parts, there are only odd harmonics (frequencies of 3, 5, 7 and 9 harmonic component) which seem to decay in magnitude exponentially. This means that we could break down this signal into at least 5 different sine waves with different amplitudes and frequencies based on odd multiples of the fundamental frequency.</p>
 
 </div>
 </div>
@@ -538,6 +539,9 @@
     <aside class="postpromonav"><nav><ul class="pager hidden-print">
 <li class="previous">
                 <a href="../minilogue-xd-subharmonikorg/" rel="prev" title="Minilogue-XD Subharmonikorg">Previous post</a>
+            </li>
+            <li class="next">
+                <a href="../music-synthesis-wave-creation-with-python/" rel="next" title="Music Synthesis Wave Creation With Python">Next post</a>
             </li>
         </ul></nav></aside><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha384-3lJUsx1TJHt7BA4udB5KPnDrlkO8T6J6v/op7ui0BbCjvZ9WqV4Xm6DTP6kQ/iBH" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
         MathJax.Hub.Config({tex2jax: {inlineMath: [['$latex ','$'], ['\\(','\\)']]}});
