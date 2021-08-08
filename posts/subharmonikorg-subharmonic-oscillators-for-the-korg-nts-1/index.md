@@ -32,7 +32,7 @@ With the introductions out of the way, lets talk about the Subharmonikorg. I was
 after I saw what Moog did with its analog synth, [The Subharmonicon](https://www.youtube.com/watch?v=ns0Zu5HjShY) which
 is sort of a mix of two previous instruments: the [Tratonium](http://www.analogue.org/network/traut_e.htm) and the
 [Rythmicon](https://en.wikipedia.org/wiki/Rhythmicon). I wanted to emulate the subharmonic sound generation and found
-out that the subharmonics are derived from the [Underton Series](https://en.wikipedia.org/wiki/Undertone_series) which is 
+out that the subharmonics are derived from the [Undertone Series](https://en.wikipedia.org/wiki/Undertone_series) which is 
 basically a mathematics formula that is used to calculate the subharmonics of a given note based on its frequency. So if 
 it is mathematically derived then it could be programmed.
 
