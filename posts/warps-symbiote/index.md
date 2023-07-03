@@ -8,7 +8,6 @@
 .. description: 
 .. type: text
 -->
-
 # Warps Symbiote
 
 Warps Symbiote firmware is built on top of the [Warps Parasites firmware](https://mqtthiqs.github.io/parasites/warps.html) and is my attempt to bring new life to the Mutable Instruments clones available from other manufacturers, let's try to preserve such an important legacy. It adds three new algorithms:
