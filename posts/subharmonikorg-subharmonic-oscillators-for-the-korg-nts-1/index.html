@@ -23,7 +23,7 @@
 
   gtag('config', 'G-VGDFS80SZM');
 </script><meta name="author" content="Leandro B">
-<link rel="next" href="../minilogue-xd-subharmonikorg/" title="Minilogue-XD Subharmonikorg" type="text/html">
+<link rel="next" href="../music-synthesis-wave-analysis-with-python/" title="Music Synthesis Wave Analysis With Python" type="text/html">
 <meta property="og:site_name" content="Electronic Ruminations">
 <meta property="og:title" content="Subharmonikorg: Subharmonic Oscillators for the Korg NTS-1">
 <meta property="og:url" content="https://leandrob13.github.io/Electronic-Ruminations/posts/subharmonikorg-subharmonic-oscillators-for-the-korg-nts-1/">
@@ -115,8 +115,7 @@ which is written ">
 
         </div>
     </header><div class="e-content entry-content" itemprop="articleBody text">
-    <div>
-<p><img alt="" src="../../images/nts-1.png#centerme"></p>
+    <p><img alt="" src="../../images/nts-1.png#centerme"></p>
 <p>I have been using the <a href="https://www.korg.com/us/products/dj/nts_1/">Korg NTS-1</a> for about 5 months, but it was just 
 recently that I was able to spend some time trying to understand how to program it. Korg published its <a href="https://korginc.github.io/logue-sdk/">logue-sdk</a>
 which is written in C/C++ and it provides useful templates and make files in order tu build custom oscillators, delays 
@@ -129,7 +128,7 @@ it instead of bricking the Minilogue XD which retails at $549. </p>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Vhonu-rM0B0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 <p> </p>
-<h3>The Subharmonikorg</h3>
+<h3 id="the-subharmonikorg">The Subharmonikorg<a href="#the-subharmonikorg" class="headerlink" title="Permalink to this heading">¶</a></h3>
 <p>With the introductions out of the way, lets talk about the Subharmonikorg. I was inspired to program this oscillator
 after I saw what Moog did with its analog synth, <a href="https://www.youtube.com/watch?v=ns0Zu5HjShY">The Subharmonicon</a> which
 is sort of a mix of two previous instruments: the <a href="http://www.analogue.org/network/traut_e.htm">Tratonium</a> and the
@@ -140,23 +139,23 @@ it is mathematically derived then it could be programmed.</p>
 <p>The formula is easy: just divide the note frequency by an integer and you will get the undertone frequency related
 to the original note. This can be illustrated in the code hosted in the <a href="https://github.com/leandrob13/logue-hub/blob/master/src/nts-1/osc/subh/subh.cpp#L72">Logue-Hub Repository</a>:</p>
 <p> </p>
-<pre class="code literal-block"><span></span><code><span class="k">const</span> <span class="kt">float</span> <span class="n">w1</span> <span class="o">=</span> <span class="n">osc_w0f_for_note</span><span class="p">(</span>
-    <span class="p">((</span><span class="n">params</span><span class="o">-&gt;</span><span class="n">pitch</span><span class="p">)</span><span class="o">&gt;&gt;</span><span class="mi">8</span><span class="p">)</span> <span class="o">+</span> <span class="n">oscillator</span><span class="p">.</span><span class="n">semitone</span><span class="p">,</span> 
-    <span class="n">params</span><span class="o">-&gt;</span><span class="n">pitch</span> <span class="o">&amp;</span> <span class="mh">0xFF</span>
+<div class="code"><pre class="code literal-block"><span class="k">const</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">w1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">osc_w0f_for_note</span><span class="p">(</span>
+<span class="w">    </span><span class="p">((</span><span class="n">params</span><span class="o">-&gt;</span><span class="n">pitch</span><span class="p">)</span><span class="o">&gt;&gt;</span><span class="mi">8</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">oscillator</span><span class="p">.</span><span class="n">semitone</span><span class="p">,</span><span class="w"> </span>
+<span class="w">    </span><span class="n">params</span><span class="o">-&gt;</span><span class="n">pitch</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mh">0xFF</span>
 <span class="p">);</span>
 
 <span class="p">...</span>
 
-<span class="n">sw1</span> <span class="o">=</span> <span class="n">w1</span> <span class="o">/</span> <span class="n">oscillator</span><span class="p">.</span><span class="n">undertone1</span><span class="p">;</span>
-<span class="n">sw2</span> <span class="o">=</span> <span class="n">w1</span> <span class="o">/</span> <span class="n">oscillator</span><span class="p">.</span><span class="n">undertone2</span><span class="p">;</span>
-</code></pre>
+<span class="n">sw1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">w1</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">oscillator</span><span class="p">.</span><span class="n">undertone1</span><span class="p">;</span>
+<span class="n">sw2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">w1</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">oscillator</span><span class="p">.</span><span class="n">undertone2</span><span class="p">;</span>
+</pre></div>
 
 <p> </p>
 <p>Where the function <code>osc_w0f_for_note</code> returns the frequency value that corresponds to the pitch (note value) passed to the
 <code>OSC_CYCLE</code> function exposed in the <code>logue-sdk</code> API. Then w1 is divided by the undertones values taken from the editing
 params of the NTS-1, which are integer numbers greater than zero. I limited the max possible value of subharmonics to the 
 7th undertone.</p>
-<h4>Features</h4>
+<h4 id="features">Features<a href="#features" class="headerlink" title="Permalink to this heading">¶</a></h4>
 <p>The features for version 1.1-0 are as follows:</p>
 <ul>
 <li>One main harmonic oscillator with semitone calibration up to one octave higher and one octave lower.</li>
@@ -171,60 +170,60 @@ params of the NTS-1, which are integer numbers greater than zero. I limited the 
 only two patterns available which only affect the suboscillators: <code>down</code> and <code>up-down</code>. This means that if you hold a 
 note, the main oscillator will stay on it while both suboscillators will cycle from the 2nd through the 7th subharmonic. 
 Having separate arpeggiators allows you to play with interesting rhythm patterns. </p>
-<h4>Parameters</h4>
+<h4 id="parameters">Parameters<a href="#parameters" class="headerlink" title="Permalink to this heading">¶</a></h4>
 <p>The parameters you can edit are listed below.</p>
 <p>  </p>
 <table>
 <thead><tr>
-<th align="center">Parameter</th>
-<th align="center">Range</th>
-<th align="right">Description</th>
+<th style="text-align: center;">Parameter</th>
+<th style="text-align: center;">Range</th>
+<th style="text-align: right;">Description</th>
 </tr></thead>
 <tbody>
 <tr>
-<td align="center">SHAPE</td>
-<td align="center">0 to 100</td>
-<td align="right">level mix of main oscillator</td>
+<td style="text-align: center;">SHAPE</td>
+<td style="text-align: center;">0 to 100</td>
+<td style="text-align: right;">level mix of main oscillator</td>
 </tr>
 <tr>
-<td align="center">ALT</td>
-<td align="center">0 to 100</td>
-<td align="right">level mix of suboscillators</td>
+<td style="text-align: center;">ALT</td>
+<td style="text-align: center;">0 to 100</td>
+<td style="text-align: right;">level mix of suboscillators</td>
 </tr>
 <tr>
-<td align="center">semitone</td>
-<td align="center">1 to 13</td>
-<td align="right">semitone tuning of main oscillator (1 as root note, 13 higher octave)</td>
+<td style="text-align: center;">semitone</td>
+<td style="text-align: center;">1 to 13</td>
+<td style="text-align: right;">semitone tuning of main oscillator (1 as root note, 13 higher octave)</td>
 </tr>
 <tr>
-<td align="center">undertone 1</td>
-<td align="center">1 to 7</td>
-<td align="right">undertone value of first suboscillator</td>
+<td style="text-align: center;">undertone 1</td>
+<td style="text-align: center;">1 to 7</td>
+<td style="text-align: right;">undertone value of first suboscillator</td>
 </tr>
 <tr>
-<td align="center">undertone 2</td>
-<td align="center">1 to 7</td>
-<td align="right">undertone value of second suboscillator</td>
+<td style="text-align: center;">undertone 2</td>
+<td style="text-align: center;">1 to 7</td>
+<td style="text-align: right;">undertone value of second suboscillator</td>
 </tr>
 <tr>
-<td align="center">oscT</td>
-<td align="center">1 to  3</td>
-<td align="right">The oscillator type 1: saw, 2: square, 3: sine</td>
+<td style="text-align: center;">oscT</td>
+<td style="text-align: center;">1 to  3</td>
+<td style="text-align: right;">The oscillator type 1: saw, 2: square, 3: sine</td>
 </tr>
 <tr>
-<td align="center">Arp Type</td>
-<td align="center">1 to  3</td>
-<td align="right">The arpeggiator type 1: off, 2: down, 3: up-down</td>
+<td style="text-align: center;">Arp Type</td>
+<td style="text-align: center;">1 to  3</td>
+<td style="text-align: right;">The arpeggiator type 1: off, 2: down, 3: up-down</td>
 </tr>
 <tr>
-<td align="center">Arp Clock</td>
-<td align="center">0 to  100</td>
-<td align="right">The arpeggiator clock percentage of max frequency.</td>
+<td style="text-align: center;">Arp Clock</td>
+<td style="text-align: center;">0 to  100</td>
+<td style="text-align: right;">The arpeggiator clock percentage of max frequency.</td>
 </tr>
 </tbody>
 </table>
 <p> </p>
-<h3>The Showcase</h3>
+<h3 id="the-showcase">The Showcase<a href="#the-showcase" class="headerlink" title="Permalink to this heading">¶</a></h3>
 <p>I did some noise experiment where I played with the NTS-1 Subharmonikorg and Moog's <a href="https://www.moogmusic.com/products/werkstatt-01-cv-expander">Werkstatt-01</a>.
 The Subharmonikorg is playing its arpeggio while I hit some lead notes with the Werkstatt. I tried to keep the mood creepy.</p>
 <p> </p>
@@ -242,13 +241,12 @@ The Subharmonikorg is playing its arpeggio while I hit some lead notes with the 
 </ul>
 <p>There are some other oscillator ideas I have and some new features I want to test out for the NTS-1 for this oscillator. 
 Hopefully I will also try this out with my newest adquisition, the Minilogue XD.</p>
-</div>
     </div>
     <aside class="postpromonav"><nav><ul class="pager hidden-print">
 <li class="next">
-                <a href="../minilogue-xd-subharmonikorg/" rel="next" title="Minilogue-XD Subharmonikorg">Next post</a>
+                <a href="../music-synthesis-wave-analysis-with-python/" rel="next" title="Music Synthesis Wave Analysis With Python">Next post</a>
             </li>
-        </ul></nav></aside><footer id="footer"><p>Contents © 2021         <a href="https://github.com/leandrob13">Leandro B</a> -         
+        </ul></nav></aside><footer id="footer"><p>Contents © 2023         <a href="https://github.com/leandrob13">Leandro B</a> -         
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
 <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"></a>
 </p>

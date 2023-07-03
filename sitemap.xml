@@ -7,19 +7,23 @@
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <url>
   <loc>https://leandrob13.github.io/Electronic-Ruminations/</loc>
-  <lastmod>2021-08-07T18:10:00Z</lastmod>
+  <lastmod>2023-07-03T01:13:00Z</lastmod>
  </url>
  <url>
   <loc>https://leandrob13.github.io/Electronic-Ruminations/2021/</loc>
   <lastmod>2021-08-07T18:10:00Z</lastmod>
  </url>
  <url>
+  <loc>https://leandrob13.github.io/Electronic-Ruminations/2023/</loc>
+  <lastmod>2023-07-03T01:13:00Z</lastmod>
+ </url>
+ <url>
   <loc>https://leandrob13.github.io/Electronic-Ruminations/archive.html</loc>
-  <lastmod>2021-08-07T18:10:00Z</lastmod>
+  <lastmod>2023-07-03T03:32:00Z</lastmod>
  </url>
  <url>
   <loc>https://leandrob13.github.io/Electronic-Ruminations/categories/</loc>
-  <lastmod>2021-08-07T18:10:00Z</lastmod>
+  <lastmod>2023-07-03T01:13:00Z</lastmod>
  </url>
  <url>
   <loc>https://leandrob13.github.io/Electronic-Ruminations/categories/cat_music-programming/</loc>
@@ -28,6 +32,10 @@
  <url>
   <loc>https://leandrob13.github.io/Electronic-Ruminations/categories/dsp/</loc>
   <lastmod>2021-08-07T18:10:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://leandrob13.github.io/Electronic-Ruminations/categories/eurorack/</loc>
+  <lastmod>2023-07-03T01:13:00Z</lastmod>
  </url>
  <url>
   <loc>https://leandrob13.github.io/Electronic-Ruminations/categories/korg/</loc>
@@ -40,6 +48,10 @@
  <url>
   <loc>https://leandrob13.github.io/Electronic-Ruminations/categories/minilogue-xd/</loc>
   <lastmod>2021-08-07T18:10:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://leandrob13.github.io/Electronic-Ruminations/categories/mutable-instruments/</loc>
+  <lastmod>2023-07-03T01:13:00Z</lastmod>
  </url>
  <url>
   <loc>https://leandrob13.github.io/Electronic-Ruminations/categories/nts-1/</loc>
@@ -67,7 +79,7 @@
  </url>
  <url>
   <loc>https://leandrob13.github.io/Electronic-Ruminations/listings/oscillator.cpp.html</loc>
-  <lastmod>2021-08-07T18:10:00Z</lastmod>
+  <lastmod>2023-07-03T01:57:00Z</lastmod>
  </url>
  <url>
   <loc>https://leandrob13.github.io/Electronic-Ruminations/posts/minilogue-xd-subharmonikorg/</loc>
@@ -88,5 +100,9 @@
  <url>
   <loc>https://leandrob13.github.io/Electronic-Ruminations/posts/subharmonikorg-subharmonic-oscillators-for-the-korg-nts-1/</loc>
   <lastmod>2021-08-07T18:10:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://leandrob13.github.io/Electronic-Ruminations/posts/warps-symbiote/</loc>
+  <lastmod>2023-07-03T01:13:00Z</lastmod>
  </url>
 </urlset>
