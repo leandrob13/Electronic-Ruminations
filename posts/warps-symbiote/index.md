@@ -16,6 +16,13 @@ Warps Symbiote firmware is built on top of the [Warps Parasites firmware](https:
 - Dual State Variable Filter: implemented a dual filter based on Emillie's [State Variable Filter](https://github.com/pichenettes/stmlib/blob/e3bd7c9cc00e4364166f9905c0509b6ffd0535ec/dsp/filter.h#L177)
 - Reverbs: added 4 reverbs based on the implementations found in Rings, Clouds and Elements.
 
+Here is a demo overview of the new effects:
+
+&nbsp;
+
+<p align="center"><iframe width="560" height="315" src="https://www.youtube.com/embed/FZFHOwKZnD8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></p>
+&nbsp;
+
 ## Contents
 
 - [Installation](#installation)
@@ -35,7 +42,7 @@ The interface of this firmware is the same as the one implemented in [Warps Para
 
 - Ladder Filter.
 - Dual State Variable Filter.
-- Reberbs.
+- Reverbs.
 - Chebyschev Waveshaper.
 - Frequency Shifter.
 - Bitcrusher.
@@ -77,7 +84,7 @@ The four available reverbs are:
 |-----------------------|---------------------------|-----------------------------------|---------------------------------------------------------------------------------------------------|-----------------------------------------|---------------------------------------|---------------------------------|----------------------|---------------------------------------|
 | Ladder Filter         | Cutoff frequency          | Resonance                         | Warps internal oscillator                                                                         | Input 1 level/ oscillator frequency     | Input 2 level                         | Inputs 1&2 VCA CV control       | Filter summed output | Filter Summed output                  |
 | Dual SVF              | Filter 1 cutoff frequency | Filter 2 cutoff frequency         | Toggles between different combinations: LP/HP (unlit), LP/BP (green), BP/HP (yellow), BP/BP (red) | Filter 1 resonance                      | Filter 2 resonance                    | Inputs 1&2 VCA CV control       | Filter 1 output      | Filter 2 output                       |
-| Reberbs               | Diffussion                | Reverb time                       | Selects reberbs: Caveman (unlit), Rings (green), Clouds (yellow), Elements (red)                  | Reverb amount, reverb gain for Elements | Filter LP filter, feedback for Clouds | Inputs 1&2 VCA CV control       | Left output          | Right output                          |
+| Reverbs               | Diffussion                | Reverb time                       | Selects reverbs: Caveman (unlit), Rings (green), Clouds (yellow), Elements (red)                  | Reverb amount, reverb gain for Elements | Filter LP filter, feedback for Clouds | Inputs 1&2 VCA CV control       | Left output          | Right output                          |
 | Chebyschev Waveshaper | Order                     | Gain                              | Warps internal oscillator                                                                         | Input 1 level/ oscillator frequency     | Input 2 level                         | Inputs 1&2 VCA CV control       | Out                  | Sum of 1+2 or internal oscillator out |
 | Frequency Shifter     | Frequency shift           | Crossfade between up/down outputs | Warps internal oscillator                                                                         | Feedback                                | Dry/Wet                               | Feedback and Dry/Wet CV control | Up                   | Down                                  |
 | Bitcrusher            | Bit crushing amount       | Cross modulation: dry, AND, XOR   | Warps internal oscillator                                                                         | Input 1 level/ oscillator frequency     | Input 2 level                         | Inputs 1&2 VCA CV control       | Out                  | Sum of 1+2 or internal oscillator out |
