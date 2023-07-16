@@ -27,7 +27,8 @@
 <meta property="og:site_name" content="Electronic Ruminations">
 <meta property="og:title" content="Warps Symbiote">
 <meta property="og:url" content="https://leandrob13.github.io/Electronic-Ruminations/posts/warps-symbiote/">
-<meta property="og:description" content="Warps Symbiote firmware is built on top of the Warps Parasites firmware and is my attempt to bring new life to the Mutable Instruments clones available from other manufacturers, let's try to preserve ">
+<meta property="og:description" content="Warps Symbiote
+Warps Symbiote firmware is built on top of the Warps Parasites firmware and is my attempt to bring new life to the Mutable Instruments clones available from other manufacturers, let's t">
 <meta property="og:type" content="article">
 <meta property="article:published_time" content="2023-07-02T19:09:09-05:00">
 <meta property="article:tag" content="eurorack">
@@ -109,7 +110,8 @@
 
         </div>
     </header><div class="e-content entry-content" itemprop="articleBody text">
-    <p>Warps Symbiote firmware is built on top of the <a href="https://mqtthiqs.github.io/parasites/warps.html">Warps Parasites firmware</a> and is my attempt to bring new life to the Mutable Instruments clones available from other manufacturers, let's try to preserve such an important legacy. It adds three new algorithms:</p>
+    <h2 id="warps-symbiote">Warps Symbiote<a href="#warps-symbiote" class="headerlink" title="Permalink to this heading">¶</a></h2>
+<p>Warps Symbiote firmware is built on top of the <a href="https://mqtthiqs.github.io/parasites/warps.html">Warps Parasites firmware</a> and is my attempt to bring new life to the Mutable Instruments clones available from other manufacturers, let's try to preserve such an important legacy. It adds three new algorithms:</p>
 <ul>
 <li>Ladder Filter: ported from an implementation of the <a href="https://github.com/ddiakopoulos/MoogLadders/blob/master/src/ImprovedModel.h">improved Moog Ladder Filter</a>
 </li>
@@ -120,7 +122,7 @@
 <p>Here is a demo overview of the new effects:</p>
 <p> </p>
 <p align="center"><iframe width="560" height="315" src="https://www.youtube.com/embed/FZFHOwKZnD8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></p>
-<p> </p>
+
 <h3 id="contents">Contents<a href="#contents" class="headerlink" title="Permalink to this heading">¶</a></h3>
 <ul>
 <li><a href="#installation">Installation</a></li>
@@ -131,7 +133,7 @@
 <li><a href="#parameters">Parameters</a></li>
 </ul>
 <h3 id="installation">Installation<a href="#installation" class="headerlink" title="Permalink to this heading">¶</a></h3>
-<p>You can download the firmware <code>.wav</code> file from <a href="https://github.com/leandrob13/eurorack/releases/tag/v0.1.0">here</a> and follow the usual update procedure stated in the <a href="https://pichenettes.github.io/mutable-instruments-documentation/modules/warps/manual/">Mutable Instruments Warps manual</a>.</p>
+<p>Download the firmware <code>.wav</code> file <a href="https://github.com/leandrob13/eurorack/releases/tag/v0.2.0">version 0.2.0</a> and follow the usual update procedure stated in the <a href="https://pichenettes.github.io/mutable-instruments-documentation/modules/warps/manual/">Mutable Instruments Warps manual</a>.</p>
 <h3 id="interface">Interface<a href="#interface" class="headerlink" title="Permalink to this heading">¶</a></h3>
 <p>The interface of this firmware is the same as the one implemented in <a href="https://mqtthiqs.github.io/parasites/warps.html#mode">Warps Parasites</a>. From left to right, the algorithms are:</p>
 <ul>
@@ -187,7 +189,7 @@ The four available reverbs are:</p>
 <td>Input 2 level</td>
 <td>Inputs 1&amp;2 VCA CV control</td>
 <td>Filter summed output</td>
-<td>Filter Summed output</td>
+<td>Sum of 1+2 or internal oscillator out</td>
 </tr>
 <tr>
 <td>Dual SVF</td>
@@ -245,15 +247,15 @@ The four available reverbs are:</p>
 <td>Sum of 1+2 or internal oscillator out</td>
 </tr>
 <tr>
-<td>Vocoder</td>
-<td>Frequency warping</td>
-<td>Release time</td>
-<td>Warps internal oscillator</td>
-<td>Input 1 level/ oscillator frequency</td>
-<td>Input 2 level</td>
-<td>Inputs 1&amp;2 VCA CV control</td>
+<td>Doppler Panner</td>
+<td>X Coordinate</td>
+<td>Y Coordinate</td>
+<td>Space size: from smaller (unlit) to larger (red)</td>
+<td>Up frequency</td>
+<td>Up Amplitude</td>
+<td>Up amplitude and frequency CV control</td>
 <td>Out</td>
-<td>Sum of 1+2 or internal oscillator out</td>
+<td>Out symmetrical on axis</td>
 </tr>
 <tr>
 <td>Delay</td>
