@@ -17,6 +17,12 @@ Warps Symbiote firmware is built on top of the [Warps Parasites firmware](https:
 - Dual State Variable Filter: implemented a dual filter based on Emillie's [State Variable Filter](https://github.com/pichenettes/stmlib/blob/e3bd7c9cc00e4364166f9905c0509b6ffd0535ec/dsp/filter.h#L177)
 - Reverbs: added 4 reverbs based on the implementations found in Rings, Clouds and Elements.
 
+Here is a demo overview of the new effects:
+
+&nbsp;
+
+<p align="center"><iframe width="560" height="315" src="https://www.youtube.com/embed/FZFHOwKZnD8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></p>
+
 ## Contents
 
 - [Installation](#installation)
