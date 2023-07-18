@@ -113,8 +113,7 @@ New features:
 
 - Replaced Parasites Vocoder with Doppler Panner, find it in position 7 in the interface.
 - Replaced pulse train oscillator with square wave oscillator.
-- The internal oscillator options for the ladder filter are now:
-   - Triangle (green), Saw (yellow), Square (red).
+- The internal oscillator options for the ladder filter are now: Triangle (green), Saw (yellow), Square (red).
 - Improved cutoff frequency calibration for the ladder filter.
 
 ### Symbiote 0.1.0
