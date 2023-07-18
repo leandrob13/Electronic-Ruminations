@@ -3,7 +3,7 @@
 &lt;a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"&gt;
 &lt;img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"/&gt;
 &lt;/a&gt;
-</copyright><lastBuildDate>Tue, 18 Jul 2023 20:57:28 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Warps Symbiote</title><link>https://leandrob13.github.io/Electronic-Ruminations/posts/warps-symbiote/</link><dc:creator>Leandro B</dc:creator><description>&lt;h2&gt;Warps Symbiote&lt;/h2&gt;
+</copyright><lastBuildDate>Tue, 18 Jul 2023 21:00:56 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Warps Symbiote</title><link>https://leandrob13.github.io/Electronic-Ruminations/posts/warps-symbiote/</link><dc:creator>Leandro B</dc:creator><description>&lt;h2&gt;Warps Symbiote&lt;/h2&gt;
 &lt;p&gt;Warps Symbiote firmware is built on top of the &lt;a href="https://mqtthiqs.github.io/parasites/warps.html"&gt;Warps Parasites firmware&lt;/a&gt; and is my attempt to bring new life to the Mutable Instruments clones available from other manufacturers, let's try to preserve such an important legacy. It adds three new algorithms:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Ladder Filter: ported from an implementation of the &lt;a href="https://github.com/ddiakopoulos/MoogLadders/blob/master/src/ImprovedModel.h"&gt;improved Moog Ladder Filter&lt;/a&gt;&lt;/li&gt;
@@ -177,8 +177,7 @@ The four available reverbs are:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Replaced Parasites Vocoder with Doppler Panner, find it in position 7 in the interface.&lt;/li&gt;
 &lt;li&gt;Replaced pulse train oscillator with square wave oscillator.&lt;/li&gt;
-&lt;li&gt;The internal oscillator options for the ladder filter are now:&lt;/li&gt;
-&lt;li&gt;Triangle (green), Saw (yellow), Square (red).&lt;/li&gt;
+&lt;li&gt;The internal oscillator options for the ladder filter are now: Triangle (green), Saw (yellow), Square (red).&lt;/li&gt;
 &lt;li&gt;Improved cutoff frequency calibration for the ladder filter.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h4&gt;Symbiote 0.1.0&lt;/h4&gt;
