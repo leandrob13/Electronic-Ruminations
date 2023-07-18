@@ -48,7 +48,7 @@ The interface of this firmware is the same as the one implemented in [Warps Para
 - Chebyschev Waveshaper.
 - Frequency Shifter.
 - Bitcrusher.
-- Vocoder.
+- Doppler Panner.
 - Delay.
 - Meta
 
