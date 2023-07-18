@@ -31,6 +31,8 @@ Here is a demo overview of the new effects:
 - [Dual State Variable Filter](#dual-state-variable-filter)
 - [Reverbs](/posts/warps-symbiote#reverbs)
 - [Parameters](#parameters)
+- [Graphical Quick Reference](#graphical-quick-reference)
+- [Change Log](#change-log)
 
 ## Installation
 
@@ -80,16 +82,45 @@ The four available reverbs are:
 
 ## Parameters
 
-| Algorithm             | Algorithm Knob/CV         | Timbre Knob/CV                    | Internal Oscillator Button                                                                        | Level 1 Knob                            | Level 2 Knob                          | Level 1&2 CV                          | Output 1+2           | Aux                                   |
-|-----------------------|---------------------------|-----------------------------------|---------------------------------------------------------------------------------------------------|-----------------------------------------|---------------------------------------|---------------------------------------|----------------------|---------------------------------------|
-| Ladder Filter         | Cutoff frequency          | Resonance                         | Warps internal oscillator                                                                         | Input 1 level/ oscillator frequency     | Input 2 level                         | Inputs 1&2 VCA CV control             | Filter summed output | Sum of 1+2 or internal oscillator out |
-| Dual SVF              | Filter 1 cutoff frequency | Filter 2 cutoff frequency         | Toggles between different combinations: LP/HP (unlit), LP/BP (green), BP/HP (yellow), BP/BP (red) | Filter 1 resonance                      | Filter 2 resonance                    | Inputs 1&2 VCA CV control             | Filter 1 output      | Filter 2 output                       |
-| Reverbs               | Diffussion                | Reverb time                       | Selects reverbs: Caveman (unlit), Rings (green), Clouds (yellow), Elements (red)                  | Reverb amount, reverb gain for Elements | Filter LP filter, feedback for Clouds | Inputs 1&2 VCA CV control             | Left output          | Right output                          |
-| Chebyschev Waveshaper | Order                     | Gain                              | Warps internal oscillator                                                                         | Input 1 level/ oscillator frequency     | Input 2 level                         | Inputs 1&2 VCA CV control             | Out                  | Sum of 1+2 or internal oscillator out |
-| Frequency Shifter     | Frequency shift           | Crossfade between up/down outputs | Warps internal oscillator                                                                         | Feedback                                | Dry/Wet                               | Feedback and Dry/Wet CV control       | Up                   | Down                                  |
-| Bitcrusher            | Bit crushing amount       | Cross modulation: dry, AND, XOR   | Warps internal oscillator                                                                         | Input 1 level/ oscillator frequency     | Input 2 level                         | Inputs 1&2 VCA CV control             | Out                  | Sum of 1+2 or internal oscillator out |
-| Doppler Panner        | X Coordinate              | Y Coordinate                      | Space size: from smaller (unlit) to larger (red)                                                  | Up frequency                            | Up Amplitude                          | Up amplitude and frequency CV control | Out                  | Out symmetrical on axis               |
-| Delay                 | Delay speed/direction     | Delay length                      | Selects modes: open fb loop (unlit), dual (green), analog (yellow), ping-pong (red)               | Feedback                                | Dry/Wet                               | Feedback and Dry/Wet CV control       | Out 1                | out 2                                 |
+| Algorithm             | Algorithm Knob/CV         | Timbre Knob/CV                    | Internal Oscillator Button                                                                        | Level 1 Knob                            | Level 2 Knob                          | Level 1&2 CV                           | Output 1+2           | Aux                                   |
+|-----------------------|---------------------------|-----------------------------------|---------------------------------------------------------------------------------------------------|-----------------------------------------|---------------------------------------|----------------------------------------|----------------------|---------------------------------------|
+| Ladder Filter         | Cutoff frequency          | Resonance                         | Warps internal oscillator                                                                         | Input 1 level/ oscillator frequency     | Input 2 level                         | Inputs 1&2 VCA CV control              | Filter summed output | Sum of 1+2 or internal oscillator out |
+| Dual SVF              | Filter 1 cutoff frequency | Filter 2 cutoff frequency         | Toggles between different combinations: LP/HP (unlit), LP/BP (green), BP/HP (yellow), BP/BP (red) | Filter 1 resonance                      | Filter 2 resonance                    | Inputs 1&2 VCA CV control              | Filter 1 output      | Filter 2 output                       |
+| Reverbs               | Diffussion                | Reverb time                       | Selects reverbs: Caveman (unlit), Rings (green), Clouds (yellow), Elements (red)                  | Reverb amount, reverb gain for Elements | Filter LP filter, feedback for Clouds | Inputs 1&2 VCA CV control              | Left output          | Right output                          |
+| Chebyschev Waveshaper | Order                     | Gain                              | Warps internal oscillator                                                                         | Input 1 level/ oscillator frequency     | Input 2 level                         | Inputs 1&2 VCA CV control              | Out                  | Sum of 1+2 or internal oscillator out |
+| Frequency Shifter     | Frequency shift           | Crossfade between up/down outputs | Warps internal oscillator                                                                         | Feedback                                | Dry/Wet                               | Feedback and Dry/Wet CV control        | Up                   | Down                                  |
+| Bitcrusher            | Bit crushing amount       | Cross modulation: dry, AND, XOR   | Warps internal oscillator                                                                         | Input 1 level/ oscillator frequency     | Input 2 level                         | Inputs 1&2 VCA CV control              | Out                  | Sum of 1+2 or internal oscillator out |
+| Doppler Panner        | X Coordinate              | Y Coordinate                      | Space size: from smaller (unlit) to larger (red)                                                  | LFO frequency                           | LFO Amplitude                         | LFO amplitude and frequency CV control | Out                  | Out symmetrical on axis               |
+| Delay                 | Delay speed/direction     | Delay length                      | Selects modes: open fb loop (unlit), dual (green), analog (yellow), ping-pong (red)               | Feedback                                | Dry/Wet                               | Feedback and Dry/Wet CV control        | Out 1                | out 2                                 |
 
 For `Meta` mode see [Mutable Instruments stock firmware documentation](https://pichenettes.github.io/mutable-instruments-documentation/modules/warps/manual/)
 
+## Graphical Quick Reference
+
+A quick reference guide is provided. A ton of gratitude to [epijdemic](https://www.reddit.com/user/epijdemic/) who volunteered to create such a great visual aid for the firmware.
+
+&nbsp;
+
+![](/images/warps_symbiote_reference.png#centerme)
+
+&nbsp;
+
+## Change Log
+
+### Symbiote 0.2.0
+
+New features:
+
+- Replaced Parasites Vocoder with Doppler Panner, find it in position 7 in the interface.
+- Replaced pulse train oscillator with square wave oscillator.
+- The internal oscillator options for the ladder filter are now:
+   - Triangle (green), Saw (yellow), Square (red).
+- Improved cutoff frequency calibration for the ladder filter.
+
+### Symbiote 0.1.0
+
+New features:
+
+- Ladder Filter: ported from an implementation of the [improved Moog Ladder Filter](https://github.com/ddiakopoulos/MoogLadders/blob/master/src/ImprovedModel.h)
+- Dual State Variable Filter: implemented a dual filter based on Emillie's [State Variable Filter](https://github.com/pichenettes/stmlib/blob/e3bd7c9cc00e4364166f9905c0509b6ffd0535ec/dsp/filter.h#L177)
+- Multi Reverb: added 4 reverbs based on the implementations found in Rings, Clouds and Elements.

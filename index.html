@@ -114,6 +114,8 @@
 <li><a href="posts/warps-symbiote/#dual-state-variable-filter">Dual State Variable Filter</a></li>
 <li><a href="posts/warps-symbiote#reverbs">Reverbs</a></li>
 <li><a href="posts/warps-symbiote/#parameters">Parameters</a></li>
+<li><a href="posts/warps-symbiote/#graphical-quick-reference">Graphical Quick Reference</a></li>
+<li><a href="posts/warps-symbiote/#change-log">Change Log</a></li>
 </ul>
 <h3>Installation</h3>
 <p>Download the firmware <code>.wav</code> file <a href="https://github.com/leandrob13/eurorack/releases/tag/v0.2.0">version 0.2.0</a> and follow the usual update procedure stated in the <a href="https://pichenettes.github.io/mutable-instruments-documentation/modules/warps/manual/">Mutable Instruments Warps manual</a>.</p>
@@ -234,9 +236,9 @@ The four available reverbs are:</p>
 <td>X Coordinate</td>
 <td>Y Coordinate</td>
 <td>Space size: from smaller (unlit) to larger (red)</td>
-<td>Up frequency</td>
-<td>Up Amplitude</td>
-<td>Up amplitude and frequency CV control</td>
+<td>LFO frequency</td>
+<td>LFO Amplitude</td>
+<td>LFO amplitude and frequency CV control</td>
 <td>Out</td>
 <td>Out symmetrical on axis</td>
 </tr>
@@ -254,7 +256,31 @@ The four available reverbs are:</p>
 </tbody>
 </table>
 <p>For <code>Meta</code> mode see <a href="https://pichenettes.github.io/mutable-instruments-documentation/modules/warps/manual/">Mutable Instruments stock firmware documentation</a></p>
-    </div>
+<h3>Graphical Quick Reference</h3>
+<p>A quick reference guide is provided. A ton of gratitude to <a href="https://www.reddit.com/user/epijdemic/">epijdemic</a> who volunteered to create such a great visual aid for the firmware.</p>
+<p> </p>
+<p><img alt="" src="images/warps_symbiote_reference.png#centerme"></p>
+<p> </p>
+<h3>Change Log</h3>
+<h4>Symbiote 0.2.0</h4>
+<p>New features:</p>
+<ul>
+<li>Replaced Parasites Vocoder with Doppler Panner, find it in position 7 in the interface.</li>
+<li>Replaced pulse train oscillator with square wave oscillator.</li>
+<li>The internal oscillator options for the ladder filter are now:</li>
+<li>Triangle (green), Saw (yellow), Square (red).</li>
+<li>Improved cutoff frequency calibration for the ladder filter.</li>
+</ul>
+<h4>Symbiote 0.1.0</h4>
+<p>New features:</p>
+<ul>
+<li>Ladder Filter: ported from an implementation of the <a href="https://github.com/ddiakopoulos/MoogLadders/blob/master/src/ImprovedModel.h">improved Moog Ladder Filter</a>
+</li>
+<li>Dual State Variable Filter: implemented a dual filter based on Emillie's <a href="https://github.com/pichenettes/stmlib/blob/e3bd7c9cc00e4364166f9905c0509b6ffd0535ec/dsp/filter.h#L177">State Variable Filter</a>
+</li>
+<li>Multi Reverb: added 4 reverbs based on the implementations found in Rings, Clouds and Elements.</li>
+</ul>
+</div>
     </article><article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="posts/nts-1-harmonik-oscillator/" class="u-url">NTS-1 Harmonik Oscillator</a></h1>
 
         
