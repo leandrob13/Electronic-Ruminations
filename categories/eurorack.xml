@@ -3,7 +3,7 @@
 &lt;a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"&gt;
 &lt;img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"/&gt;
 &lt;/a&gt;
-</copyright><lastBuildDate>Tue, 18 Jul 2023 21:00:57 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Warps Symbiote</title><link>https://leandrob13.github.io/Electronic-Ruminations/posts/warps-symbiote/</link><dc:creator>Leandro B</dc:creator><description>&lt;h2&gt;Warps Symbiote&lt;/h2&gt;
+</copyright><lastBuildDate>Thu, 20 Jul 2023 15:32:27 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Warps Symbiote</title><link>https://leandrob13.github.io/Electronic-Ruminations/posts/warps-symbiote/</link><dc:creator>Leandro B</dc:creator><description>&lt;h2&gt;Warps Symbiote&lt;/h2&gt;
 &lt;p&gt;Warps Symbiote firmware is built on top of the &lt;a href="https://mqtthiqs.github.io/parasites/warps.html"&gt;Warps Parasites firmware&lt;/a&gt; and is my attempt to bring new life to the Mutable Instruments clones available from other manufacturers, let's try to preserve such an important legacy. It adds three new algorithms:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Ladder Filter: ported from an implementation of the &lt;a href="https://github.com/ddiakopoulos/MoogLadders/blob/master/src/ImprovedModel.h"&gt;improved Moog Ladder Filter&lt;/a&gt;&lt;/li&gt;
@@ -167,7 +167,8 @@ The four available reverbs are:&lt;/p&gt;
 &lt;/table&gt;
 &lt;p&gt;For &lt;code&gt;Meta&lt;/code&gt; mode see &lt;a href="https://pichenettes.github.io/mutable-instruments-documentation/modules/warps/manual/"&gt;Mutable Instruments stock firmware documentation&lt;/a&gt;&lt;/p&gt;
 &lt;h3&gt;Graphical Quick Reference&lt;/h3&gt;
-&lt;p&gt;A quick reference guide is provided. A ton of gratitude to &lt;a href="https://www.reddit.com/user/epijdemic/"&gt;epijdemic&lt;/a&gt; who volunteered to create such a great visual aid for the firmware.&lt;/p&gt;
+&lt;p&gt;A quick reference guide is provided. A ton of gratitude to &lt;a href="https://www.reddit.com/user/epijdemic/"&gt;epijdemic&lt;/a&gt; who volunteered to create such a great visual aid for the firmware.
+You can download the PDF &lt;a href="https://leandrob13.github.io/Electronic-Ruminations/pdf/symbiote_v2.pdf"&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt; &lt;/p&gt;
 &lt;p&gt;&lt;img alt="" src="https://leandrob13.github.io/Electronic-Ruminations/images/warps_symbiote_reference.png#centerme"&gt;&lt;/p&gt;
 &lt;p&gt; &lt;/p&gt;
