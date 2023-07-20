@@ -7,6 +7,7 @@
 .. link: 
 .. description: 
 .. type: text
+.. status: featured
 -->
 
 # Warps Symbiote
@@ -98,6 +99,7 @@ For `Meta` mode see [Mutable Instruments stock firmware documentation](https://p
 ## Graphical Quick Reference
 
 A quick reference guide is provided. A ton of gratitude to [epijdemic](https://www.reddit.com/user/epijdemic/) who volunteered to create such a great visual aid for the firmware.
+You can download the PDF [here](/pdf/symbiote_v2.pdf).
 
 &nbsp;
 
