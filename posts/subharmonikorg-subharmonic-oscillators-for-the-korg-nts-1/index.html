@@ -73,7 +73,8 @@ which is written ">
         </div>
         
 
-    </header><section class="e-content entry-content" itemprop="articleBody text"><p><img alt="" src="../../images/nts-1.png#centerme"></p>
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <p><img alt="" src="../../images/nts-1.png#centerme"></p>
 <p>I have been using the <a href="https://www.korg.com/us/products/dj/nts_1/">Korg NTS-1</a> for about 5 months, but it was just 
 recently that I was able to spend some time trying to understand how to program it. Korg published its <a href="https://korginc.github.io/logue-sdk/">logue-sdk</a>
 which is written in C/C++ and it provides useful templates and make files in order tu build custom oscillators, delays 
@@ -86,7 +87,7 @@ it instead of bricking the Minilogue XD which retails at $549. </p>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Vhonu-rM0B0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 <p> </p>
-<h3>The Subharmonikorg</h3>
+<h3 id="the-subharmonikorg">The Subharmonikorg<a href="#the-subharmonikorg" class="headerlink" title="Permalink to this heading">¶</a></h3>
 <p>With the introductions out of the way, lets talk about the Subharmonikorg. I was inspired to program this oscillator
 after I saw what Moog did with its analog synth, <a href="https://www.youtube.com/watch?v=ns0Zu5HjShY">The Subharmonicon</a> which
 is sort of a mix of two previous instruments: the <a href="http://www.analogue.org/network/traut_e.htm">Tratonium</a> and the
@@ -113,7 +114,7 @@ to the original note. This can be illustrated in the code hosted in the <a href=
 <code>OSC_CYCLE</code> function exposed in the <code>logue-sdk</code> API. Then w1 is divided by the undertones values taken from the editing
 params of the NTS-1, which are integer numbers greater than zero. I limited the max possible value of subharmonics to the 
 7th undertone.</p>
-<h4>Features</h4>
+<h4 id="features">Features<a href="#features" class="headerlink" title="Permalink to this heading">¶</a></h4>
 <p>The features for version 1.1-0 are as follows:</p>
 <ul>
 <li>One main harmonic oscillator with semitone calibration up to one octave higher and one octave lower.</li>
@@ -128,7 +129,7 @@ params of the NTS-1, which are integer numbers greater than zero. I limited the 
 only two patterns available which only affect the suboscillators: <code>down</code> and <code>up-down</code>. This means that if you hold a 
 note, the main oscillator will stay on it while both suboscillators will cycle from the 2nd through the 7th subharmonic. 
 Having separate arpeggiators allows you to play with interesting rhythm patterns. </p>
-<h4>Parameters</h4>
+<h4 id="parameters">Parameters<a href="#parameters" class="headerlink" title="Permalink to this heading">¶</a></h4>
 <p>The parameters you can edit are listed below.</p>
 <p>  </p>
 <table>
@@ -181,7 +182,7 @@ Having separate arpeggiators allows you to play with interesting rhythm patterns
 </tbody>
 </table>
 <p> </p>
-<h3>The Showcase</h3>
+<h3 id="the-showcase">The Showcase<a href="#the-showcase" class="headerlink" title="Permalink to this heading">¶</a></h3>
 <p>I did some noise experiment where I played with the NTS-1 Subharmonikorg and Moog's <a href="https://www.moogmusic.com/products/werkstatt-01-cv-expander">Werkstatt-01</a>.
 The Subharmonikorg is playing its arpeggio while I hit some lead notes with the Werkstatt. I tried to keep the mood creepy.</p>
 <p> </p>
@@ -199,7 +200,9 @@ The Subharmonikorg is playing its arpeggio while I hit some lead notes with the 
 </ul>
 <p>There are some other oscillator ideas I have and some new features I want to test out for the NTS-1 for this oscillator. 
 Hopefully I will also try this out with my newest adquisition, the Minilogue XD.</p>
-    </section><aside class="sharing no-print"><a href="#content" aria-label="Post beginning">
+    </div>
+    
+<aside class="sharing no-print"><a href="#content" aria-label="Post beginning">
        <i class="fa fa-2x fa-fw fa-arrow-circle-up" aria-hidden="true" title="Post beginning"></i>
     </a>
     <a href="https://leandrob13.github.io/Electronic-Ruminations/posts/music-synthesis-wave-analysis-with-python/" rel="next" title="Next post: Music Synthesis Wave Analysis With Python" aria-label="Next post: Music Synthesis Wave Analysis With Python">

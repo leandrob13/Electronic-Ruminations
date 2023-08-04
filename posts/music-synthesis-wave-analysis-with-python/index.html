@@ -70,7 +70,8 @@
         </div>
         
 
-    </header><section class="e-content entry-content" itemprop="articleBody text"><div id="cell-id=27425a33-2fb9-41a1-bcbe-dc568b3b9a08" class="cell border-box-sizing text_cell rendered">
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <div id="cell-id=27425a33-2fb9-41a1-bcbe-dc568b3b9a08" class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -78,7 +79,7 @@
 <p><img src="../../images/waveforms.png#centerme" alt=""></p>
 <p>Sound synthesis is all about combining basic electrical waveforms and processing them through different modules or components in order to obtain an output that either emulates sounds found in physical instruments or make new sound effects or musical tones. The main synthesizer component in charge of generating the output signal is the <a href="https://en.wikipedia.org/wiki/Voltage-controlled_oscillator">Voltage Controlled Oscillator</a> (VCO). The most common generated signals in a synthesizer are sine, square, sawtooth and triangle. I wanted to make the excercise of analyzing these signals from the harmonics point of view, the visual aid is always useful if you want to understand exactly what a harmonic is.</p>
 <h4 id="Signals-and-Harmonics">Signals and Harmonics<a class="anchor-link" href="#Signals-and-Harmonics">¶</a>
-</h4>
+<a href="#Signals-and-Harmonics" class="headerlink" title="Permalink to this heading">¶</a></h4>
 <p> </p>
 <p>What are harmonics? For starters, it is not a sole property of musical theory. It is a property of waves in general. Where there are waves involved, there is a harmonic analysis that can be done. That is why we talk about harmonics in music, where the sound waves are generated from the physical interaction with the musical instruments. Music synthesis is no different, we generate the harmonics from electrical waves which are eventualy transformed into sound waves.</p>
 <p>So how can we define a harmonic? We can keep it simple by saying that if you have a wave that has a given frequency <code>F</code>, a harmonic is a wave that has a frequency which is a multiple of <code>F</code>. You can generate a new wave with a different shape by summing the two signals. This will make <code>F</code> the fundamental frequency of that signal.</p>
@@ -95,7 +96,7 @@
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h4 id="Importing-Necessary-Modules">Importing Necessary Modules<a class="anchor-link" href="#Importing-Necessary-Modules">¶</a>
-</h4>
+<a href="#Importing-Necessary-Modules" class="headerlink" title="Permalink to this heading">¶</a></h4>
 <p> </p>
 <p>I will use pandas as a plotter helper, I have found it is an easier way to deal with matplotlib. Numpy and Scipy are used to generate the signals that we want to analyze. In addition, Scipy will provide the necesary functions to do the <a href="https://en.wikipedia.org/wiki/Fast_Fourier_transform">Fast Fourier transform</a>, which is what we need in order to visualize the harmonic content of the waves.</p>
 
@@ -126,7 +127,7 @@
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h4 id="Define-The-Signals">Define The Signals<a class="anchor-link" href="#Define-The-Signals">¶</a>
-</h4>
+<a href="#Define-The-Signals" class="headerlink" title="Permalink to this heading">¶</a></h4>
 <p> </p>
 <p>As I mentioned above, we will be generating four signals:</p>
 <ul>
@@ -164,7 +165,7 @@
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h4 id="Audio-and-Plot">Audio and Plot<a class="anchor-link" href="#Audio-and-Plot">¶</a>
-</h4>
+<a href="#Audio-and-Plot" class="headerlink" title="Permalink to this heading">¶</a></h4>
 <p> </p>
 <p>We define our python function that will help us plot and listen to the signals.</p>
 
@@ -218,12 +219,12 @@
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h4 id="Analyze-The-Waves">Analyze The Waves<a class="anchor-link" href="#Analyze-The-Waves">¶</a>
-</h4>
+<a href="#Analyze-The-Waves" class="headerlink" title="Permalink to this heading">¶</a></h4>
 <p> </p>
 <p>We now proceed to look into each wave and understanding the graphs being displayed. Each wave will be generated with a 440Hz frequency (musical note A) and we will be able to visualize up to the 10th harmonic in the plot.
  </p>
 <h4 id="WARNING">WARNING<a class="anchor-link" href="#WARNING">¶</a>
-</h4>
+<a href="#WARNING" class="headerlink" title="Permalink to this heading">¶</a></h4>
 <p> </p>
 <p>Be careful when listening to the audio. If you are wearing headphones, turned down the volume or take them off.</p>
 
@@ -236,7 +237,7 @@
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h4 id="Sine-Wave">Sine Wave<a class="anchor-link" href="#Sine-Wave">¶</a>
-</h4>
+<a href="#Sine-Wave" class="headerlink" title="Permalink to this heading">¶</a></h4>
 <p> </p>
 <p>The sine wave is the fundamental wave shape. From this, every other wave shape is formed. When we talk about any type of complex wave, we can always decompose them to a sum of the fundamental sine wave with its harmonics.</p>
 <p>As you can see below, the top part of the graph shows you how a sine wave looks like. The bottom portion shows you the frequency components the wave has. We only see one frequency component at 440Hz, which is its fundamental frequency. So far, everything checks. The sine wave is in fact a "pure" fundamental wave and it makes sense to think that other wave shapes can be derived from it.</p>
@@ -297,7 +298,7 @@
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h4 id="Square-Wave">Square Wave<a class="anchor-link" href="#Square-Wave">¶</a>
-</h4>
+<a href="#Square-Wave" class="headerlink" title="Permalink to this heading">¶</a></h4>
 <p> </p>
 <p>Square waves are used in many electronics applications, the most common one is for clock signals in digital circuits. In music synthesis, it is one of the most common and it is worth taking a closer look at it.</p>
 <p>Below we see again the wave shape along with its frequency components. Different to the sine wave, we see 5 different frequency components. The one with the greater magnitude lies in the fundamental frequency of 440Hz, the rest are its harmonic components. As we can see, and this is one of the interesting parts, there are only odd harmonics (frequencies of 3, 5, 7 and 9 harmonic component) which seem to decay in magnitude exponentially. This means that we could break down this signal into at least 5 different sine waves with different amplitudes and frequencies based on odd multiples of the fundamental frequency.</p>
@@ -358,7 +359,7 @@
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h4 id="Sawtooth-Wave">Sawtooth Wave<a class="anchor-link" href="#Sawtooth-Wave">¶</a>
-</h4>
+<a href="#Sawtooth-Wave" class="headerlink" title="Permalink to this heading">¶</a></h4>
 <p> </p>
 <p>Into the sawtooth wave. Also known in music synthesis as plain <code>saw</code> or <code>ramp</code>, it is also very common in synthesizer hardware architectures.</p>
 <p>Going directly to the harmonic analysis, we see that this wave has frequency components in all 10 harmonics and they also have their magnitude decaying exponentially. I often heard that in music synthesis the sawtooth wave is considered "rich in harmonic content" and now I understand why. The same principle applies as in the previous example: we could break down this signal into at least 10 different sine waves with different weights and frequencies based on odd multiples of the fundamental frequency.</p>
@@ -419,7 +420,7 @@
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h4 id="Triangle-Wave">Triangle Wave<a class="anchor-link" href="#Triangle-Wave">¶</a>
-</h4>
+<a href="#Triangle-Wave" class="headerlink" title="Permalink to this heading">¶</a></h4>
 <p> </p>
 <p>The triangle wave is not as popular in synthesizer architectures as the square and sawtooth when being used in a VCO. When it is present, it is mostly considered for bass sounds or "suboscillator" usage.</p>
 <p>The harmonic content of this wave is low, sharing the common characteristic of the square wave which is only odd harmonics are present. The difference is in the order of magnitude, which is obviously lower. If you can listen to the wave, the sound is much closer to the sine wave than to the square wave.</p>
@@ -480,7 +481,7 @@
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h4 id="Summing-Up">Summing Up<a class="anchor-link" href="#Summing-Up">¶</a>
-</h4>
+<a href="#Summing-Up" class="headerlink" title="Permalink to this heading">¶</a></h4>
 <p> </p>
 <p>We got to take a closer look into 4 different wave shapes most commonly used in music synthesis. The most harmonically rich wave is the sawtooth, followed by the square and triangle. Harmonics are not a musical concept, it is a property that we defined to help us describe complex waves in general.</p>
 <p>Hopefully when you listen or read about "harmonic content" of a wave when looking into synths, you will now have a better idea of what they are reffering to.</p>
@@ -489,7 +490,9 @@
 </div>
 </div>
 </div>
-    </section><aside class="sharing no-print"><a href="#content" aria-label="Post beginning">
+    </div>
+    
+<aside class="sharing no-print"><a href="#content" aria-label="Post beginning">
        <i class="fa fa-2x fa-fw fa-arrow-circle-up" aria-hidden="true" title="Post beginning"></i>
     </a>
     <a href="https://leandrob13.github.io/Electronic-Ruminations/posts/subharmonikorg-subharmonic-oscillators-for-the-korg-nts-1/" rel="prev" title="Subharmonikorg: Subharmonic Oscillators for the Korg NTS-1">

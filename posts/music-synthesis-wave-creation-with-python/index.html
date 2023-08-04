@@ -70,7 +70,8 @@
         </div>
         
 
-    </header><section class="e-content entry-content" itemprop="articleBody text"><div id="cell-id=06713206" class="cell border-box-sizing text_cell rendered">
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <div id="cell-id=06713206" class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -78,7 +79,7 @@
 <p>In my previous post, <a href="https://leandrob13.github.io/Electronic-Ruminations/posts/music-synthesis-wave-analysis-with-python/">Music Synthesis Wave Analysis With Python</a>,  I talked about harmonics in sound waves and how they can be synthezised from electrical signals. Knowing that there are harmonics present in the most used wave forms in music synthesis (triangle, sawtooth and square shapes), I showed the results of the fourier transform analysis to understand the harmonic components of each wave. We now understand that each wave is the result of summing different signals with different frequencies and amplitudes. This can be observed in the Fast Fourier Transform (FFT) graphs shown in the previous post.</p>
 <p>It is awesome to know all of this, but you may wonder if it is possible to start from a simple sine wave and try to construct each wave by summing other sine waves to the fundamental. The short answer is: YES. Thanks to the FFT we can visualize each frequency component of a given wave, from there we can try and cook up each one according to the recipe. This is the basic principle of the <a href="https://en.wikipedia.org/wiki/Fourier_series">Fourier Series</a>. In this post, I will try to get as close as I can since the precise relationship of amplitudes and frequencies of each harmonic component for a given wave is hard to replicate. It will be an exercise of aproximations in order to illustrate how powerful the FFT is for understanding waveforms.</p>
 <h4 id="Importing-Necessary-Modules">Importing Necessary Modules<a class="anchor-link" href="#Importing-Necessary-Modules">¶</a>
-</h4>
+<a href="#Importing-Necessary-Modules" class="headerlink" title="Permalink to this heading">¶</a></h4>
 <p> </p>
 <p>As before, we will start by importing our needed modules and functions.</p>
 
@@ -110,7 +111,7 @@
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h4 id="Audio-and-Plot">Audio and Plot<a class="anchor-link" href="#Audio-and-Plot">¶</a>
-</h4>
+<a href="#Audio-and-Plot" class="headerlink" title="Permalink to this heading">¶</a></h4>
 <p> </p>
 <p>I did some modifications to the <code>play_and_plot_wave</code> function and added the <code>sum_harmonics</code> in order to do the Fourier sum of each wave related to the provided harmonics list. The amplitude of each harmonic component will be decreased exponentially as we advance the harmonic value. I decided to do this since the results of each previously analyzed waves ressembled an exponential decay in their amplitudes.</p>
 <p> </p>
@@ -176,16 +177,16 @@
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h4 id="Creating-The-Waves">Creating The Waves<a class="anchor-link" href="#Creating-The-Waves">¶</a>
-</h4>
+<a href="#Creating-The-Waves" class="headerlink" title="Permalink to this heading">¶</a></h4>
 <p> </p>
 <p>We will start with the fundamental wave, our sine at 440Hz frequency, just to have a comparison on how this will morph into our aproximated wave shapes. For every result in the following graphs, we will be observing up to the 10th harmonic.</p>
 <p> </p>
 <h4 id="WARNING">WARNING<a class="anchor-link" href="#WARNING">¶</a>
-</h4>
+<a href="#WARNING" class="headerlink" title="Permalink to this heading">¶</a></h4>
 <p> </p>
 <p>Be careful when listening to the audio. If you are wearing headphones, turned down the volume or take them off.</p>
 <h4 id="Sine-Wave">Sine Wave<a class="anchor-link" href="#Sine-Wave">¶</a>
-</h4>
+<a href="#Sine-Wave" class="headerlink" title="Permalink to this heading">¶</a></h4>
 <p> </p>
 <p>No surprises here, we see a clean sine wave with the expected harmonic only at the fundamental 440Hz frequency. Let the wave shaping begin.</p>
 
@@ -245,7 +246,7 @@
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h4 id="Square(ish)-Wave">Square(ish) Wave<a class="anchor-link" href="#Square(ish)-Wave">¶</a>
-</h4>
+<a href="#Square(ish)-Wave" class="headerlink" title="Permalink to this heading">¶</a></h4>
 <p> </p>
 <p>As we observed in the <a href="https://leandrob13.github.io/Electronic-Ruminations/posts/music-synthesis-wave-analysis-with-python/#Square-Wave">square wave analysis</a> of our previous post, this wave shape only had odd harmonic components and it seemed like an exponential decay between them. We will try to approximate the result by just adding sine waves up to the 9th odd harmonic and see what we get. We will have to tweak a bit the decay bias and damping variable <code>tau</code>.</p>
 
@@ -313,7 +314,7 @@
 <p>Lets not stop here and keep synthesizing waves!
  </p>
 <h4 id="Sawtooth(ish)-Wave">Sawtooth(ish) Wave<a class="anchor-link" href="#Sawtooth(ish)-Wave">¶</a>
-</h4>
+<a href="#Sawtooth(ish)-Wave" class="headerlink" title="Permalink to this heading">¶</a></h4>
 <p> </p>
 <p>The <a href="https://leandrob13.github.io/Electronic-Ruminations/posts/music-synthesis-wave-analysis-with-python/#Sawtooth-Wave">sawtooth wave analysis</a> showed us that this waveform has even and odd harmonic components present. Based on that, we proceed to sum all of the sine waves up to the 10th harmonic.</p>
 
@@ -375,7 +376,7 @@
 <p>Again, close enough. The difference is that our frankenstein version is tilted to the left in comparison to the original which is tilted to the right. Again we see some curly peaks and slopes due to the way we calculated the amplitude relationship of each harmonic component. I followed the recipe and we see an exponential decay between each component up to the 10th harmonic. If you play the sound, you'll hear that it resembles pretty well the original sawtooth.
  </p>
 <h4 id="Triangle(ish)-Wave">Triangle(ish) Wave<a class="anchor-link" href="#Triangle(ish)-Wave">¶</a>
-</h4>
+<a href="#Triangle(ish)-Wave" class="headerlink" title="Permalink to this heading">¶</a></h4>
 <p> </p>
 <p>This one was the hardest one to get and the aproximation is not that good in comparison to the previous ones. If you recall the <a href="https://leandrob13.github.io/Electronic-Ruminations/posts/music-synthesis-wave-analysis-with-python/#Triangle-Wave">triangle wave analysis</a>, this wave had also only odd harmonic components but the amplitudes of each were smaller compared to the square wave. I had to sum only the odd harmonics up to the 5th and tweak a bit the <code>tau</code> parameter.</p>
 
@@ -441,7 +442,7 @@
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>As you can see, I obtained some sharp peaks and straight slopes. It still resembles a sine wave but if you look the FFT graph you'll see that the harmonic components are present. Not as similar as the ones from the previous post but I am happy with the results.</p>
 <h4 id="Wrapping-Up">Wrapping Up<a class="anchor-link" href="#Wrapping-Up">¶</a>
-</h4>
+<a href="#Wrapping-Up" class="headerlink" title="Permalink to this heading">¶</a></h4>
 <p> </p>
 <p>Working with the knowledge acquired by understanding the FFT, we were able to see how we can build any waveform by just summing sine waves with different frequencies and amplitudes. We can easily obtain the usual syntheziser wave shapes by either using a function in any programming language or by designing a circuit that generates the electrical waves but... now you know how the fundamental principle works by visualizing the results of applying it.</p>
 <p>As a sound synthesist, you work with whatever wave shape is given to you and mix, filter or distort them to make new sounds. Another approach is to use the basic building block, the sine wave, and add harmonics, subharmonics, fold or multiply the waves in order to create your sounds. These are the two perspectives that this series of posts are trying to give you and which opens up the discussion of <em>Additive vs Subtractive Synthesis</em> (or well known as West Coast and East Coast Synthesis). This could be a subject for a future post, since it is very broad.</p>
@@ -450,7 +451,9 @@
 </div>
 </div>
 </div>
-    </section><aside class="sharing no-print"><a href="#content" aria-label="Post beginning">
+    </div>
+    
+<aside class="sharing no-print"><a href="#content" aria-label="Post beginning">
        <i class="fa fa-2x fa-fw fa-arrow-circle-up" aria-hidden="true" title="Post beginning"></i>
     </a>
     <a href="https://leandrob13.github.io/Electronic-Ruminations/posts/music-synthesis-wave-analysis-with-python/" rel="prev" title="Music Synthesis Wave Analysis With Python">
