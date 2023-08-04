@@ -141,13 +141,14 @@ TRANSLATIONS_PATTERN = '{path}.{lang}.{ext}'
 # Alternative navigation links. Works the same way NAVIGATION_LINKS does,
 # although themes may not always support them. (translatable)
 # (Bootstrap 4: right-side of navbar, Bootblog 4: right side of title)
-NAVIGATION_ALT_LINKS = {
+"""NAVIGATION_LINKS = {
     DEFAULT_LANG: ()
-}
+}"""
 
+#THEME = "lanyon"
 # Name of the theme to use.
-THEME = "gruberwine"
-NAVIGATION_LINKS = {
+#THEME = "gruberwine"
+"""NAVIGATION_LINKS = {
     DEFAULT_LANG: (
         ('/index.html', 'Home', 'fa fa-home'),
         ('/archive.html', 'Archives', 'fa fa-folder-open'),
@@ -156,15 +157,26 @@ NAVIGATION_LINKS = {
         #('https://getnikola.com', 'About me', 'fa fa-user'),
         ('https://github.com/leandrob13', 'My Github', 'fab fa-github'),
     )
-}
+}"""
 
 
-"""THEME = "jidn" #Mostly winning
+THEME = "jidn" #Mostly winning
 
 GLOBAL_CONTEXT = {
     "JIDN": {},  # Extra info about authors
-    # "JIDN-theme": "theme-base-blue",
-}"""
+    #"JIDN-theme": "theme-base-blue",
+}
+
+NAVIGATION_LINKS = {
+    DEFAULT_LANG: (
+        ('/', 'Home'),
+        ('/blog', 'Blog'),
+        ('/archive.html', 'Archives'),
+        ('/categories/', 'Tags'),
+        ('/rss.xml', 'RSS'),
+        ('https://github.com/leandrob13', 'My Github'),
+    )
+}
 
 #THEME = "canterville"
 #LOGO_URL = 'https://getnikola.com/assets/img/logo.svg'
@@ -189,17 +201,17 @@ THEME_COLOR = '#5670d4'
 #                      navbar_custom_bg (defaults to '')
 
 # Config for bootstrap4:
-# THEME_CONFIG = {
-#     DEFAULT_LANG: {
-#         # Use a light navbar with dark text. Defaults to False.
-#         'navbar_light': False,
+THEME_CONFIG = {
+     DEFAULT_LANG: {
+         # Use a light navbar with dark text. Defaults to False.
+         'navbar_light': False,
 #         # Use a custom navbar color. If unset, 'navbar_light' sets text +
 #         # background color. If set, navbar_light controls only background
 #         # color. Supported values: bg-dark, bg-light, bg-primary, bg-secondary,
 #         # bg-success, bg-danger, bg-warning, bg-info, bg-white, bg-transparent.
 #         'navbar_custom_bg': '',
-#     }
-# }
+     }
+ }
 
 # POSTS and PAGES contains (wildcard, destination, template) tuples.
 # (translatable)
@@ -243,11 +255,11 @@ POSTS = (
     ("posts/*.ipynb", "posts", "post.tmpl"),
 )
 PAGES = (
-    ("pages/*.rst", "pages", "page.tmpl"),
-    ("pages/*.md", "pages", "page.tmpl"),
-    ("pages/*.txt", "pages", "page.tmpl"),
-    ("pages/*.html", "pages", "page.tmpl"),
-    ("pages/*.ipynb", "pages", "page.tmpl"),
+    ("pages/*.rst", "", "page.tmpl"),
+    ("pages/*.md", "", "page.tmpl"),
+    ("pages/*.txt", "", "page.tmpl"),
+    ("pages/*.html", "", "page.tmpl"),
+    ("pages/*.ipynb", "", "page.tmpl"),
 )
 
 
@@ -578,7 +590,7 @@ HIDDEN_AUTHORS = ['Guest']
 # Final location for the main blog page and sibling paginated pages is
 # output / TRANSLATION[lang] / INDEX_PATH / index-*.html
 # (translatable)
-# INDEX_PATH = ""
+INDEX_PATH = "blog"
 
 # Optional HTML that displayed on “main” blog index.html files.
 # May be used for a greeting. (translatable)
@@ -587,16 +599,16 @@ FRONT_INDEX_HEADER = {
 }
 
 # Create per-month archives instead of per-year
-# CREATE_MONTHLY_ARCHIVE = False
+# CREATE_MONTHLY_ARCHIVE = True
 # Create one large archive instead of per-year
 # CREATE_SINGLE_ARCHIVE = False
 # Create year, month, and day archives each with a (long) list of posts
 # (overrides both CREATE_MONTHLY_ARCHIVE and CREATE_SINGLE_ARCHIVE)
-# CREATE_FULL_ARCHIVES = False
+#CREATE_FULL_ARCHIVES = True
 # If monthly archives or full archives are created, adds also one archive per day
 # CREATE_DAILY_ARCHIVE = False
 # Create previous, up, next navigation links for archives
-# CREATE_ARCHIVE_NAVIGATION = False
+CREATE_ARCHIVE_NAVIGATION = True
 # Final locations for the archives are:
 # output / TRANSLATION[lang] / ARCHIVE_PATH / ARCHIVE_FILENAME
 # output / TRANSLATION[lang] / ARCHIVE_PATH / YEAR / index.html
@@ -656,7 +668,7 @@ ATOM_FILENAME_BASE = "feed"
 # relative URL.
 #
 # If you don't need any of these, just set to []
-REDIRECTIONS = []
+REDIRECTIONS = [("/", "/blog")]
 
 # Presets of commands to execute to deploy. Can be anything, for
 # example, you may use rsync:
@@ -872,11 +884,11 @@ IMAGE_THUMBNAIL_FORMAT = '{name}.thumbnail{ext}'
 # INDEXES_TITLE = ""
 #
 # (translatable) If the following is empty, defaults to ' [old posts,] page %d' (see above):
-# INDEXES_PAGES = ""
+INDEXES_PAGES = " page %d"
 #
 # If the following is True, INDEXES_PAGES is also displayed on the main (the
 # newest) index page (index.html):
-#INDEXES_PAGES_MAIN = True
+INDEXES_PAGES_MAIN = False
 #
 # If the following is True, index-1.html has the oldest posts, index-2.html the
 # second-oldest posts, etc., and index.html has the newest posts. This ensures
@@ -905,12 +917,12 @@ IMAGE_THUMBNAIL_FORMAT = '{name}.thumbnail{ext}'
 # Note that in case INDEXES_PAGES_MAIN is set to True, a redirection will be created
 # for the full URL with the page number of the main page to the normal (shorter) main
 # page URL.
-INDEXES_PRETTY_PAGE_URL = True
+INDEXES_PRETTY_PAGE_URL = ['page', '{number}', '{index_file}']
 #
 # If the following is true, a page range navigation will be inserted to indices.
 # Please note that this will undo the effect of INDEXES_STATIC, as all index pages
 # must be recreated whenever the number of pages changes.
-SHOW_INDEX_PAGE_NAVIGATION = False
+SHOW_INDEX_PAGE_NAVIGATION = True
 
 # If the following is True, a meta name="generator" tag is added to pages. The
 # generator tag is used to specify the software used to generate the page
