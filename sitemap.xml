@@ -7,94 +7,98 @@
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <url>
   <loc>https://leandrob13.github.io/Electronic-Ruminations/</loc>
-  <lastmod>2023-07-20T15:32:00Z</lastmod>
+  <lastmod>2023-08-04T04:21:00Z</lastmod>
  </url>
  <url>
   <loc>https://leandrob13.github.io/Electronic-Ruminations/2021/</loc>
-  <lastmod>2023-07-20T15:32:00Z</lastmod>
+  <lastmod>2023-08-04T04:21:00Z</lastmod>
  </url>
  <url>
   <loc>https://leandrob13.github.io/Electronic-Ruminations/2023/</loc>
-  <lastmod>2023-07-20T15:32:00Z</lastmod>
+  <lastmod>2023-08-04T04:21:00Z</lastmod>
  </url>
  <url>
   <loc>https://leandrob13.github.io/Electronic-Ruminations/archive.html</loc>
-  <lastmod>2023-07-20T15:32:00Z</lastmod>
+  <lastmod>2023-08-04T04:21:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://leandrob13.github.io/Electronic-Ruminations/blog/</loc>
+  <lastmod>2023-08-04T04:21:00Z</lastmod>
  </url>
  <url>
   <loc>https://leandrob13.github.io/Electronic-Ruminations/categories/</loc>
-  <lastmod>2023-07-20T15:32:00Z</lastmod>
+  <lastmod>2023-08-04T04:21:00Z</lastmod>
  </url>
  <url>
   <loc>https://leandrob13.github.io/Electronic-Ruminations/categories/cat_music-programming/</loc>
-  <lastmod>2023-07-20T15:32:00Z</lastmod>
+  <lastmod>2023-08-04T04:21:00Z</lastmod>
  </url>
  <url>
   <loc>https://leandrob13.github.io/Electronic-Ruminations/categories/dsp/</loc>
-  <lastmod>2023-07-20T15:32:00Z</lastmod>
+  <lastmod>2023-08-04T04:21:00Z</lastmod>
  </url>
  <url>
   <loc>https://leandrob13.github.io/Electronic-Ruminations/categories/eurorack/</loc>
-  <lastmod>2023-07-20T15:32:00Z</lastmod>
+  <lastmod>2023-08-04T04:21:00Z</lastmod>
  </url>
  <url>
   <loc>https://leandrob13.github.io/Electronic-Ruminations/categories/korg/</loc>
-  <lastmod>2023-07-20T15:32:00Z</lastmod>
+  <lastmod>2023-08-04T04:21:00Z</lastmod>
  </url>
  <url>
   <loc>https://leandrob13.github.io/Electronic-Ruminations/categories/logue-sdk/</loc>
-  <lastmod>2023-07-20T15:32:00Z</lastmod>
+  <lastmod>2023-08-04T04:21:00Z</lastmod>
  </url>
  <url>
   <loc>https://leandrob13.github.io/Electronic-Ruminations/categories/mutable-instruments/</loc>
-  <lastmod>2023-07-20T15:32:00Z</lastmod>
+  <lastmod>2023-08-04T04:21:00Z</lastmod>
  </url>
  <url>
   <loc>https://leandrob13.github.io/Electronic-Ruminations/categories/nts-1/</loc>
-  <lastmod>2023-07-20T15:32:00Z</lastmod>
+  <lastmod>2023-08-04T04:21:00Z</lastmod>
  </url>
  <url>
   <loc>https://leandrob13.github.io/Electronic-Ruminations/categories/python/</loc>
-  <lastmod>2023-07-20T15:32:00Z</lastmod>
+  <lastmod>2023-08-04T04:21:00Z</lastmod>
  </url>
  <url>
   <loc>https://leandrob13.github.io/Electronic-Ruminations/categories/synths/</loc>
-  <lastmod>2023-07-20T15:32:00Z</lastmod>
+  <lastmod>2023-08-04T04:21:00Z</lastmod>
  </url>
  <url>
   <loc>https://leandrob13.github.io/Electronic-Ruminations/galleries/</loc>
-  <lastmod>2023-07-20T15:32:00Z</lastmod>
+  <lastmod>2023-08-04T04:21:00Z</lastmod>
  </url>
  <url>
   <loc>https://leandrob13.github.io/Electronic-Ruminations/listings/</loc>
-  <lastmod>2023-07-20T15:32:00Z</lastmod>
+  <lastmod>2023-08-04T04:21:00Z</lastmod>
  </url>
  <url>
   <loc>https://leandrob13.github.io/Electronic-Ruminations/listings/__pycache__/</loc>
-  <lastmod>2023-07-20T15:32:00Z</lastmod>
+  <lastmod>2023-08-04T04:21:00Z</lastmod>
  </url>
  <url>
   <loc>https://leandrob13.github.io/Electronic-Ruminations/listings/oscillator.cpp.html</loc>
-  <lastmod>2023-07-20T15:32:00Z</lastmod>
+  <lastmod>2023-08-04T04:21:00Z</lastmod>
  </url>
  <url>
   <loc>https://leandrob13.github.io/Electronic-Ruminations/posts/music-synthesis-wave-analysis-with-python/</loc>
-  <lastmod>2023-07-20T15:32:00Z</lastmod>
+  <lastmod>2023-08-04T04:21:00Z</lastmod>
  </url>
  <url>
   <loc>https://leandrob13.github.io/Electronic-Ruminations/posts/music-synthesis-wave-creation-with-python/</loc>
-  <lastmod>2023-07-20T15:32:00Z</lastmod>
+  <lastmod>2023-08-04T04:21:00Z</lastmod>
  </url>
  <url>
   <loc>https://leandrob13.github.io/Electronic-Ruminations/posts/nts-1-harmonik-oscillator/</loc>
-  <lastmod>2023-07-20T15:32:00Z</lastmod>
+  <lastmod>2023-08-04T04:21:00Z</lastmod>
  </url>
  <url>
   <loc>https://leandrob13.github.io/Electronic-Ruminations/posts/subharmonikorg-subharmonic-oscillators-for-the-korg-nts-1/</loc>
-  <lastmod>2023-07-20T15:32:00Z</lastmod>
+  <lastmod>2023-08-04T04:21:00Z</lastmod>
  </url>
  <url>
   <loc>https://leandrob13.github.io/Electronic-Ruminations/posts/warps-symbiote/</loc>
-  <lastmod>2023-07-20T15:32:00Z</lastmod>
+  <lastmod>2023-08-04T04:21:00Z</lastmod>
  </url>
 </urlset>

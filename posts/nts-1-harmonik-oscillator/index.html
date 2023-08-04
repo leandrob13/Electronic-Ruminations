@@ -1,22 +1,15 @@
 <!DOCTYPE html>
-<html prefix="
-        og: http://ogp.me/ns# article: http://ogp.me/ns/article#
-    " vocab="http://ogp.me/ns" lang="en">
+<html prefix="" lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>NTS-1 Harmonik Oscillator | Electronic Ruminations</title>
-<link href="https://fonts.googleapis.com/css?family=Bitter:400,400i,700" rel="stylesheet" type="text/css">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-<link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
-<link href="../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
-<link href="../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
-<meta name="theme-color" content="#5670d4">
-<meta name="generator" content="Nikola (getnikola.com)">
-<link rel="alternate" type="application/rss+xml" title="RSS" hreflang="en" href="../../rss.xml">
+<link href="../../assets/css/all.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../../rss.xml">
 <link rel="canonical" href="https://leandrob13.github.io/Electronic-Ruminations/posts/nts-1-harmonik-oscillator/">
 <link rel="icon" href="../../favicon.ico" sizes="48x48">
-<!--[if lt IE 9]><script src="../../assets/js/html5shiv-printshiv.min.js"></script><![endif]--><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=G-VGDFS80SZM"></script><script>
+<!--[if lt IE 9]><script src="../../assets/js/html5.js"></script><![endif]--><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=G-VGDFS80SZM"></script><script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
@@ -38,98 +31,62 @@ it was time to look int">
 <meta property="article:tag" content="synths">
 </head>
 <body>
+    <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+            styles, `#sidebar-checkbox` for behavior. -->
+    <input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox"><!-- Toggleable sidebar --><div class="sidebar" id="sidebar">
 
-	<a href="#page-content" class="sr-only sr-only-focusable">
-		Skip to main content
-	</a>
-
-	
-
-    <section id="header"><a href="../../">
-			<div class="logo">
-					<div id="nologoimage">
-						Electronic Ruminations
-					</div>
-    		</div>
-			</a>
-    </section><section id="socialNav"><!-- Navigation Menu - on top on small screens, down the left on larger --><div class="navlinks">
-			<a href="../../">
-				<div id="titleauth">
-    					Electronic Ruminations<br> by Leandro B
-				</div>
-			</a>
-
-            <!-- Navigation links (hidden by default) -->
-			<div id="navmenuitems">
-				            <a href="../../index.html" title="Home">
-                <span class="menuitemtext">Home</span>
-                <span class="menuitemicon"><i class="fa fa-home"></i></span>
-            </a>
-            <a href="../../archive.html" title="Archives">
-                <span class="menuitemtext">Archives</span>
-                <span class="menuitemicon"><i class="fa fa-folder-open"></i></span>
-            </a>
-            <a href="../../categories/" title="Tags">
-                <span class="menuitemtext">Tags</span>
-                <span class="menuitemicon"><i class="fa fa-tags"></i></span>
-            </a>
-            <a href="../../rss.xml" title="RSS">
-                <span class="menuitemtext">RSS</span>
-                <span class="menuitemicon"><i class="fa fa-rss"></i></span>
-            </a>
-            <a href="https://github.com/leandrob13" title="My Github">
-                <span class="menuitemtext">My Github</span>
-                <span class="menuitemicon"><i class="fab fa-github"></i></span>
-            </a>
+        
+    <nav id="menu" role="navigation" class="sidebar-nav"><a class="sidebar-nav-item" href="../../">Home</a>
+        <a class="sidebar-nav-item" href="../../blog">Blog</a>
+        <a class="sidebar-nav-item" href="../../archive.html">Archives</a>
+        <a class="sidebar-nav-item" href="../../categories/">Tags</a>
+        <a class="sidebar-nav-item" href="../../rss.xml">RSS</a>
+        <a class="sidebar-nav-item" href="https://github.com/leandrob13">My Github</a>
     
     
-
-			</div>
-
-            <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
-			<a href="javascript:void(0);" id="hamburger" class="icon" onclick="toggleNav()">
-				<i class="fa fa-bars">
-				</i>
-			</a>
-		</div>
-
-	</section><section class="page-content"><div class="content" rel="main">
-<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">NTS-1 Harmonik Oscillator</a></h1>
-
-        <div class="metadata">
-            <p class="dateline"><a href="." rel="bookmark"><i class="fa fa-clock"></i> <time class="published dt-published" datetime="2021-08-07T11:39:31-05:00" itemprop="datePublished" title="2021-08-07 11:39">2021-08-07 11:39</time></a></p>
-
-                    <p class="sourceline"><a href="index.md" class="sourcelink"><i class="fa fa-file-code"></i> Source</a></p>
-
-            
-                <div class="tags">
-<h3 class="metadata-title">
-<i class="fa fa-tags"></i> Tags:</h3>
-        <ul itemprop="keywords" class="tags-ul">
-<li><a class="tag p-category" href="../../categories/korg/" rel="tag">korg</a></li>
-            <li><a class="tag p-category" href="../../categories/logue-sdk/" rel="tag">logue sdk</a></li>
-            <li><a class="tag p-category" href="../../categories/nts-1/" rel="tag">nts-1</a></li>
-            <li><a class="tag p-category" href="../../categories/synths/" rel="tag">synths</a></li>
-        </ul>
+    </nav>
 </div>
 
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          
+    <h2 id="brand" class="masthead-title">
+      <a href="https://leandrob13.github.io/Electronic-Ruminations/" title="Electronic Ruminations" rel="home">Electronic Ruminations</a>
+    </h2>
+
         </div>
-    </header><div class="e-content entry-content" itemprop="articleBody text">
-    <p>Since I already explored subharmonic sound generation related to the <a href="https://en.wikipedia.org/wiki/Undertone_series">undertone series</a> and in the process programmed the <a href="../subharmonikorg-subharmonic-oscillators-for-the-korg-nts-1">Subharmonikorg</a>, a subharmonic oscillator for the nts-1, 
+      </div>
+
+      <div class="container content" id="content">
+        
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/BlogPosting"><header><h1 class="post-title p-name entry-title" itemprop="headline">
+      <a href="https://leandrob13.github.io/Electronic-Ruminations/posts/nts-1-harmonik-oscillator/" class="u-url">NTS-1 Harmonik Oscillator</a>
+</h1>
+        <div class="metadata">
+        <meta itemprop="inLanguage" content="en">
+<p class="dateline">
+            <time class="post-date published dt-published" datetime="2021-08-07T11:39:31-05:00" itemprop="datePublished" title="2021-08-07 11:39">2021-08-07 11:39</time></p>
+        </div>
+        
+
+    </header><section class="e-content entry-content" itemprop="articleBody text"><p>Since I already explored subharmonic sound generation related to the <a href="https://en.wikipedia.org/wiki/Undertone_series">undertone series</a> and in the process programmed the <a href="../subharmonikorg-subharmonic-oscillators-for-the-korg-nts-1">Subharmonikorg</a>, a subharmonic oscillator for the nts-1, 
 it was time to look into the <a href="https://en.wikipedia.org/wiki/Harmonic_series_(music)">overtone series</a>. Also known as the harmonic series, the overtone series is generated by multiplying the fundamental frequency by a series of integer numbers in order to create harmonic relationships from the root note.
 Looking into the eurorack synth world, I came across the <a href="http://www.verboselectronics.com/modules/harmonic-oscillator">Verbos Electronics Harmonic Oscillator</a> which has an architecture of one main oscillator and seven harmonic oscillators. 
 Each harmonic oscillator multiplies the main frequency by its ordered number and has faders that allow the user to set the amplitude of the waves that are going to be added to the fundamental.
 The Verbos has more features but I decided to adopt the basic architecture limited to only four harmonics and include a wavefolder.</p>
 <p>I made a post discussing <a href="https://leandrob13.github.io/Electronic-Ruminations/posts/music-synthesis-wave-creation-with-python/">the principles of creating complex wave forms from adding harmonic sine waves to the fundamental frequency wave</a>. It is explained step by step in a python jupyter notebook.
 Based on those principles, we will be able to compose several harmonic related sine waves and combine them to get interesting timbres.</p>
+<h3>The Harmonik Oscillator</h3>
 <p> </p>
-<h3 id="the-harmonik-oscillator">The Harmonik Oscillator<a href="#the-harmonik-oscillator" class="headerlink" title="Permalink to this heading">¶</a></h3>
 <p align="center"><iframe width="560" height="315" src="https://www.youtube.com/embed/wFS2HdzoKqY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>
 
 <p> </p>
 <p>As mentioned before, the Harmonik oscillator will have one main and four harmonic sine wave oscillators. All of them with level controls for mixing the desired amplitudes in the final wave output. 
 Lets start with the definition of the <code>Oscillator</code>:</p>
-<p> </p>
 <div class="code"><pre class="code literal-block"><span class="k">typedef</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="n">harmonic</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
 <span class="w">    </span><span class="n">odd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
@@ -145,7 +102,6 @@ Lets start with the definition of the <code>Oscillator</code>:</p>
 <span class="p">}</span><span class="w"> </span><span class="n">Oscillator</span><span class="p">;</span>
 </pre></div>
 
-<p> </p>
 <p>The <code>Oscillator</code> struct contains all the data related to the oscillator as a whole. Phase and gain information for the main and harmonic sine waves get processed with each cycle. The indexes of the arrays correspond to each harmonic order with zero being the fundamental, and the rest being the harmonic relationships.</p>
 <p>The harmonic relationships with the main frequency can be set in three different <code>Spread</code> types: </p>
 <ul>
@@ -154,7 +110,6 @@ Lets start with the definition of the <code>Oscillator</code>:</p>
 <li>Even: each sine wave gets spread apart in even partials (main frequency multiplied by 2, 4, 6, 8).</li>
 </ul>
 <p>The way we achieve this is with the simple function shown below:</p>
-<p> </p>
 <div class="code"><pre class="code literal-block"><span class="k">static</span><span class="w"> </span><span class="kr">inline</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">spread</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">index</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">s</span><span class="p">;</span>
 <span class="w">    </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">osc</span><span class="p">.</span><span class="n">spread</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -172,11 +127,9 @@ Lets start with the definition of the <code>Oscillator</code>:</p>
 <span class="p">}</span>
 </pre></div>
 
-<p> </p>
 <p>In order to complete the additive synthesis combo, I decided to look into implementing a wavefolder. 
 After many attempts without satisfying results, I searched for a solution and found an implementation done in C but for VCV rack, you can check it out in <a href="https://github.com/squinkylabs/SquinkyVCV/blob/3a5fbaae4956737c77d0494b69149747c25726af/dsp/utils/AudioMath.h#L162">squinkylabs github repo</a>. It doesn't fold the waves the exact way as you would see in VCV rack, but it folds them alright.
 Even though I am coding for the nts-1, I didn't change a thing from the original implementation:</p>
-<p> </p>
 <div class="code"><pre class="code literal-block"><span class="k">static</span><span class="w"> </span><span class="kr">inline</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="nf">fold</span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">fold</span><span class="p">;</span>
 <span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">bias</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="mf">-1.f</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">1.f</span><span class="p">;</span>
@@ -191,10 +144,9 @@ Even though I am coding for the nts-1, I didn't change a thing from the original
 <span class="p">}</span>
 </pre></div>
 
-<p> </p>
 <p>The Harmonik code can be found <a href="https://github.com/leandrob13/logue-hub/tree/master/src/nts-1/osc/harmon">here</a> and the nts-1 oscillator can be downloaded from <a href="https://github.com/leandrob13/logue-hub/tree/master/oscillators/nts-1">here</a>. 
 A summary of features and parameters is described below:</p>
-<h4 id="features">Features<a href="#features" class="headerlink" title="Permalink to this heading">¶</a></h4>
+<h4>Features</h4>
 <ul>
 <li>Five sine wave oscillators with amplitude control. </li>
 <li>A wave folder that folds each sine wave before summing the result to the final signal.</li>
@@ -202,85 +154,104 @@ A summary of features and parameters is described below:</p>
 <li>The wave folder can be modulated with the LFO.</li>
 <li>Total gain control with distortion possibility when all the voices gains are at max.</li>
 </ul>
-<h4 id="parameters">Parameters<a href="#parameters" class="headerlink" title="Permalink to this heading">¶</a></h4>
+<h4>Parameters</h4>
 <table>
 <thead><tr>
 <th style="text-align: center;">Parameter</th>
 <th style="text-align: center;">Range</th>
-<th style="text-align: right;">Description</th>
+<th style="text-align: center;">Description</th>
 </tr></thead>
 <tbody>
 <tr>
 <td style="text-align: center;">SHAPE</td>
 <td style="text-align: center;">0 to 100</td>
-<td style="text-align: right;">Wave folder control</td>
+<td style="text-align: center;">Wave folder control</td>
 </tr>
 <tr>
 <td style="text-align: center;">ALT</td>
 <td style="text-align: center;">0 to 100</td>
-<td style="text-align: right;">Gain of the final signal</td>
+<td style="text-align: center;">Gain of the final signal</td>
 </tr>
 <tr>
 <td style="text-align: center;">ROOT</td>
 <td style="text-align: center;">0 to 100</td>
-<td style="text-align: right;">The fundamental frequency amplitude controller</td>
+<td style="text-align: center;">The fundamental frequency amplitude controller</td>
 </tr>
 <tr>
 <td style="text-align: center;">P1</td>
 <td style="text-align: center;">0 to 100</td>
-<td style="text-align: right;">The first partial frequency amplitude controller</td>
+<td style="text-align: center;">The first partial frequency amplitude controller</td>
 </tr>
 <tr>
 <td style="text-align: center;">P2</td>
 <td style="text-align: center;">0 to 100</td>
-<td style="text-align: right;">The second partial frequency amplitude controller</td>
+<td style="text-align: center;">The second partial frequency amplitude controller</td>
 </tr>
 <tr>
 <td style="text-align: center;">P3</td>
 <td style="text-align: center;">0 to 100</td>
-<td style="text-align: right;">The third partial frequency amplitude controller</td>
+<td style="text-align: center;">The third partial frequency amplitude controller</td>
 </tr>
 <tr>
 <td style="text-align: center;">P4</td>
 <td style="text-align: center;">0 to 100</td>
-<td style="text-align: right;">The fourth partial frequency amplitude controller</td>
+<td style="text-align: center;">The fourth partial frequency amplitude controller</td>
 </tr>
 <tr>
 <td style="text-align: center;">SPRD</td>
 <td style="text-align: center;">0 to 2</td>
-<td style="text-align: right;">The spread controller 0: harmonic, 1: odd, 2: even</td>
+<td style="text-align: center;">The spread controller 0: harmonic, 1: odd, 2: even</td>
 </tr>
 </tbody>
-</table>
-</div>
-    <aside class="postpromonav"><nav><ul class="pager hidden-print">
-<li class="previous">
-                <a href="../music-synthesis-wave-creation-with-python/" rel="prev" title="Music Synthesis Wave Creation With Python">Previous post</a>
-            </li>
-            <li class="next">
-                <a href="../warps-symbiote/" rel="next" title="Warps Symbiote">Next post</a>
-            </li>
-        </ul></nav></aside><footer id="footer"><p>Contents © 2023         <a href="https://github.com/leandrob13">Leandro B</a> -         
+</table></section><aside class="sharing no-print"><a href="#content" aria-label="Post beginning">
+       <i class="fa fa-2x fa-fw fa-arrow-circle-up" aria-hidden="true" title="Post beginning"></i>
+    </a>
+    <a href="https://leandrob13.github.io/Electronic-Ruminations/posts/music-synthesis-wave-creation-with-python/" rel="prev" title="Music Synthesis Wave Creation With Python">
+       <i class="fa fa-2x fa-fw fa-arrow-circle-left" aria-hidden="true" title="Previous post: Music Synthesis Wave Creation With Python"></i>
+    </a>
+    <a href="https://leandrob13.github.io/Electronic-Ruminations/posts/warps-symbiote/" rel="next" title="Next post: Warps Symbiote" aria-label="Next post: Warps Symbiote">
+       <i class="fa fa-2x fa-fw fa-arrow-circle-right" aria-hidden="true"></i>
+    </a>
+    <span class="post-sharing">
+     <a href="http://twitter.com/share?text=NTS-1+Harmonik+Oscillator&amp;url=https%3A%2F%2Fleandrob13.github.io%2FElectronic-Ruminations%2Fposts%2Fnts-1-harmonik-oscillator%2F" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" aria-label="Share on Twitter">
+       <i class="fa fa-2x fa-fw fa-twitter-square" aria-hidden="true" title="Share on Twitter">
+     </i></a>
+     <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fleandrob13.github.io%2FElectronic-Ruminations%2Fposts%2Fnts-1-harmonik-oscillator%2F" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;" aria-label="Share on Facebook">
+       <i class="fa fa-2x fa-fw fa-facebook-square" style="margin-left: -8px" aria-hidden="true" title="Share of Facebook">
+     </i></a>
+     <a href="https://plus.google.com/share?url=https%3A%2F%2Fleandrob13.github.io%2FElectronic-Ruminations%2Fposts%2Fnts-1-harmonik-oscillator%2F" aria-label="Share on Google+" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+       <i class="fa fa-2x fa-fw fa-google-plus-square" style="margin-left: -8px" aria-hidden="true" title="Share on Google+">
+     </i></a>
+     </span>
+</aside><div itemprop="author" itemscope itemtype="http://schema.org/Person">
+
+
+    
+
+
+
+    
+
+
+
+        
+        <footer id="footer"><p>Contents © 2023         <a href="https://github.com/leandrob13">Leandro B</a> -         
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
 <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"></a>
 </p>
             
-        </footer></article>
+        </footer>
 </div>
-	</section><script src="../../assets/js/all-nocdn.js"></script><!-- fancy dates --><script>
-
+    </article>
+</div>
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+    
+    
+    
+            <script src="../../assets/js/all-nocdn.js"></script><!-- fancy dates --><script>
     moment.locale("en");
     fancydates(0, "YYYY-MM-DD HH:mm");
-
-	</script><!-- end fancy dates --><script>
-
-    baguetteBox.run('div#content', {
-        ignoreClass: 'islink',
-        captions: function(element) {
-            return element.getElementsByTagName('img')[0].alt;
-    }});
-
-	</script><script src="../../assets/js/ToggleNav.js">
-	</script>
+    </script><!-- end fancy dates -->
+</div>
 </body>
 </html>

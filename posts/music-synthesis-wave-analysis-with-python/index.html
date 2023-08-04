@@ -1,22 +1,15 @@
 <!DOCTYPE html>
-<html prefix="
-        og: http://ogp.me/ns# article: http://ogp.me/ns/article#
-    " vocab="http://ogp.me/ns" lang="en">
+<html prefix="" lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Music Synthesis Wave Analysis With Python | Electronic Ruminations</title>
-<link href="https://fonts.googleapis.com/css?family=Bitter:400,400i,700" rel="stylesheet" type="text/css">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-<link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
-<link href="../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
-<link href="../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
-<meta name="theme-color" content="#5670d4">
-<meta name="generator" content="Nikola (getnikola.com)">
-<link rel="alternate" type="application/rss+xml" title="RSS" hreflang="en" href="../../rss.xml">
+<link href="../../assets/css/all.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../../rss.xml">
 <link rel="canonical" href="https://leandrob13.github.io/Electronic-Ruminations/posts/music-synthesis-wave-analysis-with-python/">
 <link rel="icon" href="../../favicon.ico" sizes="48x48">
-<!--[if lt IE 9]><script src="../../assets/js/html5shiv-printshiv.min.js"></script><![endif]--><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=G-VGDFS80SZM"></script><script>
+<!--[if lt IE 9]><script src="../../assets/js/html5.js"></script><![endif]--><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=G-VGDFS80SZM"></script><script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
@@ -35,82 +28,49 @@
 <meta property="article:tag" content="Python">
 </head>
 <body>
+    <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+            styles, `#sidebar-checkbox` for behavior. -->
+    <input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox"><!-- Toggleable sidebar --><div class="sidebar" id="sidebar">
 
-	<a href="#page-content" class="sr-only sr-only-focusable">
-		Skip to main content
-	</a>
-
-	
-
-    <section id="header"><a href="../../">
-			<div class="logo">
-					<div id="nologoimage">
-						Electronic Ruminations
-					</div>
-    		</div>
-			</a>
-    </section><section id="socialNav"><!-- Navigation Menu - on top on small screens, down the left on larger --><div class="navlinks">
-			<a href="../../">
-				<div id="titleauth">
-    					Electronic Ruminations<br> by Leandro B
-				</div>
-			</a>
-
-            <!-- Navigation links (hidden by default) -->
-			<div id="navmenuitems">
-				            <a href="../../index.html" title="Home">
-                <span class="menuitemtext">Home</span>
-                <span class="menuitemicon"><i class="fa fa-home"></i></span>
-            </a>
-            <a href="../../archive.html" title="Archives">
-                <span class="menuitemtext">Archives</span>
-                <span class="menuitemicon"><i class="fa fa-folder-open"></i></span>
-            </a>
-            <a href="../../categories/" title="Tags">
-                <span class="menuitemtext">Tags</span>
-                <span class="menuitemicon"><i class="fa fa-tags"></i></span>
-            </a>
-            <a href="../../rss.xml" title="RSS">
-                <span class="menuitemtext">RSS</span>
-                <span class="menuitemicon"><i class="fa fa-rss"></i></span>
-            </a>
-            <a href="https://github.com/leandrob13" title="My Github">
-                <span class="menuitemtext">My Github</span>
-                <span class="menuitemicon"><i class="fab fa-github"></i></span>
-            </a>
+        
+    <nav id="menu" role="navigation" class="sidebar-nav"><a class="sidebar-nav-item" href="../../">Home</a>
+        <a class="sidebar-nav-item" href="../../blog">Blog</a>
+        <a class="sidebar-nav-item" href="../../archive.html">Archives</a>
+        <a class="sidebar-nav-item" href="../../categories/">Tags</a>
+        <a class="sidebar-nav-item" href="../../rss.xml">RSS</a>
+        <a class="sidebar-nav-item" href="https://github.com/leandrob13">My Github</a>
     
     
-
-			</div>
-
-            <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
-			<a href="javascript:void(0);" id="hamburger" class="icon" onclick="toggleNav()">
-				<i class="fa fa-bars">
-				</i>
-			</a>
-		</div>
-
-	</section><section class="page-content"><div class="content" rel="main">
-<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Music Synthesis Wave Analysis With Python</a></h1>
-
-        <div class="metadata">
-            <p class="dateline"><a href="." rel="bookmark"><i class="fa fa-clock"></i> <time class="published dt-published" datetime="2021-05-02T15:40:04-05:00" itemprop="datePublished" title="2021-05-02 15:40">2021-05-02 15:40</time></a></p>
-
-                    <p class="sourceline"><a href="index.ipynb" class="sourcelink"><i class="fa fa-file-code"></i> Source</a></p>
-
-            
-                <div class="tags">
-<h3 class="metadata-title">
-<i class="fa fa-tags"></i> Tags:</h3>
-        <ul itemprop="keywords" class="tags-ul">
-<li><a class="tag p-category" href="../../categories/dsp/" rel="tag">DSP</a></li>
-            <li><a class="tag p-category" href="../../categories/python/" rel="tag">Python</a></li>
-        </ul>
+    </nav>
 </div>
 
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          
+    <h2 id="brand" class="masthead-title">
+      <a href="https://leandrob13.github.io/Electronic-Ruminations/" title="Electronic Ruminations" rel="home">Electronic Ruminations</a>
+    </h2>
+
         </div>
-    </header><div class="e-content entry-content" itemprop="articleBody text">
-    <div id="cell-id=27425a33-2fb9-41a1-bcbe-dc568b3b9a08" class="cell border-box-sizing text_cell rendered">
+      </div>
+
+      <div class="container content" id="content">
+        
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/BlogPosting"><header><h1 class="post-title p-name entry-title" itemprop="headline">
+      <a href="https://leandrob13.github.io/Electronic-Ruminations/posts/music-synthesis-wave-analysis-with-python/" class="u-url">Music Synthesis Wave Analysis With Python</a>
+</h1>
+        <div class="metadata">
+        <meta itemprop="inLanguage" content="en">
+<p class="dateline">
+            <time class="post-date published dt-published" datetime="2021-05-02T15:40:04-05:00" itemprop="datePublished" title="2021-05-02 15:40">2021-05-02 15:40</time></p>
+        </div>
+        
+
+    </header><section class="e-content entry-content" itemprop="articleBody text"><div id="cell-id=27425a33-2fb9-41a1-bcbe-dc568b3b9a08" class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -118,7 +78,7 @@
 <p><img src="../../images/waveforms.png#centerme" alt=""></p>
 <p>Sound synthesis is all about combining basic electrical waveforms and processing them through different modules or components in order to obtain an output that either emulates sounds found in physical instruments or make new sound effects or musical tones. The main synthesizer component in charge of generating the output signal is the <a href="https://en.wikipedia.org/wiki/Voltage-controlled_oscillator">Voltage Controlled Oscillator</a> (VCO). The most common generated signals in a synthesizer are sine, square, sawtooth and triangle. I wanted to make the excercise of analyzing these signals from the harmonics point of view, the visual aid is always useful if you want to understand exactly what a harmonic is.</p>
 <h4 id="Signals-and-Harmonics">Signals and Harmonics<a class="anchor-link" href="#Signals-and-Harmonics">¶</a>
-<a href="#Signals-and-Harmonics" class="headerlink" title="Permalink to this heading">¶</a></h4>
+</h4>
 <p> </p>
 <p>What are harmonics? For starters, it is not a sole property of musical theory. It is a property of waves in general. Where there are waves involved, there is a harmonic analysis that can be done. That is why we talk about harmonics in music, where the sound waves are generated from the physical interaction with the musical instruments. Music synthesis is no different, we generate the harmonics from electrical waves which are eventualy transformed into sound waves.</p>
 <p>So how can we define a harmonic? We can keep it simple by saying that if you have a wave that has a given frequency <code>F</code>, a harmonic is a wave that has a frequency which is a multiple of <code>F</code>. You can generate a new wave with a different shape by summing the two signals. This will make <code>F</code> the fundamental frequency of that signal.</p>
@@ -135,7 +95,7 @@
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h4 id="Importing-Necessary-Modules">Importing Necessary Modules<a class="anchor-link" href="#Importing-Necessary-Modules">¶</a>
-<a href="#Importing-Necessary-Modules" class="headerlink" title="Permalink to this heading">¶</a></h4>
+</h4>
 <p> </p>
 <p>I will use pandas as a plotter helper, I have found it is an easier way to deal with matplotlib. Numpy and Scipy are used to generate the signals that we want to analyze. In addition, Scipy will provide the necesary functions to do the <a href="https://en.wikipedia.org/wiki/Fast_Fourier_transform">Fast Fourier transform</a>, which is what we need in order to visualize the harmonic content of the waves.</p>
 
@@ -166,7 +126,7 @@
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h4 id="Define-The-Signals">Define The Signals<a class="anchor-link" href="#Define-The-Signals">¶</a>
-<a href="#Define-The-Signals" class="headerlink" title="Permalink to this heading">¶</a></h4>
+</h4>
 <p> </p>
 <p>As I mentioned above, we will be generating four signals:</p>
 <ul>
@@ -204,7 +164,7 @@
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h4 id="Audio-and-Plot">Audio and Plot<a class="anchor-link" href="#Audio-and-Plot">¶</a>
-<a href="#Audio-and-Plot" class="headerlink" title="Permalink to this heading">¶</a></h4>
+</h4>
 <p> </p>
 <p>We define our python function that will help us plot and listen to the signals.</p>
 
@@ -258,12 +218,12 @@
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h4 id="Analyze-The-Waves">Analyze The Waves<a class="anchor-link" href="#Analyze-The-Waves">¶</a>
-<a href="#Analyze-The-Waves" class="headerlink" title="Permalink to this heading">¶</a></h4>
+</h4>
 <p> </p>
 <p>We now proceed to look into each wave and understanding the graphs being displayed. Each wave will be generated with a 440Hz frequency (musical note A) and we will be able to visualize up to the 10th harmonic in the plot.
  </p>
 <h4 id="WARNING">WARNING<a class="anchor-link" href="#WARNING">¶</a>
-<a href="#WARNING" class="headerlink" title="Permalink to this heading">¶</a></h4>
+</h4>
 <p> </p>
 <p>Be careful when listening to the audio. If you are wearing headphones, turned down the volume or take them off.</p>
 
@@ -276,7 +236,7 @@
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h4 id="Sine-Wave">Sine Wave<a class="anchor-link" href="#Sine-Wave">¶</a>
-<a href="#Sine-Wave" class="headerlink" title="Permalink to this heading">¶</a></h4>
+</h4>
 <p> </p>
 <p>The sine wave is the fundamental wave shape. From this, every other wave shape is formed. When we talk about any type of complex wave, we can always decompose them to a sum of the fundamental sine wave with its harmonics.</p>
 <p>As you can see below, the top part of the graph shows you how a sine wave looks like. The bottom portion shows you the frequency components the wave has. We only see one frequency component at 440Hz, which is its fundamental frequency. So far, everything checks. The sine wave is in fact a "pure" fundamental wave and it makes sense to think that other wave shapes can be derived from it.</p>
@@ -337,7 +297,7 @@
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h4 id="Square-Wave">Square Wave<a class="anchor-link" href="#Square-Wave">¶</a>
-<a href="#Square-Wave" class="headerlink" title="Permalink to this heading">¶</a></h4>
+</h4>
 <p> </p>
 <p>Square waves are used in many electronics applications, the most common one is for clock signals in digital circuits. In music synthesis, it is one of the most common and it is worth taking a closer look at it.</p>
 <p>Below we see again the wave shape along with its frequency components. Different to the sine wave, we see 5 different frequency components. The one with the greater magnitude lies in the fundamental frequency of 440Hz, the rest are its harmonic components. As we can see, and this is one of the interesting parts, there are only odd harmonics (frequencies of 3, 5, 7 and 9 harmonic component) which seem to decay in magnitude exponentially. This means that we could break down this signal into at least 5 different sine waves with different amplitudes and frequencies based on odd multiples of the fundamental frequency.</p>
@@ -398,7 +358,7 @@
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h4 id="Sawtooth-Wave">Sawtooth Wave<a class="anchor-link" href="#Sawtooth-Wave">¶</a>
-<a href="#Sawtooth-Wave" class="headerlink" title="Permalink to this heading">¶</a></h4>
+</h4>
 <p> </p>
 <p>Into the sawtooth wave. Also known in music synthesis as plain <code>saw</code> or <code>ramp</code>, it is also very common in synthesizer hardware architectures.</p>
 <p>Going directly to the harmonic analysis, we see that this wave has frequency components in all 10 harmonics and they also have their magnitude decaying exponentially. I often heard that in music synthesis the sawtooth wave is considered "rich in harmonic content" and now I understand why. The same principle applies as in the previous example: we could break down this signal into at least 10 different sine waves with different weights and frequencies based on odd multiples of the fundamental frequency.</p>
@@ -459,7 +419,7 @@
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h4 id="Triangle-Wave">Triangle Wave<a class="anchor-link" href="#Triangle-Wave">¶</a>
-<a href="#Triangle-Wave" class="headerlink" title="Permalink to this heading">¶</a></h4>
+</h4>
 <p> </p>
 <p>The triangle wave is not as popular in synthesizer architectures as the square and sawtooth when being used in a VCO. When it is present, it is mostly considered for bass sounds or "suboscillator" usage.</p>
 <p>The harmonic content of this wave is low, sharing the common characteristic of the square wave which is only odd harmonics are present. The difference is in the order of magnitude, which is obviously lower. If you can listen to the wave, the sound is much closer to the sine wave than to the square wave.</p>
@@ -520,7 +480,7 @@
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h4 id="Summing-Up">Summing Up<a class="anchor-link" href="#Summing-Up">¶</a>
-<a href="#Summing-Up" class="headerlink" title="Permalink to this heading">¶</a></h4>
+</h4>
 <p> </p>
 <p>We got to take a closer look into 4 different wave shapes most commonly used in music synthesis. The most harmonically rich wave is the sawtooth, followed by the square and triangle. Harmonics are not a musical concept, it is a property that we defined to help us describe complex waves in general.</p>
 <p>Hopefully when you listen or read about "harmonic content" of a wave when looking into synths, you will now have a better idea of what they are reffering to.</p>
@@ -529,37 +489,50 @@
 </div>
 </div>
 </div>
-    </div>
-    <aside class="postpromonav"><nav><ul class="pager hidden-print">
-<li class="previous">
-                <a href="../subharmonikorg-subharmonic-oscillators-for-the-korg-nts-1/" rel="prev" title="Subharmonikorg: Subharmonic Oscillators for the Korg NTS-1">Previous post</a>
-            </li>
-            <li class="next">
-                <a href="../music-synthesis-wave-creation-with-python/" rel="next" title="Music Synthesis Wave Creation With Python">Next post</a>
-            </li>
-        </ul></nav></aside><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha384-3lJUsx1TJHt7BA4udB5KPnDrlkO8T6J6v/op7ui0BbCjvZ9WqV4Xm6DTP6kQ/iBH" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
+    </section><aside class="sharing no-print"><a href="#content" aria-label="Post beginning">
+       <i class="fa fa-2x fa-fw fa-arrow-circle-up" aria-hidden="true" title="Post beginning"></i>
+    </a>
+    <a href="https://leandrob13.github.io/Electronic-Ruminations/posts/subharmonikorg-subharmonic-oscillators-for-the-korg-nts-1/" rel="prev" title="Subharmonikorg: Subharmonic Oscillators for the Korg NTS-1">
+       <i class="fa fa-2x fa-fw fa-arrow-circle-left" aria-hidden="true" title="Previous post: Subharmonikorg: Subharmonic Oscillators for the Korg NTS-1"></i>
+    </a>
+    <a href="https://leandrob13.github.io/Electronic-Ruminations/posts/music-synthesis-wave-creation-with-python/" rel="next" title="Next post: Music Synthesis Wave Creation With Python" aria-label="Next post: Music Synthesis Wave Creation With Python">
+       <i class="fa fa-2x fa-fw fa-arrow-circle-right" aria-hidden="true"></i>
+    </a>
+    <span class="post-sharing">
+     <a href="http://twitter.com/share?text=Music+Synthesis+Wave+Analysis+With+Python&amp;url=https%3A%2F%2Fleandrob13.github.io%2FElectronic-Ruminations%2Fposts%2Fmusic-synthesis-wave-analysis-with-python%2F" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" aria-label="Share on Twitter">
+       <i class="fa fa-2x fa-fw fa-twitter-square" aria-hidden="true" title="Share on Twitter">
+     </i></a>
+     <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fleandrob13.github.io%2FElectronic-Ruminations%2Fposts%2Fmusic-synthesis-wave-analysis-with-python%2F" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;" aria-label="Share on Facebook">
+       <i class="fa fa-2x fa-fw fa-facebook-square" style="margin-left: -8px" aria-hidden="true" title="Share of Facebook">
+     </i></a>
+     <a href="https://plus.google.com/share?url=https%3A%2F%2Fleandrob13.github.io%2FElectronic-Ruminations%2Fposts%2Fmusic-synthesis-wave-analysis-with-python%2F" aria-label="Share on Google+" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+       <i class="fa fa-2x fa-fw fa-google-plus-square" style="margin-left: -8px" aria-hidden="true" title="Share on Google+">
+     </i></a>
+     </span>
+</aside><div itemprop="author" itemscope itemtype="http://schema.org/Person">
+
+
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha384-3lJUsx1TJHt7BA4udB5KPnDrlkO8T6J6v/op7ui0BbCjvZ9WqV4Xm6DTP6kQ/iBH" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
         MathJax.Hub.Config({tex2jax: {inlineMath: [['$latex ','$'], ['\\(','\\)']]}});
         </script><footer id="footer"><p>Contents © 2023         <a href="https://github.com/leandrob13">Leandro B</a> -         
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
 <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"></a>
 </p>
             
-        </footer></article>
+        </footer>
 </div>
-	</section><script src="../../assets/js/all-nocdn.js"></script><!-- fancy dates --><script>
-
+    </article>
+</div>
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+    
+    
+    
+            <script src="../../assets/js/all-nocdn.js"></script><!-- fancy dates --><script>
     moment.locale("en");
     fancydates(0, "YYYY-MM-DD HH:mm");
-
-	</script><!-- end fancy dates --><script>
-
-    baguetteBox.run('div#content', {
-        ignoreClass: 'islink',
-        captions: function(element) {
-            return element.getElementsByTagName('img')[0].alt;
-    }});
-
-	</script><script src="../../assets/js/ToggleNav.js">
-	</script>
+    </script><!-- end fancy dates -->
+</div>
 </body>
 </html>

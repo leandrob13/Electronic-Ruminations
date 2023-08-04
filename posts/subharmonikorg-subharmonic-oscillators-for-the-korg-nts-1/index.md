@@ -83,16 +83,16 @@ The parameters you can edit are listed below.
 
 &nbsp; 
 
-| Parameter      | Range        | Description                                                            |
-| :------------: | :----------: | ---------------------------------------------------------------------: |
-| SHAPE          | 0 to 100     |level mix of main oscillator                                            |
-| ALT            | 0 to 100     |level mix of suboscillators                                             |
-| semitone       | 1 to 13      |semitone tuning of main oscillator (1 as root note, 13 higher octave)   |
-| undertone 1    | 1 to 7       |undertone value of first suboscillator                                  |
-| undertone 2    | 1 to 7       |undertone value of second suboscillator                                 |
-| oscT           | 1 to  3      |The oscillator type 1: saw, 2: square, 3: sine                          |
-| Arp Type       | 1 to  3      |The arpeggiator type 1: off, 2: down, 3: up-down                        |
-| Arp Clock      | 0 to  100    |The arpeggiator clock percentage of max frequency.                      |
+|    Parameter    |     Range     |                              Description                              |
+|:---------------:|:-------------:|:---------------------------------------------------------------------:|
+|      SHAPE      |   0 to 100    |                     level mix of main oscillator                      |
+|       ALT       |   0 to 100    |                      level mix of suboscillators                      |
+|    semitone     |    1 to 13    | semitone tuning of main oscillator (1 as root note, 13 higher octave) |
+|   undertone 1   |    1 to 7     |                undertone value of first suboscillator                 |
+|   undertone 2   |    1 to 7     |                undertone value of second suboscillator                |
+|      oscT       |    1 to  3    |            The oscillator type 1: saw, 2: square, 3: sine             |
+|    Arp Type     |    1 to  3    |           The arpeggiator type 1: off, 2: down, 3: up-down            |
+|    Arp Clock    |   0 to  100   |          The arpeggiator clock percentage of max frequency.           |
 
 &nbsp;
 ## The Showcase

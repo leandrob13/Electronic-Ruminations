@@ -18,9 +18,9 @@ The Verbos has more features but I decided to adopt the basic architecture limit
 I made a post discussing [the principles of creating complex wave forms from adding harmonic sine waves to the fundamental frequency wave](https://leandrob13.github.io/Electronic-Ruminations/posts/music-synthesis-wave-creation-with-python/). It is explained step by step in a python jupyter notebook.
 Based on those principles, we will be able to compose several harmonic related sine waves and combine them to get interesting timbres.
 
-&nbsp;
-
 ## The Harmonik Oscillator
+
+&nbsp;
 
 <p align="center"><iframe width="560" height="315" src="https://www.youtube.com/embed/wFS2HdzoKqY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>
 
@@ -28,8 +28,6 @@ Based on those principles, we will be able to compose several harmonic related s
 
 As mentioned before, the Harmonik oscillator will have one main and four harmonic sine wave oscillators. All of them with level controls for mixing the desired amplitudes in the final wave output. 
 Lets start with the definition of the `Oscillator`:
-
-&nbsp;
 
 ```c
 typedef enum {
@@ -47,8 +45,6 @@ typedef struct Oscillator {
 } Oscillator;
 ```
 
-&nbsp;
-
 The `Oscillator` struct contains all the data related to the oscillator as a whole. Phase and gain information for the main and harmonic sine waves get processed with each cycle. The indexes of the arrays correspond to each harmonic order with zero being the fundamental, and the rest being the harmonic relationships.
 
 The harmonic relationships with the main frequency can be set in three different `Spread` types: 
@@ -58,8 +54,6 @@ The harmonic relationships with the main frequency can be set in three different
 - Even: each sine wave gets spread apart in even partials (main frequency multiplied by 2, 4, 6, 8).
 
 The way we achieve this is with the simple function shown below:
-
-&nbsp;
 
 ```c
 static inline int spread(int index) {
@@ -79,13 +73,9 @@ static inline int spread(int index) {
 }
 ```
 
-&nbsp;
-
 In order to complete the additive synthesis combo, I decided to look into implementing a wavefolder. 
 After many attempts without satisfying results, I searched for a solution and found an implementation done in C but for VCV rack, you can check it out in [squinkylabs github repo](https://github.com/squinkylabs/SquinkyVCV/blob/3a5fbaae4956737c77d0494b69149747c25726af/dsp/utils/AudioMath.h#L162). It doesn't fold the waves the exact way as you would see in VCV rack, but it folds them alright.
 Even though I am coding for the nts-1, I didn't change a thing from the original implementation:
-
-&nbsp;
 
 ```c
 static inline float fold(float x) {
@@ -102,8 +92,6 @@ static inline float fold(float x) {
 }
 ```
 
-&nbsp;
-
 The Harmonik code can be found [here](https://github.com/leandrob13/logue-hub/tree/master/src/nts-1/osc/harmon) and the nts-1 oscillator can be downloaded from [here](https://github.com/leandrob13/logue-hub/tree/master/oscillators/nts-1). 
 A summary of features and parameters is described below:
 
@@ -117,13 +105,13 @@ A summary of features and parameters is described below:
 
 ### Parameters
  
-| Parameter      | Range        | Description                                                            |
-| :------------: | :----------: | ---------------------------------------------------------------------: |
-| SHAPE          | 0 to 100     |Wave folder control                                                     |
-| ALT            | 0 to 100     |Gain of the final signal                                                |
-| ROOT           | 0 to 100     |The fundamental frequency amplitude controller                          |
-| P1             | 0 to 100     |The first partial frequency amplitude controller                        |
-| P2             | 0 to 100     |The second partial frequency amplitude controller                       |
-| P3             | 0 to 100     |The third partial frequency amplitude controller                        |
-| P4             | 0 to 100     |The fourth partial frequency amplitude controller                       |
-| SPRD           | 0 to 2       |The spread controller 0: harmonic, 1: odd, 2: even                      |
+|    Parameter    |     Range     |                              Description                              |
+|:---------------:|:-------------:|:---------------------------------------------------------------------:|
+|      SHAPE      |   0 to 100    |                          Wave folder control                          |
+|       ALT       |   0 to 100    |                       Gain of the final signal                        |
+|      ROOT       |   0 to 100    |            The fundamental frequency amplitude controller             |
+|       P1        |   0 to 100    |           The first partial frequency amplitude controller            |
+|       P2        |   0 to 100    |           The second partial frequency amplitude controller           |
+|       P3        |   0 to 100    |           The third partial frequency amplitude controller            |
+|       P4        |   0 to 100    |           The fourth partial frequency amplitude controller           |
+|      SPRD       |    0 to 2     |          The spread controller 0: harmonic, 1: odd, 2: even           |
