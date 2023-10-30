@@ -1,7 +1,7 @@
 <!--
 .. title: Rings Ominous Harmony
 .. slug: rings-ominous-harmony
-.. date: 2023-09-09 17:41:35 UTC-05:00
+.. date: 2023-11-01 17:41:35 UTC-05:00
 .. tags: 
 .. category: 
 .. link: 
