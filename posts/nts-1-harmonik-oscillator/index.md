@@ -108,7 +108,7 @@ A summary of features and parameters is described below:
 - Offset control for asymmetric wavefolding.
 - The wave folder can be modulated with the Shape LFO.
 
- ### Parameters
+### Parameters
  
 | Parameter |  Range   |                          Description                           |
 |:---------:|:--------:|:--------------------------------------------------------------:|
