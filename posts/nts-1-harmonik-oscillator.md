@@ -92,26 +92,26 @@ static inline float fold(float x) {
 }
 ```
 
-The Harmonik code can be found [here](https://github.com/leandrob13/logue-hub/tree/master/src/nts-1/osc/harmon) and the nts-1 oscillator can be downloaded from [here](https://github.com/leandrob13/logue-hub/tree/master/oscillators/nts-1). 
+The Harmonik code can be found [here](https://github.com/leandrob13/logue-hub/tree/master/src/nts-1/osc/harmon) and the nts-1 oscillator can be downloaded from [here](https://github.com/leandrob13/logue-hub/releases/tag/harmonik-v1-1-0). 
 A summary of features and parameters is described below:
 
 ### Features
 
-- Five sine wave oscillators with amplitude control. 
+- Six sine wave oscillators with amplitude control.
 - A wave folder that folds each sine wave before summing the result to the final signal.
 - Spread control for the partials so that we have harmonic, odd or even partial overtones.
-- The wave folder can be modulated with the LFO.
-- Total gain control with distortion possibility when all the voices gains are at max.
+- Offset control for asymmetric wavefolding.
+- The wave folder can be modulated with the Shape LFO.
 
-### Parameters
+ ### Parameters
  
-|    Parameter    |     Range     |                              Description                              |
-|:---------------:|:-------------:|:---------------------------------------------------------------------:|
-|      SHAPE      |   0 to 100    |                          Wave folder control                          |
-|       ALT       |   0 to 100    |                       Gain of the final signal                        |
-|      ROOT       |   0 to 100    |            The fundamental frequency amplitude controller             |
-|       P1        |   0 to 100    |           The first partial frequency amplitude controller            |
-|       P2        |   0 to 100    |           The second partial frequency amplitude controller           |
-|       P3        |   0 to 100    |           The third partial frequency amplitude controller            |
-|       P4        |   0 to 100    |           The fourth partial frequency amplitude controller           |
-|      SPRD       |    0 to 2     |          The spread controller 0: harmonic, 1: odd, 2: even           |
+| Parameter |  Range   |                          Description                           |
+|:---------:|:--------:|:--------------------------------------------------------------:|
+|   SHAPE   | 0 to 100 |                      Wave folder control                       |
+|    ALT    | 0 to 100 |          Offset of signals for asymmetric wavefolding          |
+|    P1     | 0 to 100 |             The first partial frequency amplitude              |
+|    P2     | 0 to 100 |             The second partial frequency amplitude             |
+|    P3     | 0 to 100 |             The third partial frequency amplitude              |
+|    P4     | 0 to 100 |             The fourth partial frequency amplitude             |
+|    P5     | 0 to 100 |             The fifth partial frequency amplitude              |
+|   SPRD    |  0 to 3  | The spread controller 0: harmonic, 1: odd, 2: even, 3: octaves |
