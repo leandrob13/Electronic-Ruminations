@@ -265,29 +265,31 @@ Lets start with the definition of the <code>Oscillator</code>:</p>
 <div class="code"><pre class="code literal-block"><span class="k">typedef</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="n">harmonic</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
 <span class="w">    </span><span class="n">odd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
-<span class="w">    </span><span class="n">even</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span>
+<span class="w">    </span><span class="n">even</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+<span class="w">    </span><span class="n">octaves</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span>
 <span class="p">}</span><span class="w"> </span><span class="n">Spread</span><span class="p">;</span>
 
 <span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">Oscillator</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">phases</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">};</span>
 <span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">gains</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mf">1.f</span><span class="p">,</span><span class="w"> </span><span class="mf">0.f</span><span class="p">,</span><span class="w"> </span><span class="mf">0.f</span><span class="p">,</span><span class="w"> </span><span class="mf">0.f</span><span class="p">,</span><span class="w"> </span><span class="mf">0.f</span><span class="w"> </span><span class="p">};</span>
 <span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">drive</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">offset</span><span class="p">;</span>
 <span class="w">    </span><span class="n">Spread</span><span class="w"> </span><span class="n">spread</span><span class="p">;</span>
-<span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">total_gain</span><span class="p">;</span>
 <span class="p">}</span><span class="w"> </span><span class="n">Oscillator</span><span class="p">;</span>
 </pre></div>
 
 <p>The <code>Oscillator</code> struct contains all the data related to the oscillator as a whole. Phase and gain information for the main and harmonic sine waves get processed with each cycle. The indexes of the arrays correspond to each harmonic order with zero being the fundamental, and the rest being the harmonic relationships.</p>
-<p>The harmonic relationships with the main frequency can be set in three different <code>Spread</code> types: </p>
+<p>The harmonic relationships with the main frequency can be set in four different <code>Spread</code> types: </p>
 <ul>
 <li>Harmonic: each sine wave's frequency gets multiplied by its corresponding harmonic integer.</li>
 <li>Odd: each sine wave gets spread apart in odd partials (main frequency multiplied by 3, 5, 7, 9).</li>
 <li>Even: each sine wave gets spread apart in even partials (main frequency multiplied by 2, 4, 6, 8).</li>
+<li>Octaves: each sine wave gets spread by the geometric progression, producing octaves.</li>
 </ul>
-<p>The way we achieve this is with the simple function shown below:</p>
-<div class="code"><pre class="code literal-block"><span class="k">static</span><span class="w"> </span><span class="kr">inline</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">spread</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">index</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<p>The way we achieve this is with the simple function shown below: </p>
+<div class="code"><pre class="code literal-block"><span class="kt">int</span><span class="w"> </span><span class="nf">partial</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">index</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">s</span><span class="p">;</span>
-<span class="w">    </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">osc</span><span class="p">.</span><span class="n">spread</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">spread</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">harmonic</span><span class="p">:</span>
 <span class="w">          </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">index</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 <span class="w">          </span><span class="k">break</span><span class="p">;</span>
@@ -297,6 +299,9 @@ Lets start with the definition of the <code>Oscillator</code>:</p>
 <span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">even</span><span class="p">:</span>
 <span class="w">          </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">index</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">index</span><span class="p">;</span>
 <span class="w">          </span><span class="k">break</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">octaves</span><span class="p">:</span>
+<span class="w">          </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">index</span><span class="p">;</span>
+<span class="w">          </span><span class="k">break</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">s</span><span class="p">;</span>
 <span class="p">}</span>
@@ -305,7 +310,7 @@ Lets start with the definition of the <code>Oscillator</code>:</p>
 <p>In order to complete the additive synthesis combo, I decided to look into implementing a wavefolder. 
 After many attempts without satisfying results, I searched for a solution and found an implementation done in C but for VCV rack, you can check it out in <a href="https://github.com/squinkylabs/SquinkyVCV/blob/3a5fbaae4956737c77d0494b69149747c25726af/dsp/utils/AudioMath.h#L162">squinkylabs github repo</a>. It doesn't fold the waves the exact way as you would see in VCV rack, but it folds them alright.
 Even though I am coding for the nts-1, I didn't change a thing from the original implementation:</p>
-<div class="code"><pre class="code literal-block"><span class="k">static</span><span class="w"> </span><span class="kr">inline</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="nf">fold</span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<div class="code"><pre class="code literal-block"><span class="kt">float</span><span class="w"> </span><span class="nf">fold</span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">fold</span><span class="p">;</span>
 <span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">bias</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="mf">-1.f</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">1.f</span><span class="p">;</span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">phase</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">int</span><span class="p">((</span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">bias</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">2.f</span><span class="p">);</span>
@@ -319,17 +324,17 @@ Even though I am coding for the nts-1, I didn't change a thing from the original
 <span class="p">}</span>
 </pre></div>
 
-<p>The Harmonik code can be found <a href="https://github.com/leandrob13/logue-hub/tree/master/src/nts-1/osc/harmon">here</a> and the nts-1 oscillator can be downloaded from <a href="https://github.com/leandrob13/logue-hub/tree/master/oscillators/nts-1">here</a>. 
+<p>The Harmonik code can be found <a href="https://github.com/leandrob13/logue-hub/tree/master/harmonik">here</a> and the nts-1 oscillator can be downloaded from <a href="https://github.com/leandrob13/logue-hub/releases/tag/harmonik-v1-1-0">here</a>. 
 A summary of features and parameters is described below:</p>
 <h4>Features</h4>
 <ul>
-<li>Five sine wave oscillators with amplitude control. </li>
+<li>Six sine wave oscillators with amplitude control.</li>
 <li>A wave folder that folds each sine wave before summing the result to the final signal.</li>
 <li>Spread control for the partials so that we have harmonic, odd or even partial overtones.</li>
-<li>The wave folder can be modulated with the LFO.</li>
-<li>Total gain control with distortion possibility when all the voices gains are at max.</li>
+<li>Offset control for asymmetric wavefolding.</li>
+<li>The wave folder can be modulated with the Shape LFO.</li>
 </ul>
-<h4>Parameters</h4>
+<p>### Parameters</p>
 <table>
 <thead><tr>
 <th style="text-align: center;">Parameter</th>
@@ -345,37 +350,37 @@ A summary of features and parameters is described below:</p>
 <tr>
 <td style="text-align: center;">ALT</td>
 <td style="text-align: center;">0 to 100</td>
-<td style="text-align: center;">Gain of the final signal</td>
-</tr>
-<tr>
-<td style="text-align: center;">ROOT</td>
-<td style="text-align: center;">0 to 100</td>
-<td style="text-align: center;">The fundamental frequency amplitude controller</td>
+<td style="text-align: center;">Offset of signals for asymmetric wavefolding</td>
 </tr>
 <tr>
 <td style="text-align: center;">P1</td>
 <td style="text-align: center;">0 to 100</td>
-<td style="text-align: center;">The first partial frequency amplitude controller</td>
+<td style="text-align: center;">The first partial frequency amplitude</td>
 </tr>
 <tr>
 <td style="text-align: center;">P2</td>
 <td style="text-align: center;">0 to 100</td>
-<td style="text-align: center;">The second partial frequency amplitude controller</td>
+<td style="text-align: center;">The second partial frequency amplitude</td>
 </tr>
 <tr>
 <td style="text-align: center;">P3</td>
 <td style="text-align: center;">0 to 100</td>
-<td style="text-align: center;">The third partial frequency amplitude controller</td>
+<td style="text-align: center;">The third partial frequency amplitude</td>
 </tr>
 <tr>
 <td style="text-align: center;">P4</td>
 <td style="text-align: center;">0 to 100</td>
-<td style="text-align: center;">The fourth partial frequency amplitude controller</td>
+<td style="text-align: center;">The fourth partial frequency amplitude</td>
+</tr>
+<tr>
+<td style="text-align: center;">P5</td>
+<td style="text-align: center;">0 to 100</td>
+<td style="text-align: center;">The fifth partial frequency amplitude</td>
 </tr>
 <tr>
 <td style="text-align: center;">SPRD</td>
-<td style="text-align: center;">0 to 2</td>
-<td style="text-align: center;">The spread controller 0: harmonic, 1: odd, 2: even</td>
+<td style="text-align: center;">0 to 3</td>
+<td style="text-align: center;">The spread controller 0: harmonic, 1: odd, 2: even, 3: octaves</td>
 </tr>
 </tbody>
 </table>

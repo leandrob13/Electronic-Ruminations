@@ -33,32 +33,34 @@ Lets start with the definition of the `Oscillator`:
 typedef enum {
     harmonic = 0,
     odd = 1,
-    even = 2
+    even = 2,
+    octaves = 3
 } Spread;
 
 typedef struct Oscillator {
     float phases[5] = { 0 };
     float gains[5]= { 1.f, 0.f, 0.f, 0.f, 0.f };
     float drive;
+    float offset;
     Spread spread;
-    float total_gain;
 } Oscillator;
 ```
 
 The `Oscillator` struct contains all the data related to the oscillator as a whole. Phase and gain information for the main and harmonic sine waves get processed with each cycle. The indexes of the arrays correspond to each harmonic order with zero being the fundamental, and the rest being the harmonic relationships.
 
-The harmonic relationships with the main frequency can be set in three different `Spread` types: 
+The harmonic relationships with the main frequency can be set in four different `Spread` types: 
 
 - Harmonic: each sine wave's frequency gets multiplied by its corresponding harmonic integer.
 - Odd: each sine wave gets spread apart in odd partials (main frequency multiplied by 3, 5, 7, 9).
 - Even: each sine wave gets spread apart in even partials (main frequency multiplied by 2, 4, 6, 8).
+- Octaves: each sine wave gets spread by the geometric progression, producing octaves.
 
-The way we achieve this is with the simple function shown below:
+The way we achieve this is with the simple function shown below: 
 
 ```c
-static inline int spread(int index) {
+int partial(int index) {
     int s;
-    switch (osc.spread) {
+    switch (spread) {
         case harmonic:
           s = index + 1;
           break;
@@ -67,6 +69,9 @@ static inline int spread(int index) {
           break;
         case even:
           s = (index == 0) ? 1 : 2 * index;
+          break;
+        case octaves:
+          s = 1 << index;
           break;
     }
     return s;
@@ -78,7 +83,7 @@ After many attempts without satisfying results, I searched for a solution and fo
 Even though I am coding for the nts-1, I didn't change a thing from the original implementation:
 
 ```c
-static inline float fold(float x) {
+float fold(float x) {
     float fold;
     const float bias = (x < 0) ? -1.f : 1.f;
     int phase = int((x + bias) / 2.f);
@@ -92,26 +97,26 @@ static inline float fold(float x) {
 }
 ```
 
-The Harmonik code can be found [here](https://github.com/leandrob13/logue-hub/tree/master/src/nts-1/osc/harmon) and the nts-1 oscillator can be downloaded from [here](https://github.com/leandrob13/logue-hub/tree/master/oscillators/nts-1). 
+The Harmonik code can be found [here](https://github.com/leandrob13/logue-hub/tree/master/harmonik) and the nts-1 oscillator can be downloaded from [here](https://github.com/leandrob13/logue-hub/releases/tag/harmonik-v1-1-0). 
 A summary of features and parameters is described below:
 
 ### Features
 
-- Five sine wave oscillators with amplitude control. 
+- Six sine wave oscillators with amplitude control.
 - A wave folder that folds each sine wave before summing the result to the final signal.
 - Spread control for the partials so that we have harmonic, odd or even partial overtones.
-- The wave folder can be modulated with the LFO.
-- Total gain control with distortion possibility when all the voices gains are at max.
+- Offset control for asymmetric wavefolding.
+- The wave folder can be modulated with the Shape LFO.
 
-### Parameters
+ ### Parameters
  
-|    Parameter    |     Range     |                              Description                              |
-|:---------------:|:-------------:|:---------------------------------------------------------------------:|
-|      SHAPE      |   0 to 100    |                          Wave folder control                          |
-|       ALT       |   0 to 100    |                       Gain of the final signal                        |
-|      ROOT       |   0 to 100    |            The fundamental frequency amplitude controller             |
-|       P1        |   0 to 100    |           The first partial frequency amplitude controller            |
-|       P2        |   0 to 100    |           The second partial frequency amplitude controller           |
-|       P3        |   0 to 100    |           The third partial frequency amplitude controller            |
-|       P4        |   0 to 100    |           The fourth partial frequency amplitude controller           |
-|      SPRD       |    0 to 2     |          The spread controller 0: harmonic, 1: odd, 2: even           |
+| Parameter |  Range   |                          Description                           |
+|:---------:|:--------:|:--------------------------------------------------------------:|
+|   SHAPE   | 0 to 100 |                      Wave folder control                       |
+|    ALT    | 0 to 100 |          Offset of signals for asymmetric wavefolding          |
+|    P1     | 0 to 100 |             The first partial frequency amplitude              |
+|    P2     | 0 to 100 |             The second partial frequency amplitude             |
+|    P3     | 0 to 100 |             The third partial frequency amplitude              |
+|    P4     | 0 to 100 |             The fourth partial frequency amplitude             |
+|    P5     | 0 to 100 |             The fifth partial frequency amplitude              |
+|   SPRD    |  0 to 3  | The spread controller 0: harmonic, 1: odd, 2: even, 3: octaves |
