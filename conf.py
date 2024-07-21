@@ -171,6 +171,8 @@ NAVIGATION_LINKS = {
     DEFAULT_LANG: (
         ('/', 'Home'),
         ('/blog', 'Blog'),
+        ('/warps-symbiote', 'Warps Symbiote'),
+        ('/tides-symbiote', 'Tides Symbiote'),
         ('/archive.html', 'Archives'),
         ('/categories/', 'Tags'),
         ('/rss.xml', 'RSS'),
@@ -668,7 +670,7 @@ ATOM_FILENAME_BASE = "feed"
 # relative URL.
 #
 # If you don't need any of these, just set to []
-REDIRECTIONS = [("/", "blog")]
+#REDIRECTIONS = [("/posts/warps-symbiote/", "tides-symbiote")] #[("/", "blog")]
 
 # Presets of commands to execute to deploy. Can be anything, for
 # example, you may use rsync:
