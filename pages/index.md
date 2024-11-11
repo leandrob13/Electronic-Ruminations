@@ -15,7 +15,7 @@ Welcome to my page where I try to post my interests: electronics, music, program
 - [Warps Symbiote](warps-symbiote)
 - [Tides Symbiote](tides-symbiote)
 
-# My modular grid racks:
+# My Euroracks:
 
 [Digital Heart](https://modulargrid.net/e/racks/view/1897374)
 ![](/images/digital-heart.jpg#centerme)
