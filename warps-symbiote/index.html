@@ -67,32 +67,218 @@
         
 
     </header><div class="e-content entry-content" itemprop="articleBody text">
-    <p>Warps Symbiote firmware is built on top of the <a href="https://mqtthiqs.github.io/parasites/warps.html">Warps Parasites firmware</a> and is my attempt to bring new life to the Mutable Instruments clones available from other manufacturers, let's try to preserve such an important legacy. It adds three new algorithms:</p>
-<ul>
-<li>Ladder Filter: ported from an implementation of the <a href="https://github.com/ddiakopoulos/MoogLadders/blob/master/src/ImprovedModel.h">improved Moog Ladder Filter</a>
-</li>
-<li>Dual State Variable Filter: implemented a dual filter based on Emillie's <a href="https://github.com/pichenettes/stmlib/blob/e3bd7c9cc00e4364166f9905c0509b6ffd0535ec/dsp/filter.h#L177">State Variable Filter</a>
-</li>
-<li>Reverbs: added 4 reverbs based on the implementations found in Rings, Clouds and Elements.</li>
-</ul>
-<p>Here is a demo overview of the new effects:</p>
+    <p>Warps Symbiote firmware is built on top of the <a href="https://mqtthiqs.github.io/parasites/warps.html">Warps Parasites firmware</a> and is my attempt to bring new life to the Mutable Instruments clones available from other manufacturers, let's try to preserve such an important legacy.</p>
+<p>The current beta (<strong>v0.4.0-beta</strong>) reshuffles the algorithm slots, adds a new stereo multimode filter, a dual parallel filter sub-mode, an ensemble voice, and fixes the Chebyschev waveshaper. The older releases (0.1.0 → 0.3.0-beta) shipped a Moog-style Ladder Filter, a Dual State Variable Filter and four reverbs and are documented further down on this page.</p>
+<p>Here is the original demo overview of the symbiote effects (still valid for the unchanged algorithms in the lower half of the panel):</p>
 <p> </p>
 <p align="center"><iframe width="560" height="315" src="https://www.youtube.com/embed/FZFHOwKZnD8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></p>
 
 <h3 id="contents">Contents<a href="#contents" class="headerlink" title="Permalink to this heading">¶</a></h3>
 <ul>
+<li><a href="#symbiote-040">Symbiote 0.4.0</a></li>
 <li><a href="#installation">Installation</a></li>
 <li><a href="#interface">Interface</a></li>
+<li><a href="#stereo-filter">Stereo Filter</a></li>
+<li><a href="#dual-parallel-filter">Dual Parallel Filter</a></li>
+<li><a href="#ensemble-voice">Ensemble Voice</a></li>
+<li><a href="#chebyschev-waveshaper-oversampled-fix">Chebyschev Waveshaper (oversampled fix)</a></li>
+<li><a href="#parameters-v040">Parameters (v0.4.0)</a></li>
+<li><a href="#symbiote-030-and-below">Symbiote 0.3.0 and below</a></li>
+<li><a href="#installation-legacy">Installation (legacy)</a></li>
+<li><a href="#interface-legacy">Interface (legacy)</a></li>
 <li><a href="#ladder-filter">Ladder Filter</a></li>
 <li><a href="#dual-state-variable-filter">Dual State Variable Filter</a></li>
-<li><a href="../posts/warps-symbiote#reverbs">Reverbs</a></li>
-<li><a href="#parameters">Parameters</a></li>
+<li><a href="#reverbs">Reverbs</a></li>
+<li><a href="#parameters-legacy">Parameters (legacy)</a></li>
 <li><a href="#graphical-quick-reference">Graphical Quick Reference</a></li>
 <li><a href="#change-log">Change Log</a></li>
 </ul>
-<h3 id="installation">Installation<a href="#installation" class="headerlink" title="Permalink to this heading">¶</a></h3>
-<p>Download the firmware <code>.wav</code> file <a href="https://github.com/leandrob13/eurorack/releases/tag/v0.2.0">version 0.2.0</a> and follow the usual update procedure stated in the <a href="https://pichenettes.github.io/mutable-instruments-documentation/modules/warps/manual/">Mutable Instruments Warps manual</a>.</p>
-<h3 id="interface">Interface<a href="#interface" class="headerlink" title="Permalink to this heading">¶</a></h3>
+<h3 id="symbiote-040">Symbiote 0.4.0<a href="#symbiote-040" class="headerlink" title="Permalink to this heading">¶</a></h3>
+<h4 id="installation">Installation<a href="#installation" class="headerlink" title="Permalink to this heading">¶</a></h4>
+<p>Download the firmware <code>.wav</code> file <a href="https://github.com/leandrob13/eurorack/releases/tag/v0.4.0-beta">version 0.4.0-beta</a> and follow the usual update procedure stated in the <a href="https://pichenettes.github.io/mutable-instruments-documentation/modules/warps/manual/">Mutable Instruments Warps manual</a>.</p>
+<h4 id="interface">Interface<a href="#interface" class="headerlink" title="Permalink to this heading">¶</a></h4>
+<p>The first two algorithm slots have changed, and a few other algorithms have shifted position to make room. The new left-to-right algorithm list is:</p>
+<ol>
+<li>Stereo Filter (with Dual Parallel Filter as a sub-mode).</li>
+<li>Ensemble Voice.</li>
+<li>Reverbs.</li>
+<li>Frequency Shifter.</li>
+<li>Bitcrusher.</li>
+<li>Chebyschev Waveshaper (now oversampled).</li>
+<li>Doppler Panner.</li>
+<li>Delay.</li>
+<li>Meta.</li>
+</ol>
+<p>Reverbs, Frequency Shifter, Bitcrusher, Doppler Panner, Delay and Meta keep the same behaviour described in the legacy section below — only their slot numbers have shifted. The Ladder Filter is no longer available; the Dual State Variable Filter has been folded into the new Stereo Filter slot as the "Dual Parallel Filter" sub-mode.</p>
+<p>The internal-oscillator button now also doubles as a sub-mode latch on slot 1: hold the button and turn the <code>MODULATION</code> knob to choose between the Stereo Filter (knob CCW) and the Dual Parallel Filter (knob CW). The choice is saved to flash and survives a power cycle.</p>
+<h4 id="stereo-filter">Stereo Filter<a href="#stereo-filter" class="headerlink" title="Permalink to this heading">¶</a></h4>
+<p>A stereo multimode SVF with four filter shapes selected with the internal-oscillator button:</p>
+<ul>
+<li>
+<strong>Unlit</strong>: Low-pass (4-pole, both channels).</li>
+<li>
+<strong>Green</strong>: High-pass.</li>
+<li>
+<strong>Yellow</strong>: Band-pass.</li>
+<li>
+<strong>Red</strong>: Notch.</li>
+</ul>
+<p>Both channels share the same cutoff (<code>ALGORITHM</code> knob) and the same resonance (<code>MODULATION</code> knob). Resonance follows an exponential taper that pushes the filter all the way into self-oscillation territory at the top of the knob's travel. <code>LEVEL 1</code> and <code>LEVEL 2</code> continue to act as the per-input drive amount, with the <code>LEVEL 1&amp;2</code> CV inputs modulating the VCAs as in stock Warps. The filtered stereo output is sent to <strong>OUT 1</strong> (left) and <strong>AUX</strong> (right).</p>
+<h4 id="dual-parallel-filter">Dual Parallel Filter<a href="#dual-parallel-filter" class="headerlink" title="Permalink to this heading">¶</a></h4>
+<p>The Dual State Variable Filter from earlier releases is still here, but now lives as a sub-mode of slot 1. To enter it, <strong>hold the internal-oscillator button</strong> and <strong>turn the <code>MODULATION</code> knob fully clockwise</strong>. To return to the Stereo Filter, hold the button again and turn <code>MODULATION</code> fully counter-clockwise.</p>
+<p>Inside this sub-mode the two filters are independent again:</p>
+<ul>
+<li>
+<code>ALGORITHM</code> knob → Filter 1 cutoff (Left / OUT 1).</li>
+<li>
+<code>MODULATION</code> knob → Filter 2 cutoff (Right / AUX).</li>
+<li>
+<code>LEVEL 1</code> knob → Filter 1 resonance.</li>
+<li>
+<code>LEVEL 2</code> knob → Filter 2 resonance.</li>
+<li>Internal-oscillator button cycles the layout: <strong>LP / HP</strong> (unlit), <strong>LP / BP</strong> (green), <strong>BP / HP</strong> (yellow), <strong>BP / BP</strong> (red).</li>
+<li>
+<code>LEVEL 1&amp;2</code> CV inputs become the per-input drive CV, like in the legacy Dual SVF.</li>
+</ul>
+<p>Resonance calibration has been tightened for v0.4.0 so the dual filter's distortion sweet-spot is easier to land on.</p>
+<h4 id="ensemble-voice">Ensemble Voice<a href="#ensemble-voice" class="headerlink" title="Permalink to this heading">¶</a></h4>
+<p>A stereo ensemble / chorus effect, layered on top of a stereo low-pass filter and Warps' internal oscillator — handy for instant pad-like textures from a single audio input or from the internal oscillator alone.</p>
+<ul>
+<li>
+<code>ALGORITHM</code> knob → cutoff of the front-end stereo low-pass filter (no resonance).</li>
+<li>
+<code>MODULATION</code> knob → ensemble amount and depth (one knob, taper-linked so the effect smoothly opens up from a subtle thickening at noon to a full chorus swirl fully CW).</li>
+<li>Internal-oscillator button → enables Warps' internal oscillator as a voice. When unlit, the algorithm processes the external inputs only; when lit, the oscillator is mixed in and <code>LEVEL 2</code> controls its amplitude. The colour selects the oscillator waveform, matching the existing internal-oscillator behaviour (sine, triangle, saw, square).</li>
+<li>
+<code>LEVEL 1</code> → external input drive.</li>
+<li>
+<code>LEVEL 1&amp;2</code> CV inputs → VCA CV control.</li>
+</ul>
+<p>The ensemble engine uses three chorus taps per channel driven by two LFOs (a slow 0.75 Hz movement and a faster 6.57 Hz shimmer), cross-fed between the left and right outputs to widen the stereo image. Wet output goes to <strong>OUT 1</strong> (left) and <strong>AUX</strong> (right).</p>
+<h4 id="chebyschev-waveshaper-oversampled-fix">Chebyschev Waveshaper (oversampled fix)<a href="#chebyschev-waveshaper-oversampled-fix" class="headerlink" title="Permalink to this heading">¶</a></h4>
+<p>The Chebyschev Waveshaper now runs <strong>oversampled</strong> and uses the latest Parasites v1.01 algorithm. This fixes the aliasing / glitchy high-frequency artefacts that the older release tried to tame by downsampling the input — those workarounds are no longer needed. As of v0.4.0 the algorithm has moved from slot 4 to <strong>slot 6</strong> (between Bitcrusher and Doppler Panner).</p>
+<p>The knob layout is unchanged from the legacy description: <code>ALGORITHM</code> selects the Chebyschev order, <code>MODULATION</code> controls gain, internal oscillator button enables Warps' internal oscillator, <code>LEVEL 1</code> / <code>LEVEL 2</code> are input drives, and <code>LEVEL 1&amp;2</code> CVs modulate the input VCAs.</p>
+<h4 id="parameters-v040">Parameters (v0.4.0)<a href="#parameters-v040" class="headerlink" title="Permalink to this heading">¶</a></h4>
+<table>
+<thead><tr>
+<th style="text-align: center;">Algorithm</th>
+<th style="text-align: center;">Algorithm Knob/CV</th>
+<th style="text-align: center;">Timbre Knob/CV</th>
+<th style="text-align: center;">Internal Oscillator Button</th>
+<th style="text-align: center;">Level 1 Knob</th>
+<th style="text-align: center;">Level 2 Knob</th>
+<th style="text-align: center;">Level 1&amp;2 CV</th>
+<th style="text-align: center;">Output 1</th>
+<th style="text-align: center;">Aux</th>
+</tr></thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Stereo Filter</strong></td>
+<td style="text-align: center;">Cutoff (shared L+R)</td>
+<td style="text-align: center;">Resonance (shared L+R)</td>
+<td style="text-align: center;">Cycles filter mode: <strong>LP</strong> (unlit), <strong>HP</strong> (green), <strong>BP</strong> (yellow), <strong>N</strong> (red). Hold + <code>MOD</code> CCW = Stereo, CW = Dual Parallel</td>
+<td style="text-align: center;">Input 1 drive</td>
+<td style="text-align: center;">Input 2 drive</td>
+<td style="text-align: center;">Inputs 1&amp;2 VCA CV</td>
+<td style="text-align: center;">Filtered left channel</td>
+<td style="text-align: center;">Filtered right channel</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>Dual Parallel Filter</strong></td>
+<td style="text-align: center;">Filter 1 cutoff</td>
+<td style="text-align: center;">Filter 2 cutoff</td>
+<td style="text-align: center;">Layout: <strong>LP/HP</strong> (unlit), <strong>LP/BP</strong> (green), <strong>BP/HP</strong> (yellow), <strong>BP/BP</strong> (red). Hold + <code>MOD</code> CCW returns to Stereo Filter</td>
+<td style="text-align: center;">Filter 1 resonance</td>
+<td style="text-align: center;">Filter 2 resonance</td>
+<td style="text-align: center;">Inputs 1&amp;2 drive CV</td>
+<td style="text-align: center;">Filter 1 output</td>
+<td style="text-align: center;">Filter 2 output</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>Ensemble Voice</strong></td>
+<td style="text-align: center;">Front LP filter cutoff</td>
+<td style="text-align: center;">Ensemble amount + depth</td>
+<td style="text-align: center;">Toggles internal oscillator voice. Colour selects waveform</td>
+<td style="text-align: center;">Input drive</td>
+<td style="text-align: center;">Internal oscillator amplitude</td>
+<td style="text-align: center;">Inputs 1&amp;2 VCA CV</td>
+<td style="text-align: center;">Ensemble left</td>
+<td style="text-align: center;">Ensemble right</td>
+</tr>
+<tr>
+<td style="text-align: center;">Reverbs</td>
+<td style="text-align: center;">Diffusion</td>
+<td style="text-align: center;">Reverb time</td>
+<td style="text-align: center;">Selects reverb: Caveman (unlit), Rings (green), Clouds (yellow), Elements (red)</td>
+<td style="text-align: center;">Reverb amount, reverb gain for Elements</td>
+<td style="text-align: center;">Filter LP, feedback for Clouds</td>
+<td style="text-align: center;">Inputs 1&amp;2 VCA CV</td>
+<td style="text-align: center;">Left output</td>
+<td style="text-align: center;">Right output</td>
+</tr>
+<tr>
+<td style="text-align: center;">Frequency Shifter</td>
+<td style="text-align: center;">Frequency shift</td>
+<td style="text-align: center;">Crossfade between up/down outputs</td>
+<td style="text-align: center;">Warps internal oscillator</td>
+<td style="text-align: center;">Feedback</td>
+<td style="text-align: center;">Dry/Wet</td>
+<td style="text-align: center;">Feedback and Dry/Wet CV</td>
+<td style="text-align: center;">Up</td>
+<td style="text-align: center;">Down</td>
+</tr>
+<tr>
+<td style="text-align: center;">Bitcrusher</td>
+<td style="text-align: center;">Bit crushing amount</td>
+<td style="text-align: center;">Cross modulation: dry, AND, XOR</td>
+<td style="text-align: center;">Warps internal oscillator</td>
+<td style="text-align: center;">Input 1 level / oscillator frequency</td>
+<td style="text-align: center;">Input 2 level</td>
+<td style="text-align: center;">Inputs 1&amp;2 VCA CV</td>
+<td style="text-align: center;">Out</td>
+<td style="text-align: center;">Sum of 1+2 or internal oscillator</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>Chebyschev Waveshaper</strong></td>
+<td style="text-align: center;">Order</td>
+<td style="text-align: center;">Gain</td>
+<td style="text-align: center;">Warps internal oscillator</td>
+<td style="text-align: center;">Input 1 level / oscillator frequency</td>
+<td style="text-align: center;">Input 2 level</td>
+<td style="text-align: center;">Inputs 1&amp;2 VCA CV</td>
+<td style="text-align: center;">Out (oversampled)</td>
+<td style="text-align: center;">Sum of 1+2 or internal oscillator</td>
+</tr>
+<tr>
+<td style="text-align: center;">Doppler Panner</td>
+<td style="text-align: center;">X coordinate</td>
+<td style="text-align: center;">Y coordinate</td>
+<td style="text-align: center;">Space size: smaller (unlit) → larger (red)</td>
+<td style="text-align: center;">LFO frequency</td>
+<td style="text-align: center;">LFO amplitude</td>
+<td style="text-align: center;">LFO amplitude and frequency CV</td>
+<td style="text-align: center;">Out</td>
+<td style="text-align: center;">Out symmetrical on axis</td>
+</tr>
+<tr>
+<td style="text-align: center;">Delay</td>
+<td style="text-align: center;">Delay speed / direction</td>
+<td style="text-align: center;">Delay length</td>
+<td style="text-align: center;">Modes: open feedback loop (unlit), dual (green), analog (yellow), ping-pong (red)</td>
+<td style="text-align: center;">Feedback</td>
+<td style="text-align: center;">Dry/Wet</td>
+<td style="text-align: center;">Feedback and Dry/Wet CV</td>
+<td style="text-align: center;">Out 1</td>
+<td style="text-align: center;">Out 2</td>
+</tr>
+</tbody>
+</table>
+<p>For <code>Meta</code> mode see <a href="https://pichenettes.github.io/mutable-instruments-documentation/modules/warps/manual/">Mutable Instruments stock firmware documentation</a>.</p>
+<h3 id="symbiote-030-and-below">Symbiote 0.3.0 and below<a href="#symbiote-030-and-below" class="headerlink" title="Permalink to this heading">¶</a></h3>
+<p>The rest of this page documents the firmware up to and including <strong>0.3.0-beta</strong> (the last release before the v0.4.0 layout reshuffle). The Ladder Filter and the standalone Dual State Variable Filter described here have been replaced or repackaged in v0.4.0, but everything from "Reverbs" onward still applies to the current firmware — only the slot numbers have changed (see the <a href="#interface">v0.4.0 interface section</a> above).</p>
+<h4 id="installation-legacy">Installation (legacy)<a href="#installation-legacy" class="headerlink" title="Permalink to this heading">¶</a></h4>
+<p>Download the firmware <code>.wav</code> file <a href="https://github.com/leandrob13/eurorack/releases/tag/v0.2.0">version 0.2.0</a> (or the <a href="https://github.com/leandrob13/eurorack/releases/tag/v0.3.0-beta">0.3.0-beta</a> for the Ladder Filter / Chebyschev re-tuning) and follow the usual update procedure stated in the <a href="https://pichenettes.github.io/mutable-instruments-documentation/modules/warps/manual/">Mutable Instruments Warps manual</a>.</p>
+<h4 id="interface-legacy">Interface (legacy)<a href="#interface-legacy" class="headerlink" title="Permalink to this heading">¶</a></h4>
 <p>The interface of this firmware is the same as the one implemented in <a href="https://mqtthiqs.github.io/parasites/warps.html#mode">Warps Parasites</a>. From left to right, the algorithms are:</p>
 <ul>
 <li>Ladder Filter.</li>
@@ -122,7 +308,7 @@ The four available reverbs are:</p>
 <li>Clouds: close enough configuration based on the beloved reverb.</li>
 <li>Elements: close enough configuration with reverb freeze (timbre knob completely CW) and added input gain control for dramatic and cinematic effects.</li>
 </ul>
-<h3 id="parameters">Parameters<a href="#parameters" class="headerlink" title="Permalink to this heading">¶</a></h3>
+<h4 id="parameters-legacy">Parameters (legacy)<a href="#parameters-legacy" class="headerlink" title="Permalink to this heading">¶</a></h4>
 <table>
 <thead><tr>
 <th style="text-align: center;">Algorithm</th>
@@ -227,13 +413,36 @@ The four available reverbs are:</p>
 </tbody>
 </table>
 <p>For <code>Meta</code> mode see <a href="https://pichenettes.github.io/mutable-instruments-documentation/modules/warps/manual/">Mutable Instruments stock firmware documentation</a></p>
-<h3 id="graphical-quick-reference">Graphical Quick Reference<a href="#graphical-quick-reference" class="headerlink" title="Permalink to this heading">¶</a></h3>
-<p>A quick reference guide is provided. A ton of gratitude to <a href="https://www.reddit.com/user/epijdemic/">epijdemic</a> who volunteered to create such a great visual aid for the firmware.
+<h4 id="graphical-quick-reference">Graphical Quick Reference<a href="#graphical-quick-reference" class="headerlink" title="Permalink to this heading">¶</a></h4>
+<p>A quick reference guide is provided for the 0.2.0 layout. A ton of gratitude to <a href="https://www.reddit.com/user/epijdemic/">epijdemic</a> who volunteered to create such a great visual aid for the firmware.
 You can download the PDF <a href="../pdf/symbiote_v2.pdf">here</a>.</p>
 <p> </p>
 <p><img alt="" src="../images/warps_symbiote_ref.png#centerme"></p>
 <p> </p>
 <h3 id="change-log">Change Log<a href="#change-log" class="headerlink" title="Permalink to this heading">¶</a></h3>
+<h4 id="symbiote-040-beta">Symbiote 0.4.0-beta<a href="#symbiote-040-beta" class="headerlink" title="Permalink to this heading">¶</a></h4>
+<p>New features:</p>
+<ul>
+<li>
+<strong>Stereo Filter</strong>: stereo multimode filter (LP / HP / BP / Notch) in algorithm slot 1.</li>
+<li>
+<strong>Dual Parallel Filter</strong>: the previous Dual State Variable Filter is now a sub-mode of slot 1. Hold the internal-oscillator button and turn the <code>MODULATION</code> knob fully CW to enter it; fully CCW returns to the Stereo Filter. The choice is persisted to flash.</li>
+<li>
+<strong>Ensemble Voice</strong>: new ensemble / chorus effect with a stereo low-pass front-end and an optional internal oscillator voice, in algorithm slot 2.</li>
+</ul>
+<p>Fixes:</p>
+<ul>
+<li>Chebyschev Waveshaper now runs oversampled using the Parasites v1.01 algorithm. The earlier downsampling workaround has been removed. The algorithm moved from slot 4 to slot 6.</li>
+<li>Tightened resonance calibration for the Dual Parallel Filter.</li>
+<li>Algorithm slot reshuffle: Frequency Shifter is now slot 4, Bitcrusher is slot 5, Chebyschev is slot 6 (the rest are unchanged).</li>
+</ul>
+<h4 id="symbiote-030-beta">Symbiote 0.3.0-beta<a href="#symbiote-030-beta" class="headerlink" title="Permalink to this heading">¶</a></h4>
+<p>Fixes:</p>
+<ul>
+<li>Tweaked Ladder Filter calibration so that the filter would open up a bit more.</li>
+<li>Set the sample rate back at 96 kHz.</li>
+<li>Down-sampled the audio fed into the Chebyschev Waveshaper to tame the glitchy sounds when high knob values are selected.</li>
+</ul>
 <h4 id="symbiote-020">Symbiote 0.2.0<a href="#symbiote-020" class="headerlink" title="Permalink to this heading">¶</a></h4>
 <p>New features:</p>
 <ul>
