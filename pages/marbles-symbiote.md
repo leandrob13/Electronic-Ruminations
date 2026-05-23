@@ -23,8 +23,7 @@ Here is a demo overview of the new mode:
 
 &nbsp;
 
-<!-- TODO: video placeholder -->
-<p align="center"><em>Video coming soon.</em></p>
+<p align="center"><iframe width="560" height="315" src="https://www.youtube.com/embed/uLKE2HvbbIw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></p>
 
 ## Contents
 
@@ -38,7 +37,7 @@ Here is a demo overview of the new mode:
 
 ## Installation
 
-Download the firmware `.wav` file [version 0.1.0](https://github.com/leandrob13/eurorack/releases/tag/v0.1.0-marbles) and follow the usual update procedure stated in the [Mutable Instruments Marbles manual](https://pichenettes.github.io/mutable-instruments-documentation/modules/marbles/manual/).
+Download the firmware `.wav` file [version 0.1.0](https://github.com/leandrob13/eurorack/releases/tag/marbles-symbiote-v0.1.0) and follow the usual update procedure stated in the [Mutable Instruments Marbles manual](https://pichenettes.github.io/mutable-instruments-documentation/modules/marbles/manual/).
 
 ## Interface
 
