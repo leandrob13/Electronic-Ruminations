@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html prefix="" lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Marbles Symbiote | Electronic Ruminations</title>
+<link href="../assets/css/all.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=PT+Serif:400,400italic,700|PT+Sans:400">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../rss.xml">
+<link rel="canonical" href="https://leandrob13.github.io/Electronic-Ruminations/marbles-symbiote/">
+<link rel="icon" href="../favicon.ico" sizes="48x48">
+<!--[if lt IE 9]><script src="../assets/js/html5.js"></script><![endif]--><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=G-VGDFS80SZM"></script><script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-VGDFS80SZM');
+</script><meta name="author" content="Leandro B">
+<meta property="og:site_name" content="Electronic Ruminations">
+<meta property="og:title" content="Marbles Symbiote">
+<meta property="og:url" content="https://leandrob13.github.io/Electronic-Ruminations/marbles-symbiote/">
+<meta property="og:description" content="Marbles Symbiote firmware adds a new T-section model that turns Marbles into a self-contained generative drum + acid bassline machine:
+
+Grids drum engine ported from Mutable Instruments Grids, driving">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2026-05-17T12:00:00-05:00">
+</head>
+<body>
+    <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+            styles, `#sidebar-checkbox` for behavior. -->
+    <input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox"><!-- Toggleable sidebar --><div class="sidebar" id="sidebar">
+
+        
+    <nav id="menu" role="navigation" class="sidebar-nav"><a class="sidebar-nav-item" href="../">Home</a>
+        <a class="sidebar-nav-item" href="../blog">Blog</a>
+        <a class="sidebar-nav-item" href="../warps-symbiote">Warps Symbiote</a>
+        <a class="sidebar-nav-item" href="../tides-symbiote">Tides Symbiote</a>
+        <a class="sidebar-nav-item" href="../marbles-symbiote">Marbles Symbiote</a>
+        <a class="sidebar-nav-item" href="../archive.html">Archives</a>
+        <a class="sidebar-nav-item" href="../categories/">Tags</a>
+        <a class="sidebar-nav-item" href="../rss.xml">RSS</a>
+        <a class="sidebar-nav-item" href="https://github.com/leandrob13">My Github</a>
+    
+    
+    </nav>
+</div>
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          
+    <h2 id="brand" class="masthead-title">
+      <a href="https://leandrob13.github.io/Electronic-Ruminations/" title="Electronic Ruminations" rel="home">Electronic Ruminations</a>
+    </h2>
+
+        </div>
+      </div>
+
+      <div class="container content" id="content">
+        
+<article class="post-text storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="post-title p-name entry-title" itemprop="headline">
+      <a href="https://leandrob13.github.io/Electronic-Ruminations/marbles-symbiote/" class="u-url">Marbles Symbiote</a>
+</h1>
+        
+
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <p>Marbles Symbiote firmware adds a new T-section model that turns Marbles into a self-contained generative drum + acid bassline machine:</p>
+<ul>
+<li>
+<strong>Grids drum engine</strong> ported from <a href="https://pichenettes.github.io/mutable-instruments-documentation/modules/grids/manual/">Mutable Instruments Grids</a>, driving BD, SD and HH on the three T-section gate outputs.</li>
+<li>
+<strong>Euclidean sub-mode</strong> with a shared step length across all three drum voices, also borrowed from Grids.</li>
+<li>
+<strong>TB-3PO acid sequencer</strong> on the X-section, ported from the <a href="https://github.com/djphazer/O_C-Phazerville">Hemisphere TB_3PO applet</a>, locked to the same master clock as the drums so the bassline always stays in time.</li>
+<li>
+<strong>Bipolar <code>DEJA VU</code> knob</strong> with separate functions per drum sub-mode: chaos on the drum map (Drums) or T2 fills and pattern rotation (Euclidean).</li>
+<li>
+<strong>Seed lock and persistence</strong>: the bassline pattern is reseeded on demand and locked patterns survive a power cycle.</li>
+</ul>
+<p>When Grids mode is active, Marbles becomes a single-cable rhythm section: three drum gates, a clock, a 1V/oct pitch CV, a gate and an accent — all generated, all in sync, all quantized to the X-section scale.</p>
+<p>Here is a demo overview of the new mode:</p>
+<p> </p>
+<p align="center"><iframe width="560" height="315" src="https://www.youtube.com/embed/uLKE2HvbbIw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></p>
+
+<h3 id="contents">Contents<a href="#contents" class="headerlink" title="Permalink to this heading">¶</a></h3>
+<ul>
+<li><a href="#installation">Installation</a></li>
+<li><a href="#interface">Interface</a></li>
+<li><a href="#grids-drums">Grids Drums</a></li>
+<li><a href="#grids-euclidean">Grids Euclidean</a></li>
+<li><a href="#tb-3po-acid-sequencer">TB-3PO Acid Sequencer</a></li>
+<li><a href="#parameters">Parameters</a></li>
+<li><a href="#change-log">Change Log</a></li>
+</ul>
+<h3 id="installation">Installation<a href="#installation" class="headerlink" title="Permalink to this heading">¶</a></h3>
+<p>Download the firmware <code>.wav</code> file <a href="https://github.com/leandrob13/eurorack/releases/tag/marbles-symbiote-v0.1.0">version 0.1.0</a> and follow the usual update procedure stated in the <a href="https://pichenettes.github.io/mutable-instruments-documentation/modules/marbles/manual/">Mutable Instruments Marbles manual</a>.</p>
+<h3 id="interface">Interface<a href="#interface" class="headerlink" title="Permalink to this heading">¶</a></h3>
+<p>To get to the new mode, <strong>long-press</strong> the <code>T MODEL</code> button. This switches the T-section between the stock model bank and the alternative bank; Grids lives in the alternative bank and is indicated by a slow red blink on the T-model LED. Short-pressing the button still cycles within the current bank, so you can flip back to the stock T modes at any time.</p>
+<p>Once in Grids mode the T-section's <code>DEJA VU</code> button selects the drum sub-mode:</p>
+<ul>
+<li>
+<strong>Unlit / OFF</strong>: Grids drum map (BD / SD / HH).</li>
+<li>
+<strong>Lit / ON or LOCKED</strong>: Euclidean drums (shared length across all three voices).</li>
+</ul>
+<p>The X-section is automatically taken over by the TB-3PO acid sequencer whenever Grids is active. Outside of Grids mode the X-section behaves normally.</p>
+<p>The rest of the interface knobs and CV inputs work as described in the sections below.</p>
+<h4 id="grids-drums">Grids Drums<a href="#grids-drums" class="headerlink" title="Permalink to this heading">¶</a></h4>
+<p>The classic Mutable Instruments Grids drum map. <code>BIAS</code> and <code>JITTER</code> traverse the map's X / Y coordinates, sweeping smoothly between the curated drum patterns. The <code>DEJA VU</code> knob is bipolar and CCW from center it injects chaos / randomness into the drum map (square-root-tapered so small CCW turns already produce audible perturbation). CW from center has no effect in Drums sub-mode. The <code>RATE</code>, <code>BIAS</code> and <code>JITTER</code> CV inputs add a CV offset to the density of each drum voice (BD, SD, HH respectively) on top of a fixed base level, so you can modulate beat density without giving up control of the pattern coordinates on the knobs.</p>
+<p>T1 outputs the BD gate, T2 outputs the SD gate (replacing the master gate), and T3 outputs the HH gate.</p>
+<h4 id="grids-euclidean">Grids Euclidean<a href="#grids-euclidean" class="headerlink" title="Permalink to this heading">¶</a></h4>
+<p>Same engine as Grids' Euclidean sub-mode, but with a single shared length across all three voices. The <code>DEJA VU LENGTH</code> knob sets the step count from 1 to 16. The drum map is not used in this sub-mode, so the <code>BIAS</code> and <code>JITTER</code> knobs are silent here — density per voice is controlled entirely by the <code>RATE</code> / <code>BIAS</code> / <code>JITTER</code> CV inputs (same mapping as Drums sub-mode: BD / SD / HH respectively).</p>
+<p>The <code>DEJA VU</code> knob is bipolar in Grids mode and behaves differently per sub-mode. In Euclidean:</p>
+<ul>
+<li>
+<strong>CCW from center</strong>: sprinkles random fill hits onto T2 (SD) on top of the Euclidean pattern. Cubic-tapered and capped so the base groove still reads through.</li>
+<li>
+<strong>CW from center</strong>: rotates the Euclidean pattern across all three voices.</li>
+<li>
+<strong>Center (12 o'clock)</strong>: no effect.</li>
+</ul>
+<h4 id="tb-3po-acid-sequencer">TB-3PO Acid Sequencer<a href="#tb-3po-acid-sequencer" class="headerlink" title="Permalink to this heading">¶</a></h4>
+<p>A port of the Hemisphere TB_3PO acid sequencer, running on the X-section whenever Grids mode is active. The sequencer ticks once per 16th note (locked to the Grids clock) and generates a pattern of pitches, gates, slides and accents. Slides are slewed with a 303-style portamento, accents are sent out the <code>Y</code> output, and the gate is held through slid steps.</p>
+<p>The generator uses the scale selected by the X-section's scale selector (<code>state.x_scale</code>), filtered so it only walks the in-scale degrees — no chromatic passing tones on the diatonic and pentatonic presets.</p>
+<ul>
+<li>The <code>X SPREAD</code> knob and CV control the <strong>density</strong> of gates / slides / accents (one bipolar parameter, knob and CV summed).</li>
+<li>The <code>X BIAS</code> knob and CV <strong>transpose</strong> the pattern in semitones (±18 semitones / 3 octaves stepped, knob + CV combined; CV tracks 1V/oct).</li>
+<li>The <code>X STEPS</code> knob and CV set the <strong>step length</strong> from 1 to 32.</li>
+<li>The <code>X DEJA VU</code> switch controls <strong>seed lock</strong>:</li>
+<li>Tap <strong>OFF</strong>: draw a new random seed and regenerate the pattern.</li>
+<li>Flip to <strong>ON / LOCKED</strong>: lock the current seed and commit it to flash — the same pattern will return on next power-up.</li>
+<li>The <code>DEJA VU</code> CV input is repurposed in Grids mode as a <strong>reset trigger</strong>: a rising edge resets both the drums and the bassline to step 0.</li>
+<li>
+<code>X SCALE</code> selects the scale (reuses the existing X scale selector).</li>
+<li>
+<code>X RANGE</code> is unused in Grids mode (pitch is always 1V/oct).</li>
+</ul>
+<p>Outputs:</p>
+<ul>
+<li>
+<strong>X1</strong>: 5V / 0V clock square wave (16th notes).</li>
+<li>
+<strong>X2</strong>: 1V/oct pitch CV, slewed on slid steps.</li>
+<li>
+<strong>X3</strong>: gate (high while the step is gated; held through slides).</li>
+<li>
+<strong>Y</strong>: accent gate (high only when the step is both accented and gated).</li>
+</ul>
+<h3 id="parameters">Parameters<a href="#parameters" class="headerlink" title="Permalink to this heading">¶</a></h3>
+<p>T-section (Grids mode):</p>
+<table>
+<thead><tr>
+<th style="text-align: center;">Sub-mode</th>
+<th style="text-align: center;">RATE Knob</th>
+<th style="text-align: center;">BIAS Knob</th>
+<th style="text-align: center;">JITTER Knob</th>
+<th style="text-align: center;">RATE CV</th>
+<th style="text-align: center;">BIAS CV</th>
+<th style="text-align: center;">JITTER CV</th>
+<th style="text-align: center;">DEJA VU Knob</th>
+<th style="text-align: center;">DEJA VU LENGTH Knob</th>
+<th style="text-align: center;">DEJA VU CV</th>
+<th style="text-align: center;">DEJA VU Button</th>
+</tr></thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Drums</strong></td>
+<td style="text-align: center;">Tempo / clock division</td>
+<td style="text-align: center;">Drums map X coordinate</td>
+<td style="text-align: center;">Drums map Y coordinate</td>
+<td style="text-align: center;">BD density CV</td>
+<td style="text-align: center;">SD density CV</td>
+<td style="text-align: center;">HH density CV</td>
+<td style="text-align: center;">CCW from center: chaos / randomness on the drum map. CW: no effect.</td>
+<td style="text-align: center;"><em>unused</em></td>
+<td style="text-align: center;">Rising edge: reset both T and X to step 0</td>
+<td style="text-align: center;">OFF = Drums sub-mode</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>Euclidean</strong></td>
+<td style="text-align: center;">Tempo / clock division</td>
+<td style="text-align: center;"><em>unused</em></td>
+<td style="text-align: center;"><em>unused</em></td>
+<td style="text-align: center;">BD density CV</td>
+<td style="text-align: center;">SD density CV</td>
+<td style="text-align: center;">HH density CV</td>
+<td style="text-align: center;">CCW from center: T2 (SD) random fills. CW from center: pattern rotation.</td>
+<td style="text-align: center;">Shared Euclidean length (1–16 steps)</td>
+<td style="text-align: center;">Rising edge: reset both T and X to step 0</td>
+<td style="text-align: center;">ON / LOCKED = Euclidean</td>
+</tr>
+</tbody>
+</table>
+<p>X-section (Grids mode — TB-3PO bassline):</p>
+<table>
+<thead><tr>
+<th style="text-align: center;">X SPREAD Knob + CV</th>
+<th style="text-align: center;">X BIAS Knob + CV</th>
+<th style="text-align: center;">X STEPS Knob + CV</th>
+<th style="text-align: center;">X DEJA VU Switch</th>
+<th style="text-align: center;">X SCALE</th>
+<th style="text-align: center;">X RANGE</th>
+</tr></thead>
+<tbody><tr>
+<td style="text-align: center;">Bassline density of gates / slides / accents (bipolar)</td>
+<td style="text-align: center;">Bassline transpose, ±18 semitones (CV: 1V/oct)</td>
+<td style="text-align: center;">Bassline step length, 1 to 32 steps</td>
+<td style="text-align: center;">Seed lock / reseed / commit</td>
+<td style="text-align: center;">Scale (reuses X scale selector)</td>
+<td style="text-align: center;"><em>unused</em></td>
+</tr></tbody>
+</table>
+<table>
+<thead><tr>
+<th style="text-align: center;">Output</th>
+<th style="text-align: center;">Voltage</th>
+<th style="text-align: center;">Source</th>
+</tr></thead>
+<tbody>
+<tr>
+<td style="text-align: center;">T1</td>
+<td style="text-align: center;">Gate</td>
+<td style="text-align: center;">Grids BD drum gate</td>
+</tr>
+<tr>
+<td style="text-align: center;">T2</td>
+<td style="text-align: center;">Gate</td>
+<td style="text-align: center;">Grids SD drum gate (master gate output)</td>
+</tr>
+<tr>
+<td style="text-align: center;">T3</td>
+<td style="text-align: center;">Gate</td>
+<td style="text-align: center;">Grids HH drum gate</td>
+</tr>
+<tr>
+<td style="text-align: center;">X1</td>
+<td style="text-align: center;">5V / 0V clock</td>
+<td style="text-align: center;">Grids step clock (16th notes, locked to the drum engine)</td>
+</tr>
+<tr>
+<td style="text-align: center;">X2</td>
+<td style="text-align: center;">1V/oct</td>
+<td style="text-align: center;">TB-3PO pitch CV, scale-quantized, slewed on slid steps</td>
+</tr>
+<tr>
+<td style="text-align: center;">X3</td>
+<td style="text-align: center;">Gate</td>
+<td style="text-align: center;">TB-3PO gate (held through slides)</td>
+</tr>
+<tr>
+<td style="text-align: center;">Y</td>
+<td style="text-align: center;">Gate</td>
+<td style="text-align: center;">TB-3PO accent (high on accented + gated steps)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="change-log">Change Log<a href="#change-log" class="headerlink" title="Permalink to this heading">¶</a></h3>
+<h4 id="symbiote-010">Symbiote 0.1.0<a href="#symbiote-010" class="headerlink" title="Permalink to this heading">¶</a></h4>
+<p>New features:</p>
+<ul>
+<li>Grids drum engine ported into the T-section, driving BD / SD / HH on T1 / T2 / T3.</li>
+<li>Euclidean drums sub-mode with shared step length across all three voices, selected by the T-section <code>DEJA VU</code> button.</li>
+<li>TB-3PO acid sequencer running on the X-section while Grids mode is active, locked to the drum clock.</li>
+<li>Scale-aware in-scale pitch selection: the bassline walks only the diatonic degrees of the selected X-section scale.</li>
+<li>303-style slide slewing on slid steps, with held gate and a separate accent output.</li>
+<li>Seed lock and flash persistence: locked patterns survive a power cycle; <code>X DEJA VU</code> taps draw a new seed, flipping to ON commits it.</li>
+<li>Independent step length controls: <code>DEJA VU LENGTH</code> (Euclidean drums, 1–16) and <code>X STEPS</code> (TB-3PO bassline, 1–32).</li>
+<li>
+<code>DEJA VU</code> CV input repurposed in Grids mode as a global reset (resets both drums and bassline to step 0).</li>
+<li>Bipolar <code>DEJA VU</code> knob mapping: CCW = drum-map chaos (Drums) / T2 fills (Euclidean); CW = pattern rotation (Euclidean).</li>
+</ul>
+</div>
+    
+
+</article><footer id="footer"><p>Contents © 2026         <a href="https://github.com/leandrob13">Leandro B</a> -         
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
+<img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"></a>
+</p>
+            
+        </footer>
+</div>
+    </div>
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+    
+    
+    
+            <script src="../assets/js/all-nocdn.js"></script><!-- fancy dates --><script>
+    moment.locale("en");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script><!-- end fancy dates -->
+</body>
+</html>

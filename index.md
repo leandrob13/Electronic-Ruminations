@@ -14,6 +14,7 @@ Welcome to my page where I try to post my interests: electronics, music, program
 - [Blog Posts](blog)
 - [Warps Symbiote](warps-symbiote)
 - [Tides Symbiote](tides-symbiote)
+- [Marbles Symbiote](marbles-symbiote)
 
 # My Euroracks:
 
