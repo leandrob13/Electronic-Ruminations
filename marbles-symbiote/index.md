@@ -13,7 +13,7 @@ Marbles Symbiote firmware adds a new T-section model that turns Marbles into a s
 
 - **Grids drum engine** ported from [Mutable Instruments Grids](https://pichenettes.github.io/mutable-instruments-documentation/modules/grids/manual/), driving BD, SD and HH on the three T-section gate outputs.
 - **Euclidean sub-mode** with a shared step length across all three drum voices, also borrowed from Grids.
-- **TB-3PO acid sequencer** on the X-section, ported from the [Hemisphere TB_3PO applet](https://github.com/djphazer/O_C-Phazerville), locked to the same master clock as the drums so the bassline always stays in time.
+- **TB-3PO acid sequencer** on the X-section, ported from the [Hemisphere TB_3PO applet](https://github.com/djphazer/O_C-Phazerville/blob/phazerville/software/src/applets/TB3PO.h) by [Logarhythm1](https://github.com/Logarhythm1), locked to the same master clock as the drums so the bassline always stays in time.
 - **Bipolar `DEJA VU` knob** with separate functions per drum sub-mode: chaos on the drum map (Drums) or T2 fills and pattern rotation (Euclidean).
 - **Seed lock and persistence**: the bassline pattern is reseeded on demand and locked patterns survive a power cycle.
 
