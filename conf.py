@@ -173,6 +173,7 @@ NAVIGATION_LINKS = {
         ('/blog', 'Blog'),
         ('/warps-symbiote', 'Warps Symbiote'),
         ('/tides-symbiote', 'Tides Symbiote'),
+        ('/marbles-symbiote', 'Marbles Symbiote'),
         ('/archive.html', 'Archives'),
         ('/categories/', 'Tags'),
         ('/rss.xml', 'RSS'),
