@@ -174,6 +174,7 @@ NAVIGATION_LINKS = {
         ('/warps-symbiote', 'Warps Symbiote'),
         ('/tides-symbiote', 'Tides Symbiote'),
         ('/marbles-symbiote', 'Marbles Symbiote'),
+        ('/rings-ominous-harmony', 'Rings Ominous Harmony'),
         ('/archive.html', 'Archives'),
         ('/categories/', 'Tags'),
         ('/rss.xml', 'RSS'),
