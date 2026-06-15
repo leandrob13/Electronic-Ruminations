@@ -79,8 +79,13 @@ Grids drum engine ported from Mutable Instruments Grids, driving">
 <strong>Bipolar <code>DEJA VU</code> knob</strong> with separate functions per drum sub-mode: chaos on the drum map (Drums) or T2 fills and pattern rotation (Euclidean).</li>
 <li>
 <strong>Seed lock and persistence</strong>: the bassline pattern is reseeded on demand and locked patterns survive a power cycle.</li>
+<li>
+<strong>External clocking of the bassline</strong> (new in 0.2.0): patch a clock to the X clock input and the bassline follows it, with <code>RATE</code> acting as a ¼×–4× clock divider / multiplier just like the drum clock.</li>
+<li>
+<strong>4-slot pattern bank</strong> (new in 0.2.0): save and recall up to four bassline seeds straight from the front panel, stored in flash.</li>
 </ul>
 <p>When Grids mode is active, Marbles becomes a single-cable rhythm section: three drum gates, a clock, a 1V/oct pitch CV, a gate and an accent — all generated, all in sync, all quantized to the X-section scale.</p>
+<p>This firmware also exposes two standalone T-section models — a <strong>Markov</strong> chain generator and a deterministic <strong>Toggle</strong> ring counter — selectable from the same <code>T MODEL</code> button as plain T-section modes (the X-section keeps its normal Marbles behavior). See <a href="#markov-and-toggle-t-models">Markov and Toggle T-Models</a>.</p>
 <p>Here is a demo overview of the new mode:</p>
 <p> </p>
 <p align="center"><iframe width="560" height="315" src="https://www.youtube.com/embed/uLKE2HvbbIw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></p>
@@ -92,11 +97,12 @@ Grids drum engine ported from Mutable Instruments Grids, driving">
 <li><a href="#grids-drums">Grids Drums</a></li>
 <li><a href="#grids-euclidean">Grids Euclidean</a></li>
 <li><a href="#tb-3po-acid-sequencer">TB-3PO Acid Sequencer</a></li>
+<li><a href="#markov-and-toggle-t-models">Markov and Toggle T-Models</a></li>
 <li><a href="#parameters">Parameters</a></li>
 <li><a href="#change-log">Change Log</a></li>
 </ul>
 <h3 id="installation">Installation<a href="#installation" class="headerlink" title="Permalink to this heading">¶</a></h3>
-<p>Download the firmware <code>.wav</code> file <a href="https://github.com/leandrob13/eurorack/releases/tag/marbles-symbiote-v0.1.0">version 0.1.0</a> and follow the usual update procedure stated in the <a href="https://pichenettes.github.io/mutable-instruments-documentation/modules/marbles/manual/">Mutable Instruments Marbles manual</a>.</p>
+<p>Download the firmware <code>.wav</code> file <a href="https://github.com/leandrob13/eurorack/releases/tag/marbles-symbiote-v0.2.0">version 0.2.0</a> and follow the usual update procedure stated in the <a href="https://pichenettes.github.io/mutable-instruments-documentation/modules/marbles/manual/">Mutable Instruments Marbles manual</a>.</p>
 <h3 id="interface">Interface<a href="#interface" class="headerlink" title="Permalink to this heading">¶</a></h3>
 <p>To get to the new mode, <strong>long-press</strong> the <code>T MODEL</code> button. This switches the T-section between the stock model bank and the alternative bank; Grids lives in the alternative bank and is indicated by a slow red blink on the T-model LED. Short-pressing the button still cycles within the current bank, so you can flip back to the stock T modes at any time.</p>
 <p>Once in Grids mode the T-section's <code>DEJA VU</code> button selects the drum sub-mode:</p>
@@ -136,12 +142,33 @@ Grids drum engine ported from Mutable Instruments Grids, driving">
 <li>
 <code>X SCALE</code> selects the scale (reuses the existing X scale selector).</li>
 <li>
-<code>X RANGE</code> is unused in Grids mode (pitch is always 1V/oct).</li>
+<code>X RANGE</code> button steps through the <strong>4-slot pattern bank</strong> (see below). Pitch is always 1V/oct in Grids mode, so the stock voltage-range function is not used here.</li>
+<li>
+<code>X MODE</code> button <strong>saves</strong> the current bassline seed into the active bank slot.</li>
+<li>Patch a clock to the <strong>X clock input</strong> to drive the bassline from an external clock (see below).</li>
+</ul>
+<h5 id="external-clocking">External clocking<a href="#external-clocking" class="headerlink" title="Permalink to this heading">¶</a></h5>
+<p>By default the bassline is locked to the internal Grids clock. Patch a clock to the <strong>X clock input</strong> and the bassline follows it instead. The <code>RATE</code> knob then doubles as a clock divider / multiplier for the bassline — exactly like it does for the drums when the <code>t</code> clock is patched:</p>
+<ul>
+<li>
+<strong>12 o'clock (center)</strong>: neutral. The external clock is interpreted the same way the internal clock is, so feeding one clock into both the <code>t</code> and <code>X</code> inputs keeps the drums and the bassline in perfect lockstep.</li>
+<li>
+<strong>CCW / CW</strong>: divides or multiplies the external clock from ¼× up to 4× (musical ratios 1/4, 1/3, 1/2, 2/3, 1, 3/2, 2, 3, 4), matching the drum clock. The <code>T RANGE</code> setting (0.25× / 4×) is folded in as well.</li>
+</ul>
+<p>If the external clock stops, the bassline gate is released so a stalled upstream sequencer can't latch a downstream VCA or envelope open.</p>
+<h5 id="pattern-bank">Pattern bank<a href="#pattern-bank" class="headerlink" title="Permalink to this heading">¶</a></h5>
+<p>Bassline seeds can be saved into a <strong>4-slot bank</strong> that persists in flash, so you can build up a handful of patterns and switch between them live:</p>
+<ul>
+<li>
+<strong><code>X RANGE</code> button</strong>: short-press to step through the four slots (1 → 2 → 3 → 4 → 1). Selecting a slot that holds a saved seed loads it immediately; empty slots are skipped and leave the current pattern untouched.</li>
+<li>
+<strong><code>X MODE</code> button</strong>: short-press to <strong>save</strong> the current bassline seed into the active slot.</li>
+<li>The <code>X CONTROL MODE</code> LED shows the active slot at a glance — <strong>green / yellow / red / blinking-green</strong> for slots 1–4. After a save or select, the <code>X CONTROL MODE</code> and <code>X RANGE</code> LEDs flash the slot color for about a second to confirm.</li>
 </ul>
 <p>Outputs:</p>
 <ul>
 <li>
-<strong>X1</strong>: 5V / 0V clock square wave (16th notes).</li>
+<strong>X1</strong>: 5V / 0V clock square wave (16th notes; mirrors the external clock when one is patched).</li>
 <li>
 <strong>X2</strong>: 1V/oct pitch CV, slewed on slid steps.</li>
 <li>
@@ -149,6 +176,13 @@ Grids drum engine ported from Mutable Instruments Grids, driving">
 <li>
 <strong>Y</strong>: accent gate (high only when the step is both accented and gated).</li>
 </ul>
+<h3 id="markov-and-toggle-t-models">Markov and Toggle T-Models<a href="#markov-and-toggle-t-models" class="headerlink" title="Permalink to this heading">¶</a></h3>
+<p>Beyond Grids, this firmware exposes two more T-section models. They are plain T-section generators — the X-section keeps its normal Marbles behavior — and they live as "dark" (unlit) slots one step past the visible models.</p>
+<p><strong>Reaching them:</strong> short-press <code>T MODEL</code> to cycle the visible models (green → yellow → red); one more short press past <code>DRUMS</code> (red) lands on <strong>Markov</strong>, with the T-model LED <strong>unlit</strong>. A <strong>long-press</strong> from there flips between <strong>Markov</strong> (unlit) and <strong>Toggle</strong> (a brief green flash). A short press from either dark state exits back to the first model.</p>
+<h4 id="markov">Markov<a href="#markov" class="headerlink" title="Permalink to this heading">¶</a></h4>
+<p>Probabilistic gate patterns generated by a Markov chain with an 8-step history — the stock Mutable Instruments Markov generator, now selectable. The usual T-section controls apply: <code>RATE</code> sets the tempo, <code>BIAS</code> shapes pattern density / character, <code>JITTER</code> adds timing swing, and the <code>T DEJA VU</code> button (with the <code>DEJA VU LENGTH</code> knob) loops and locks a pattern. <code>T RANGE</code> sets the tempo range. The T-model LED stays dark while Markov is active.</p>
+<h4 id="toggle">Toggle<a href="#toggle" class="headerlink" title="Permalink to this heading">¶</a></h4>
+<p>A deterministic 3-way ring counter: exactly one of T1 / T2 / T3 fires on each clock tick, cycling T1 → T2 → T3 → T1 (the Branches toggle mode extended to three outputs). <code>RATE</code> sets the tempo and <code>JITTER</code> adds swing; <code>BIAS</code> and <code>T DEJA VU</code> are unused in this mode. The T-model LED gives a brief green flash to distinguish Toggle from Markov's fully-dark slot.</p>
 <h3 id="parameters">Parameters<a href="#parameters" class="headerlink" title="Permalink to this heading">¶</a></h3>
 <p>T-section (Grids mode):</p>
 <table>
@@ -202,7 +236,8 @@ Grids drum engine ported from Mutable Instruments Grids, driving">
 <th style="text-align: center;">X STEPS Knob + CV</th>
 <th style="text-align: center;">X DEJA VU Switch</th>
 <th style="text-align: center;">X SCALE</th>
-<th style="text-align: center;">X RANGE</th>
+<th style="text-align: center;">X RANGE Button</th>
+<th style="text-align: center;">X MODE Button</th>
 </tr></thead>
 <tbody><tr>
 <td style="text-align: center;">Bassline density of gates / slides / accents (bipolar)</td>
@@ -210,7 +245,8 @@ Grids drum engine ported from Mutable Instruments Grids, driving">
 <td style="text-align: center;">Bassline step length, 1 to 32 steps</td>
 <td style="text-align: center;">Seed lock / reseed / commit</td>
 <td style="text-align: center;">Scale (reuses X scale selector)</td>
-<td style="text-align: center;"><em>unused</em></td>
+<td style="text-align: center;">Step through the 4-slot pattern bank</td>
+<td style="text-align: center;">Save current seed to active slot</td>
 </tr></tbody>
 </table>
 <table>
@@ -238,7 +274,7 @@ Grids drum engine ported from Mutable Instruments Grids, driving">
 <tr>
 <td style="text-align: center;">X1</td>
 <td style="text-align: center;">5V / 0V clock</td>
-<td style="text-align: center;">Grids step clock (16th notes, locked to the drum engine)</td>
+<td style="text-align: center;">Grids step clock (16th notes, locked to the drum engine; mirrors the X clock input when patched)</td>
 </tr>
 <tr>
 <td style="text-align: center;">X2</td>
@@ -258,6 +294,21 @@ Grids drum engine ported from Mutable Instruments Grids, driving">
 </tbody>
 </table>
 <h3 id="change-log">Change Log<a href="#change-log" class="headerlink" title="Permalink to this heading">¶</a></h3>
+<h4 id="symbiote-020">Symbiote 0.2.0<a href="#symbiote-020" class="headerlink" title="Permalink to this heading">¶</a></h4>
+<p>New features:</p>
+<ul>
+<li>
+<strong>External clocking of the TB-3PO bassline</strong>: patch a clock to the X clock input and the bassline follows it instead of the internal Grids clock. The <code>RATE</code> knob acts as a clock divider / multiplier (¼× to 4×, neutral 1:1 at 12 o'clock) in the same musical ratios as the drum clock, with <code>T RANGE</code> folded in — so one clock shared between the <code>t</code> and <code>X</code> inputs keeps drums and bassline locked together.</li>
+<li>
+<strong>4-slot pattern bank</strong> for bassline seeds, persisted in flash: <code>X MODE</code> saves the current seed to the active slot, <code>X RANGE</code> steps through the four slots and recalls a saved seed instantly (empty slots are skipped). The <code>X CONTROL MODE</code> LED shows the active slot color, with a one-second flash confirmation on save / select.</li>
+<li>
+<strong>Two new standalone T-section models</strong>, reachable as "dark" slots past <code>DRUMS</code> on the <code>T MODEL</code> button: a <strong>Markov</strong> chain gate generator (8-step history; LED unlit) and a deterministic <strong>Toggle</strong> ring counter that fires one of T1 / T2 / T3 per clock tick (LED brief green flash). Long-press flips between the two; short-press exits back to the first model. The X-section is unaffected by both.</li>
+</ul>
+<p>Fixes:</p>
+<ul>
+<li>The external bassline clock now respects the <code>RATE</code> ratio and stays in lockstep with the drums when sharing a clock, instead of running ~6× too fast and ignoring the rate knob.</li>
+<li>When the external bassline clock stops, the gate is released so a stalled upstream clock can no longer latch downstream VCAs / envelopes open.</li>
+</ul>
 <h4 id="symbiote-010">Symbiote 0.1.0<a href="#symbiote-010" class="headerlink" title="Permalink to this heading">¶</a></h4>
 <p>New features:</p>
 <ul>
