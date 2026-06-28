@@ -19,6 +19,7 @@ Marbles Symbiote firmware adds a new T-section model that turns Marbles into a s
 - **External clocking of the bassline** (new in 0.2.0): patch a clock to the X clock input and the bassline follows it, with `RATE` acting as a ¼×–4× clock divider / multiplier just like the drum clock.
 - **4-slot pattern bank** (new in 0.2.0): save and recall up to four bassline seeds straight from the front panel, stored in flash.
 - **Two extra standalone T-section models** (new in 0.2.0): a **Markov** chain gate generator and a deterministic **Toggle** ring counter, selectable from the `T MODEL` button with the X-section running as stock Marbles.
+- **Full-range drum density CV** (fixed in 0.3.0): the BD / SD / HH density CV inputs are now unipolar (0&nbsp;V silent → +5&nbsp;V full) and reach maximum density. Previously the bass-drum density topped out around half and negative CV could glitch to spurious full density.
 
 When Grids mode is active, Marbles becomes a single-cable rhythm section: three drum gates, a clock, a 1V/oct pitch CV, a gate and an accent — all generated, all in sync, all quantized to the X-section scale.
 
@@ -60,13 +61,13 @@ The rest of the interface knobs and CV inputs work as described in the sections 
 
 ### Grids Drums
 
-The classic Mutable Instruments Grids drum map. `BIAS` and `JITTER` traverse the map's X / Y coordinates, sweeping smoothly between the curated drum patterns. The `DEJA VU` knob is bipolar and CCW from center it injects chaos / randomness into the drum map (square-root-tapered so small CCW turns already produce audible perturbation). CW from center has no effect in Drums sub-mode. The `RATE`, `BIAS` and `JITTER` CV inputs add a CV offset to the density of each drum voice (BD, SD, HH respectively) on top of a fixed base level, so you can modulate beat density without giving up control of the pattern coordinates on the knobs.
+The classic Mutable Instruments Grids drum map. `BIAS` and `JITTER` traverse the map's X / Y coordinates, sweeping smoothly between the curated drum patterns. The `DEJA VU` knob is bipolar and CCW from center it injects chaos / randomness into the drum map (square-root-tapered so small CCW turns already produce audible perturbation). CW from center has no effect in Drums sub-mode. The `RATE`, `BIAS` and `JITTER` CV inputs set the density of each drum voice (BD, SD, HH respectively), so you can modulate beat density without giving up control of the pattern coordinates on the knobs. As of 0.3.0 the density CVs are **unipolar**: 0&nbsp;V leaves a voice silent and +5&nbsp;V drives it to full density (a 0–5&nbsp;V envelope or LFO sweeps the whole range; negative CV is clamped to silent). With nothing patched into a density input, that voice stays silent — patch a CV or a fixed offset into each voice you want to hear.
 
 T1 outputs the BD gate, T2 outputs the SD gate (replacing the master gate), and T3 outputs the HH gate.
 
 ### Grids Euclidean
 
-Same engine as Grids' Euclidean sub-mode, but with a single shared length across all three voices. The `DEJA VU LENGTH` knob sets the step count from 1 to 16. The drum map is not used in this sub-mode, so the `BIAS` and `JITTER` knobs are silent here — density per voice is controlled entirely by the `RATE` / `BIAS` / `JITTER` CV inputs (same mapping as Drums sub-mode: BD / SD / HH respectively).
+Same engine as Grids' Euclidean sub-mode, but with a single shared length across all three voices. The `DEJA VU LENGTH` knob sets the step count from 1 to 16. The drum map is not used in this sub-mode, so the `BIAS` and `JITTER` knobs are silent here — density per voice is controlled entirely by the `RATE` / `BIAS` / `JITTER` CV inputs (same mapping as Drums sub-mode: BD / SD / HH respectively; unipolar, 0&nbsp;V silent → +5&nbsp;V full).
 
 The `DEJA VU` knob is bipolar in Grids mode and behaves differently per sub-mode. In Euclidean:
 
