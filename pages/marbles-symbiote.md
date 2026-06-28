@@ -18,10 +18,11 @@ Marbles Symbiote firmware adds a new T-section model that turns Marbles into a s
 - **Seed lock and persistence**: the bassline pattern is reseeded on demand and locked patterns survive a power cycle.
 - **External clocking of the bassline** (new in 0.2.0): patch a clock to the X clock input and the bassline follows it, with `RATE` acting as a ¼×–4× clock divider / multiplier just like the drum clock.
 - **4-slot pattern bank** (new in 0.2.0): save and recall up to four bassline seeds straight from the front panel, stored in flash.
+- **Two extra standalone T-section models** (new in 0.2.0): a **Markov** chain gate generator and a deterministic **Toggle** ring counter, selectable from the `T MODEL` button with the X-section running as stock Marbles.
 
 When Grids mode is active, Marbles becomes a single-cable rhythm section: three drum gates, a clock, a 1V/oct pitch CV, a gate and an accent — all generated, all in sync, all quantized to the X-section scale.
 
-This firmware also exposes two standalone T-section models — a **Markov** chain generator and a deterministic **Toggle** ring counter — selectable from the same `T MODEL` button as plain T-section modes (the X-section keeps its normal Marbles behavior). See [Markov and Toggle T-Models](#markov-and-toggle-t-models).
+The two extra T-section models (Markov and Toggle) are independent of Grids mode and are covered in [Markov and Toggle T-Models](#markov-and-toggle-t-models).
 
 Here is a demo overview of the new mode:
 
